@@ -17,7 +17,8 @@ import { getLanguage, t, tr } from "@/lib/i18n";
 import { href, hrefById, type NavItem } from "@/lib/pages";
 import { cartCount, useCart } from "@/lib/cart";
 import { useParishNow } from "@/lib/hooks";
-import { churchDate, isOldCalendar, primaryFeast, weekdayDedication } from "@/lib/calendar";
+import { primaryFeast } from "@/lib/calendar";
+import { formatChurchDate, formatDay } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 const useIsoLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
@@ -34,16 +35,28 @@ function isActive(pathname: string, lang: string, item: NavItem): boolean {
 
 function TodayLine({ lang }: { lang: string }) {
   const now = useParishNow();
+  // Menologion feast only (feasts.json). Never invent a dated feast from weekday dedications.
   const feast = now ? primaryFeast(now.day) : undefined;
-  const label = now ? (feast ? tr(feast.name, lang) : tr(weekdayDedication(now.day), lang)) : "\u00a0";
-  const os = now && isOldCalendar() ? churchDate(now.day) : null;
+  const weekday = now ? formatDay(now.day, lang, { weekday: "long" }) : "";
+  const datePart = now ? formatChurchDate(now.day, lang) : "";
   return (
     <span className="flex min-h-5 min-w-0 items-center gap-2" aria-busy={!now}>
       <OrthodoxCross size={14} className="shrink-0 text-gold-400" />
       <span className="min-w-0 truncate">
-        {feast ? <span className="text-gold-200">{t("today", lang)}: </span> : null}
-        {label}
-        {os ? <span className="text-cream-100/70"> · {t("oldStyle", lang, { date: `${os.d}.${String(os.m).padStart(2, "0")}` })}</span> : null}
+        {feast ? (
+          <>
+            <span className="text-gold-200">{t("today", lang)}: </span>
+            {tr(feast.name, lang)}
+            <span className="text-cream-100/70"> · {datePart}</span>
+          </>
+        ) : now ? (
+          <>
+            {weekday}
+            <span className="text-cream-100/70"> · {datePart}</span>
+          </>
+        ) : (
+          "\u00a0"
+        )}
       </span>
     </span>
   );

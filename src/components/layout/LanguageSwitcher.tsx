@@ -54,7 +54,7 @@ export function LanguageSwitcher({ lang, onDark = true, variant = "auto" }: { la
 
   if (languages.length <= 3) {
     return (
-      <nav aria-label={t("nav.language", lang)} className={cn("flex items-center rounded-full p-0.5", onDark ? "bg-green-950/40 ring-1 ring-gold-500/40" : "bg-cream-200 ring-1 ring-cream-300")}>
+      <nav aria-label={t("nav.language", lang)} className={cn("flex items-center overflow-visible rounded-full p-0.5", onDark ? "bg-green-950/40 ring-1 ring-gold-500/40" : "bg-cream-200 ring-1 ring-cream-300")}>
         {languages.map((l) => (
           <Link
             key={l.code}
@@ -65,7 +65,7 @@ export function LanguageSwitcher({ lang, onDark = true, variant = "auto" }: { la
             onClick={() => remember(l.code)}
             aria-current={l.code === lang ? "true" : undefined}
             className={cn(
-              "flex h-8 min-w-9 items-center justify-center rounded-full px-2 font-button text-[0.82rem] tracking-wide transition-colors",
+              "lang-pill flex h-10 min-w-10 items-center justify-center rounded-full px-2.5 tracking-wide transition-colors",
               l.code === lang
                 ? "bg-gold-400 text-green-950"
                 : onDark
@@ -73,7 +73,9 @@ export function LanguageSwitcher({ lang, onDark = true, variant = "auto" }: { la
                   : "text-green-800 hover:text-gold-700",
             )}
           >
-            <span aria-hidden>{l.shortLabel}</span>
+            <span aria-hidden className="lang-pill-label">
+              {l.shortLabel}
+            </span>
             <span className="sr-only">{l.label}</span>
           </Link>
         ))}

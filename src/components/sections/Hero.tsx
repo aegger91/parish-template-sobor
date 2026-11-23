@@ -11,7 +11,7 @@ import { formatTime, t, tr } from "@/lib/i18n";
 import { href, hrefById, withBase } from "@/lib/pages";
 import { ServiceRowButton } from "@/components/schedule/OccurrenceDetail";
 import { isLiveNow, nextServices, primaryFeast, weekdayDedication, type ParishNow } from "@/lib/calendar";
-import { oldStyleLabel, relativeDay } from "@/lib/format";
+import { formatChurchDate, relativeDay } from "@/lib/format";
 import { useParishNow, usePrefersReducedMotion } from "@/lib/hooks";
 import { cn } from "@/lib/utils";
 
@@ -87,7 +87,7 @@ function NextServices({ lang, now }: { lang: string; now: ParishNow | null }) {
 function TodayFeast({ lang, now }: { lang: string; now: ParishNow | null }) {
   const feast = now ? primaryFeast(now.day) : undefined;
   const tomorrow = now ? primaryFeast(now.day + 1) : undefined;
-  const os = now ? oldStyleLabel(now.day, lang) : null;
+  const dateLabel = now ? formatChurchDate(now.day, lang) : null;
   return (
     <div className="min-w-0">
       <h2 className="eyebrow flex items-center gap-2 text-gold-400">
@@ -100,15 +100,16 @@ function TodayFeast({ lang, now }: { lang: string; now: ParishNow | null }) {
           <>
             {feast ? (
               <p className={cn("eyebrow mb-1", feast.rank === "minor" ? "text-cream-100/70" : "text-[#e9a49b]")}>{rankLabel(feast.rank, lang)}</p>
-            ) : null}
+            ) : (
+              <p className="eyebrow mb-1 text-cream-100/70">{t("weekday.dedicationSample", lang)}</p>
+            )}
             <p className="font-heading text-[1.2rem] leading-normal text-cream-50">{tr(feast ? feast.name : weekdayDedication(now.day), lang)}</p>
-            {feast ? <p className="mt-1 text-[0.88rem] text-cream-100/75">{tr(weekdayDedication(now.day), lang)}</p> : null}
+            {dateLabel ? <p className="mt-1 text-[0.88rem] text-cream-100/75">{dateLabel}</p> : null}
             {tomorrow && tomorrow.rank !== "minor" ? (
               <p className="mt-1 text-[0.88rem] text-gold-200">
                 {t("schedule.eveOf", lang)}: {tr(tomorrow.name, lang)}
               </p>
             ) : null}
-            {os ? <p className="mt-2 text-[0.85rem] text-cream-100/70">{os}</p> : null}
           </>
         )}
       </div>

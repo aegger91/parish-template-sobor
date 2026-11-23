@@ -23,9 +23,9 @@ export function SiteFooter({ lang }: { lang: string }) {
 
   return (
     <footer className="relative mt-16 text-cream-100">
-      <DomeSkyline className={`pointer-events-none relative block w-full text-green-900 ${skylineHeight}`} />
-      <div className="bg-green-900">
-        <OrnamentBand className="text-gold-500/60" height={10} />
+      <DomeSkyline className={`pointer-events-none relative z-[1] -mb-[2px] block w-full text-green-900 ${skylineHeight}`} />
+      <div className="relative bg-green-900">
+        <OrnamentBand className="relative z-[1] text-gold-500/60" height={10} />
         {showNewsletter ? (
           <div className="border-b border-gold-500/20">
             <div className="container-sobor grid gap-5 py-10 md:grid-cols-[1fr_minmax(0,28rem)] md:items-center">

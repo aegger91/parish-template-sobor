@@ -100,6 +100,22 @@
   .vyaz-title {
     padding-block: 0.12em;
   }
+
+  /* Language pills: Ponomar Cyrillic caps sit high in the em-square; keep ink inside the circle */
+  .lang-pill {
+    font-family: var(--font-role-button);
+    font-synthesis: none;
+    font-size: 0.72rem;
+    line-height: 1;
+    padding-block: 0 !important;
+    overflow: visible;
+  }
+  .lang-pill-label {
+    display: inline-block;
+    line-height: 1;
+    /* Optical shift: decorative caps clear the rounded clip edge */
+    transform: translateY(0.14em);
+  }
   :focus-visible {
     outline: 2px solid var(--sobor-gold-500);
     outline-offset: 2px;

@@ -97,13 +97,14 @@ function DomeGroup({ d }: { d: Dome }) {
 }
 
 /**
- * Silhouette skyline of a five-domed cathedral, a tented bell tower and small churches.
- * Size it with skylineHeight so the crosses are never cropped.
- * Domes sit on visible drums that meet the building bodies; nothing is clipped at the sides.
+ * Silhouette skyline of churches and bell towers in one continuous row.
+ * No trees, bushes, or mound blobs: only squared building masses and onion domes.
+ * viewBox bottom equals ground so the fill sits flush on the ornament band below.
  */
 export function DomeSkyline({ className }: { className?: string }) {
-  const ground = 172;
-  const roof = 110;
+  const ground = 186;
+  const roof = 118;
+  // Domes sit on drums that meet each building's roof line (by + drumH === roof top).
   const cathedral: Dome[] = [
     { cx: 720, by: roof - 20, drumW: 26, drumH: 20, domeH: 30 },
     { cx: 674, by: roof - 14, drumW: 18, drumH: 14, domeH: 22 },
@@ -111,12 +112,12 @@ export function DomeSkyline({ className }: { className?: string }) {
     { cx: 640, by: roof - 10, drumW: 14, drumH: 10, domeH: 16 },
     { cx: 800, by: roof - 10, drumW: 14, drumH: 10, domeH: 16 },
   ];
-  const small: Dome[] = [
-    { cx: 320, by: 118, drumW: 15, drumH: 12, domeH: 18 },
-    { cx: 1145, by: 114, drumW: 16, drumH: 12, domeH: 19 },
-    { cx: 1205, by: 128, drumW: 11, drumH: 8, domeH: 13 },
-    { cx: 175, by: 132, drumW: 11, drumH: 8, domeH: 13 },
-    { cx: 1288, by: 130, drumW: 12, drumH: 9, domeH: 14 },
+  const churches: { body: string; dome: Dome }[] = [
+    { body: `M148 ${ground}V156h40V${ground}z`, dome: { cx: 168, by: 148, drumW: 12, drumH: 8, domeH: 14 } },
+    { body: `M286 ${ground}V144h52V${ground}z`, dome: { cx: 312, by: 132, drumW: 16, drumH: 12, domeH: 18 } },
+    { body: `M1118 ${ground}V140h52V${ground}z`, dome: { cx: 1144, by: 128, drumW: 16, drumH: 12, domeH: 19 } },
+    { body: `M1180 ${ground}V152h36V${ground}z`, dome: { cx: 1198, by: 144, drumW: 12, drumH: 8, domeH: 13 } },
+    { body: `M1262 ${ground}V150h40V${ground}z`, dome: { cx: 1282, by: 141, drumW: 13, drumH: 9, domeH: 14 } },
   ];
   return (
     <svg
@@ -126,21 +127,26 @@ export function DomeSkyline({ className }: { className?: string }) {
       aria-hidden
       fill="currentColor"
     >
-      <path d={`M0 ${ground}H1440V156c-200 4-400 6-720 4S200 154 0 156Z`} />
+      {/* Flat continuous plinth: no curved mounds; bottom edge = viewBox ground */}
+      <rect x="0" y={ground - 20} width="1440" height="20" />
+      {/* Mid-height linking wall between side churches and the cathedral */}
+      <path d={`M188 ${ground}V162H298V${ground}zM340 ${ground}V162H618V${ground}zM822 ${ground}V162H958V${ground}zM1002 ${ground}V162H1118V${ground}z`} />
       <path d={`M618 ${ground}V${roof}h204V${ground}z`} />
       {cathedral.map((d) => (
         <DomeGroup key={d.cx} d={d} />
       ))}
-      <path d={`M962 ${ground}V104h36V${ground}z`} />
-      <path d="M956 104h48v-5H956z" />
-      <path d="M970 99l10-28 10 28z" />
-      <rect x="974" y="112" width="11" height="14" rx="5.5" opacity="0.3" />
-      <DomeGroup d={{ cx: 980, by: 68, drumW: 7, drumH: 3, domeH: 8 }} />
-      <path d={`M298 ${ground}v-42h44v42zM1126 ${ground}v-46h44v46zM1188 ${ground}v-34h34v34zM158 ${ground}v-30h34v30zM1270 ${ground}v-32h36v32z`} />
-      {small.map((d) => (
-        <DomeGroup key={d.cx} d={d} />
+      {/* Tented bell tower: squared mass and sharp tent roof only */}
+      <path d={`M958 ${ground}V112h44V${ground}z`} />
+      <path d="M952 112h56v-4H952z" />
+      <path d="M968 108l12-28 12 28z" />
+      <rect x="974" y="122" width="10" height="14" />
+      <DomeGroup d={{ cx: 980, by: 76, drumW: 7, drumH: 4, domeH: 8 }} />
+      {churches.map((c) => (
+        <g key={c.dome.cx}>
+          <path d={c.body} />
+          <DomeGroup d={c.dome} />
+        </g>
       ))}
-      <path d={`M430 ${ground}c0-26 8-40 15-40s15 14 15 40zM462 ${ground}c0-18 6-28 11-28s11 10 11 28zM1038 ${ground}c0-22 7-34 13-34s13 12 13 34zM230 ${ground}c0-16 5-26 10-26s10 10 10 26z`} opacity="0.85" />
     </svg>
   );
 }

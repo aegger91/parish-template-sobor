@@ -61,10 +61,21 @@
     "uk": "Сьогодні"
   },
   "oldStyle": {
-    "en": "Old Style: {date}",
-    "ru": "По ст. ст.: {date}",
-    "uk": "За ст. ст.: {date}"
+    "en": "{date} O.S.",
+    "ru": "{date} ст. ст.",
+    "uk": "{date} ст. ст."
   },
+  "date.civilWithOs": {
+    "en": "{civil} ({os} O.S.)",
+    "ru": "{civil} ({os} ст. ст.)",
+    "uk": "{civil} ({os} ст. ст.)"
+  },
+  "weekday.dedicationSample": {
+    "en": "Sample weekday dedication",
+    "ru": "Пример посвящения дня недели",
+    "uk": "Приклад присвяти дня тижня"
+  },
+
   "loading": {
     "en": "Loading",
     "ru": "Загрузка",
