@@ -121,7 +121,7 @@ export function DomeSkyline({ className }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 1440 186"
-      preserveAspectRatio="xMidYMax meet"
+      preserveAspectRatio="xMidYMax slice"
       className={className}
       aria-hidden
       fill="currentColor"
