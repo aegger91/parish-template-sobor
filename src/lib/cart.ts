@@ -13,6 +13,8 @@ export type Slip = {
   names: SlipName[];
   candleId: string | null;
   candleQty: number;
+  /** Optional gift for this slip; not auto-filled from suggestedDonation. */
+  offering: number;
 };
 
 export type CartLine =
@@ -109,9 +111,8 @@ export function findVariant(productId: string, variantId: string) {
 }
 
 export function slipAmount(slip: Slip): number {
-  const c = zapiski.commemorations.find((x) => x.id === slip.commemorationId);
   const candle = zapiski.candles.find((x) => x.id === slip.candleId);
-  return (c?.suggestedDonation ?? 0) + (candle ? candle.price * slip.candleQty : 0);
+  return Math.max(0, slip.offering || 0) + (candle ? candle.price * slip.candleQty : 0);
 }
 
 export function lineAmount(line: CartLine): number {

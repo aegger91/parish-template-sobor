@@ -9,7 +9,7 @@ export type LanguageConfig = {
   dir: "ltr" | "rtl";
 };
 
-export type CalendarStyle = "julian" | "revised-julian" | "gregorian";
+export type CalendarStyle = "old" | "new";
 export type LogoStyle = "seal" | "kiot" | "square" | "wordmark";
 
 export type SiteConfig = {
@@ -23,7 +23,7 @@ export type SiteConfig = {
   languages: LanguageConfig[];
   defaultLanguage: string;
   timeZone: string;
-  calendar: CalendarStyle;
+  calendarStyle: CalendarStyle;
   weekStartsOn: 0 | 1;
   currency: string;
   logo: { style: LogoStyle; ringText?: L; image?: string; imageAlt?: L };

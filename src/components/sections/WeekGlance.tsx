@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, Radio } from "lucide-react";
 import type { SectionProps } from "./SectionRenderer";
 import { SectionHeader, SectionShell } from "./SectionShell";
+import { ServiceRowButton } from "@/components/schedule/OccurrenceDetail";
 import { primaryFeast, servicesOn } from "@/lib/calendar";
 import { formatDay } from "@/lib/format";
 import { useParishNow } from "@/lib/hooks";
@@ -59,16 +60,18 @@ export function WeekGlance({ lang, section }: SectionProps) {
                     </span>
                   </p>
                   {feast ? (
-                    <p className={cn("mt-1.5 text-[0.85rem] leading-snug", big ? "font-heading text-kinovar" : "text-gold-700")}>{tr(feast.name, lang)}</p>
+                    <p className={cn("mt-1.5 text-[0.85rem] leading-normal", big ? "font-heading text-kinovar" : "text-gold-700")}>{tr(feast.name, lang)}</p>
                   ) : null}
-                  <ul className="mt-2 space-y-2 text-[0.9rem] leading-snug">
+                  <ul className="mt-2 space-y-2 text-[0.9rem] leading-normal">
                     {services.map((s) => (
-                      <li key={s.id} className="flex gap-2 md:block">
-                        <span className="block shrink-0 font-heading tabular-nums text-green-700 md:text-[0.82rem]">{formatTime(s.time, lang)}</span>
-                        <span className="min-w-0 hyphens-auto">
-                          {tr(s.title, lang)}
-                          {s.streamed ? <Radio className="ms-1 inline size-3 text-gold-600" aria-label={t("streamed", lang)} /> : null}
-                        </span>
+                      <li key={s.id}>
+                        <ServiceRowButton lang={lang} occurrence={s} className="flex gap-2 rounded-md px-1 py-0.5 hover:bg-cream-200/80 md:block">
+                          <span className="block shrink-0 font-heading tabular-nums text-green-700 md:text-[0.82rem]">{formatTime(s.time, lang)}</span>
+                          <span className="min-w-0 hyphens-auto">
+                            {tr(s.title, lang)}
+                            {s.streamed ? <Radio className="ms-1 inline size-3 text-gold-600" aria-label={t("streamed", lang)} /> : null}
+                          </span>
+                        </ServiceRowButton>
                       </li>
                     ))}
                   </ul>

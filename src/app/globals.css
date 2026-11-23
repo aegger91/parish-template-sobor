@@ -79,7 +79,7 @@
     font-family: var(--font-role-heading);
     font-weight: 400;
     font-synthesis: none;
-    line-height: 1.15;
+    line-height: 1.3;
     overflow-wrap: break-word;
     hyphens: auto;
     text-wrap: balance;
@@ -87,6 +87,18 @@
   p { text-wrap: pretty; }
   button, [role="button"], .font-button {
     font-synthesis: none;
+    line-height: 1.45;
+  }
+  .font-heading,
+  .font-display {
+    line-height: 1.45;
+  }
+  /* Give custom font glyphs room inside their CSS boxes (avoids scrollHeight clipping). */
+  .font-heading,
+  .font-display,
+  .font-button,
+  .vyaz-title {
+    padding-block: 0.12em;
   }
   :focus-visible {
     outline: 2px solid var(--sobor-gold-500);
@@ -102,25 +114,41 @@
     padding-inline: clamp(1rem, 4vw, 2rem);
   }
 
-  /* Vyaz-style title: tall Old Russian display letters with gold rule flourishes */
+  /* Vyaz-style title: tall Old Russian display letters with gold rule flourishes.
+     Line-height leaves room for descenders; never clip with overflow:hidden. */
   .vyaz-title {
     font-family: var(--font-role-display);
     font-weight: 400;
     letter-spacing: 0.01em;
-    line-height: 1.05;
+    line-height: 1.2;
     font-synthesis: none;
+    overflow: visible;
+    text-overflow: clip;
+    padding-block: 0.06em;
   }
   .vyaz-title--tall {
     display: inline-block;
-    transform: scaleY(1.12);
+    transform: scaleY(1.08);
     transform-origin: bottom center;
+    line-height: 1.25;
   }
 
   .eyebrow {
     font-family: var(--font-role-heading);
-    letter-spacing: 0.14em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     font-size: 0.78rem;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+
+  /* Nav and button labels: no wrap mid-word, no clip */
+  .font-button,
+  button,
+  [role="button"],
+  a.font-button {
+    line-height: 1.25;
+    overflow: visible;
   }
 
   .paper {

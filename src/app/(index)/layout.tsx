@@ -1,5 +1,4 @@
-import "@fontsource/monomakh";
-import "@fontsource/pt-serif/400.css";
+import "@/styles/fonts.css";
 import "../globals.css";
 import type { Metadata } from "next";
 import { site } from "@/lib/content";

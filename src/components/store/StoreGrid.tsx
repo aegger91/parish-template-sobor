@@ -56,7 +56,7 @@ export function StoreGrid({ lang, section }: SectionProps) {
                     <ProductImage image={p.images[0]} lang={lang} className="aspect-square" />
                     <span className="flex flex-1 flex-col p-3 sm:p-4">
                       <span className="eyebrow text-[0.7rem] text-gold-700 sm:text-[0.75rem]">{tr(cat?.name, lang)}</span>
-                      <span className="mt-1 font-heading text-[1rem] leading-snug text-green-800 sm:text-[1.1rem]">{tr(p.name, lang)}</span>
+                      <span className="mt-1 font-heading text-[1rem] leading-normal text-green-800 sm:text-[1.1rem]">{tr(p.name, lang)}</span>
                       <span className="mt-auto flex flex-wrap items-baseline justify-between gap-x-2 pt-2">
                         <span className="font-heading text-ink">{multi ? t("store.from", lang, { price: formatMoney(min, lang) }) : formatMoney(min, lang)}</span>
                         <span className={`text-[0.78rem] ${s.tone}`}>{s.text}</span>

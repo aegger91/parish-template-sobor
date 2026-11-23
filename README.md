@@ -21,7 +21,7 @@ All content lives in `content/*.json`. Each file has a JSON Schema in `content/s
 
 | File | What it holds |
 | --- | --- |
-| `site.json` | Name, contact details, languages, calendar, logo style, hero, modules on or off, payments, donations |
+| `site.json` | Name, contact details, languages, calendarStyle, logo style, hero, modules on or off, payments, donations |
 | `pages.json` | Page tree and menu order. Each page has a list of sections you can turn on or off and reorder |
 | `schedule.json`, `feasts.json` | Weekly services, one-off services, feasts and the services they add |
 | `clergy.json`, `history.json`, `gallery.json`, `news.json`, `sermons.json` | Our Parish and Livestream content |
@@ -33,7 +33,7 @@ All content lives in `content/*.json`. Each file has a JSON Schema in `content/s
 - Modules (`site.json` > `modules`): `livestream`, `store`, `requestService`, `zapiski`, `getInvolved`. Turning one off removes its pages, menu items and home sections.
 - Languages (`site.json` > `languages`): add or remove entries. Every text field is an object keyed by language code. Missing translations fall back to `defaultLanguage`. The switcher adapts to the number of languages, and `dir: "rtl"` is supported.
 - Logo (`site.json` > `logo.style`): `seal`, `kiot`, `square` (your own image) or `wordmark`.
-- Calendar (`site.json` > `calendar`): `julian`, `revised-julian` or `gregorian`.
+- Calendar (`site.json` > `calendarStyle`): `old` or `new`. Old uses the Julian calendar for fixed feasts (civil date plus Old Style). New uses the Revised Julian calendar (civil dates for fixed feasts). Pascha follows the Orthodox paschalion for both.
 - Colors and fonts are set in `src/styles/tokens.css`.
 - Placeholder photo sources are listed in `IMAGE-SOURCES.md` and on the Image credits page.
 

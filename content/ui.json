@@ -315,20 +315,60 @@
     "ru": "Служб нет",
     "uk": "Служб немає"
   },
-  "schedule.calendarNote.julian": {
-    "en": "Feasts follow the Julian calendar (Old Style). Dates shown are civil dates, with the Old Style date beside them.",
-    "ru": "Праздники по юлианскому календарю (старый стиль). Показаны гражданские даты, рядом дата по старому стилю.",
-    "uk": "Свята за юліанським календарем (старий стиль). Показано громадянські дати, поруч дата за старим стилем."
+  "schedule.calendarLabel.old": {
+    "en": "Old Calendar (Julian)",
+    "ru": "Старый стиль (юлианский)",
+    "uk": "Старий стиль (юліанський)"
   },
-  "schedule.calendarNote.revised-julian": {
-    "en": "Fixed feasts follow the Revised Julian calendar. Pascha follows the Orthodox paschalion.",
-    "ru": "Неподвижные праздники по новоюлианскому календарю. Пасха по православной пасхалии.",
-    "uk": "Неперехідні свята за новоюліанським календарем. Великдень за православною пасхалією."
+  "schedule.calendarLabel.new": {
+    "en": "New Calendar",
+    "ru": "Новый стиль",
+    "uk": "Новий стиль"
   },
-  "schedule.calendarNote.gregorian": {
-    "en": "Feasts and Pascha follow the Gregorian calendar.",
-    "ru": "Праздники и Пасха по григорианскому календарю.",
-    "uk": "Свята й Великдень за григоріанським календарем."
+  "schedule.detailTitle": {
+    "en": "Service details",
+    "ru": "О службе",
+    "uk": "Про службу"
+  },
+  "schedule.addToCalendar": {
+    "en": "Add to calendar",
+    "ru": "В календарь",
+    "uk": "До календаря"
+  },
+  "schedule.googleCalendar": {
+    "en": "Google Calendar",
+    "ru": "Google Календарь",
+    "uk": "Google Календар"
+  },
+  "schedule.getDirections": {
+    "en": "Get directions",
+    "ru": "Как добраться",
+    "uk": "Як дістатися"
+  },
+  "schedule.watchLive": {
+    "en": "Watch live",
+    "ru": "Смотреть трансляцию",
+    "uk": "Дивитися трансляцію"
+  },
+  "schedule.place": {
+    "en": "Place",
+    "ru": "Место",
+    "uk": "Місце"
+  },
+  "schedule.note": {
+    "en": "Note",
+    "ru": "Заметка",
+    "uk": "Примітка"
+  },
+  "schedule.time": {
+    "en": "Time",
+    "ru": "Время",
+    "uk": "Час"
+  },
+  "schedule.date": {
+    "en": "Date",
+    "ru": "Дата",
+    "uk": "Дата"
   },
   "schedule.legendGreat": {
     "en": "Great feast",
@@ -486,7 +526,7 @@
     "uk": "Деякі служби транслюються онлайн."
   },
   "parishLife.zapiski": {
-    "en": "Commemoration notes and candles",
+    "en": "Commemoration names and candles",
     "ru": "Записки и свечи",
     "uk": "Записки та свічки"
   },
@@ -961,7 +1001,7 @@
     "uk": "Ваше замовлення"
   },
   "checkout.commemorationNote": {
-    "en": "Commemoration notes in your cart are passed to the altar after payment.",
+    "en": "Commemoration names in your cart are passed to the altar after payment.",
     "ru": "Записки из корзины передаются в алтарь после оплаты.",
     "uk": "Записки з кошика передаються до вівтаря після оплати."
   },
@@ -986,7 +1026,7 @@
     "uk": "Залишити заявку"
   },
   "services.openZapiski": {
-    "en": "Write a note",
+    "en": "Submit prayer requests",
     "ru": "Написать записку",
     "uk": "Написати записку"
   },
@@ -1021,17 +1061,17 @@
     "uk": "Пишіть по одному імені в рядку."
   },
   "zapiski.slip": {
-    "en": "Note",
+    "en": "Prayer request",
     "ru": "Записка",
     "uk": "Записка"
   },
   "zapiski.slipN": {
-    "en": "Note {n}",
+    "en": "Prayer request {n}",
     "ru": "Записка {n}",
     "uk": "Записка {n}"
   },
   "zapiski.type": {
-    "en": "Note type",
+    "en": "Request type",
     "ru": "Вид записки",
     "uk": "Вид записки"
   },
@@ -1076,7 +1116,7 @@
     "uk": "Прибрати ім'я {n}"
   },
   "zapiski.maxNames": {
-    "en": "Up to {n} names per note. Start another note for more.",
+    "en": "Up to {n} names per request. Start another request for more.",
     "ru": "Не более {n} имён на записке. Для других имён начните новую записку.",
     "uk": "Не більше {n} імен на записці. Для інших імен почніть нову записку."
   },
@@ -1101,12 +1141,12 @@
     "uk": "Кількість свічок"
   },
   "zapiski.addSlip": {
-    "en": "Add another note",
+    "en": "Add another request",
     "ru": "Добавить записку",
     "uk": "Додати записку"
   },
   "zapiski.removeSlip": {
-    "en": "Remove this note",
+    "en": "Remove this request",
     "ru": "Удалить записку",
     "uk": "Видалити записку"
   },
@@ -1121,7 +1161,7 @@
     "uk": "Будь-яка сума, на потреби собору."
   },
   "zapiski.summary": {
-    "en": "Your notes",
+    "en": "Your prayer requests",
     "ru": "Ваши записки",
     "uk": "Ваші записки"
   },
@@ -1156,22 +1196,22 @@
     "uk": "Я погоджуюся, що парафія зберігає ці імена лише для поминання і видаляє їх через {days} днів."
   },
   "zapiski.consentRequired": {
-    "en": "Please confirm the note about storing names.",
+    "en": "Please confirm that names may be stored for prayer.",
     "ru": "Подтвердите согласие на хранение имён.",
     "uk": "Підтвердьте згоду на зберігання імен."
   },
   "zapiski.needName": {
-    "en": "Each note needs at least one name.",
+    "en": "Each prayer request needs at least one name.",
     "ru": "В каждой записке должно быть хотя бы одно имя.",
     "uk": "У кожній записці має бути хоча б одне ім'я."
   },
   "zapiski.added": {
-    "en": "Your notes are in the cart.",
+    "en": "Your prayer requests are in the cart.",
     "ru": "Записки добавлены в корзину.",
     "uk": "Записки додано до кошика."
   },
   "zapiski.submitted": {
-    "en": "Thank you. Your notes will be taken to the altar.",
+    "en": "Thank you. Your prayer requests will be taken to the altar.",
     "ru": "Спасибо. Ваши записки будут переданы в алтарь.",
     "uk": "Дякуємо. Ваші записки буде передано до вівтаря."
   },

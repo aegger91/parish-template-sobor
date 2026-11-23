@@ -281,7 +281,7 @@
         "uk": "Огляд"
       },
       "description": {
-        "en": "Service times, requests for sacraments and prayers, and commemoration notes.",
+        "en": "Service times, requests for sacraments and prayers, and commemoration names.",
         "ru": "Расписание, требы и записки о поминовении.",
         "uk": "Розклад, треби та записки про поминання."
       },
@@ -368,7 +368,7 @@
           "id": "zapiski",
           "slug": "zapiski-and-candles",
           "title": {
-            "en": "Zapiski and Candles",
+            "en": "Commemoration names and candles",
             "ru": "Записки и свечи",
             "uk": "Записки та свічки"
           },

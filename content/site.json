@@ -51,7 +51,7 @@
   ],
   "defaultLanguage": "en",
   "timeZone": "America/New_York",
-  "calendar": "julian",
+  "calendarStyle": "old",
   "weekStartsOn": 0,
   "currency": "USD",
   "logo": {

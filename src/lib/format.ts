@@ -1,5 +1,4 @@
-import { churchDate, type DayNum } from "./calendar";
-import { site } from "./content";
+import { churchDate, isOldCalendar, type DayNum } from "./calendar";
 import { localeOf, t } from "./i18n";
 
 export function formatDay(n: DayNum, lang: string, opts: Intl.DateTimeFormatOptions = { weekday: "long", day: "numeric", month: "long" }) {
@@ -15,9 +14,9 @@ export function relativeDay(n: DayNum, today: DayNum, lang: string) {
   return cap(formatDay(n, lang, { weekday: "short", day: "numeric", month: "short" }));
 }
 
-/** Old Style date label for Julian-calendar parishes, otherwise null. */
+/** Old Style date label for old-calendar parishes (civil + O.S.), otherwise null. */
 export function oldStyleLabel(n: DayNum, lang: string): string | null {
-  if (site.calendar !== "julian") return null;
+  if (!isOldCalendar()) return null;
   const cd = churchDate(n);
   const date = new Intl.DateTimeFormat(localeOf(lang), { timeZone: "UTC", day: "numeric", month: "long" }).format(new Date(Date.UTC(2001, cd.m - 1, cd.d)));
   return t("oldStyle", lang, { date });

@@ -1,8 +1,4 @@
-import "@fontsource/ponomar";
-import "@fontsource/monomakh";
-import "@fontsource/pt-serif/400.css";
-import "@fontsource/pt-serif/400-italic.css";
-import "@fontsource/pt-serif/700.css";
+import "@/styles/fonts.css";
 import "../globals.css";
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";

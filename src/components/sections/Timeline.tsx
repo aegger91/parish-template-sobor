@@ -116,7 +116,7 @@ export function Timeline({ lang, section }: SectionProps) {
                 </div>
               )}
               <div className="p-5">
-                <h3 className="text-[1.2rem] leading-snug text-green-800">{tr(e.title, lang)}</h3>
+                <h3 className="text-[1.2rem] leading-normal text-green-800">{tr(e.title, lang)}</h3>
                 <p className="mt-2 text-[0.97rem] text-ink-muted">{tr(e.body, lang)}</p>
               </div>
             </article>

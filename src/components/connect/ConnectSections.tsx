@@ -8,6 +8,7 @@ import { SectionHeader, SectionShell } from "@/components/sections/SectionShell"
 import { FilterChips } from "@/components/sections/FilterChips";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { OrthodoxCross } from "@/components/sacred/OrthodoxCross";
+import { EventDetailButton } from "./EventDetail";
 import { SignupDialog } from "./SignupDialog";
 import { civil, demoShiftDays, fromIso, shiftIso, startOfWeek, dayNum, type DayNum } from "@/lib/calendar";
 import { connect, site } from "@/lib/content";
@@ -72,36 +73,38 @@ function ItemCard({ item, kind, lang, compact }: { item: ConnectItem; kind: Kind
   const month = new Intl.DateTimeFormat(localeOf(lang), { month: "short", timeZone: "UTC" }).format(new Date(Date.UTC(d.y, d.m - 1, 1)));
   return (
     <article className="flex h-full flex-col rounded-lg border border-cream-300 bg-cream-50 p-5 shadow-sm">
-      <div className="flex gap-4">
-        <div className="flex w-16 shrink-0 flex-col items-center overflow-hidden rounded-md border border-gold-500/50 text-center" aria-hidden>
-          <span className="w-full bg-green-800 py-0.5 text-[0.75rem] uppercase text-gold-200">{month}</span>
-          <span className="py-1 font-display text-[1.7rem] leading-none text-green-800">{d.d}</span>
-        </div>
-        <div className="min-w-0 flex-1">
-          <div className="flex flex-wrap items-center gap-2">
-            {cat ? <span className="eyebrow text-gold-700">{tr(cat.name, lang)}</span> : null}
-            <ConnectBadge lang={lang} />
+      <EventDetailButton lang={lang} item={item} className="rounded-md hover:bg-cream-100/80">
+        <div className="flex gap-4">
+          <div className="flex w-16 shrink-0 flex-col items-center overflow-hidden rounded-md border border-gold-500/50 text-center" aria-hidden>
+            <span className="w-full bg-green-800 py-0.5 text-[0.75rem] uppercase text-gold-200">{month}</span>
+            <span className="py-1 font-display text-[1.7rem] leading-none text-green-800">{d.d}</span>
           </div>
-          <h3 className="mt-1.5 text-[1.15rem] leading-snug text-green-800">{tr(item.title, lang)}</h3>
+          <div className="min-w-0 flex-1">
+            <div className="flex flex-wrap items-center gap-2">
+              {cat ? <span className="eyebrow text-gold-700">{tr(cat.name, lang)}</span> : null}
+              <ConnectBadge lang={lang} />
+            </div>
+            <h3 className="mt-1.5 text-[1.15rem] leading-normal text-green-800">{tr(item.title, lang)}</h3>
+          </div>
         </div>
-      </div>
-      <ul className="mt-3 space-y-1 text-[0.92rem] text-ink-muted">
-        <li className="flex items-center gap-2">
-          <Clock className="size-4 shrink-0 text-gold-600" aria-hidden />
-          <span>
-            <time dateTime={item.date}>{formatIsoDate(item.date, lang, { weekday: "long", day: "numeric", month: "long" })}</time>, {timeRange(item, lang)}
-          </span>
-        </li>
-        <li className="flex items-center gap-2">
-          <MapPin className="size-4 shrink-0 text-gold-600" aria-hidden /> {tr(item.location, lang)}
-        </li>
-        {!compact ? (
+        <ul className="mt-3 space-y-1 text-[0.92rem] text-ink-muted">
           <li className="flex items-center gap-2">
-            <User className="size-4 shrink-0 text-gold-600" aria-hidden /> {t("events.organizer", lang)}: {tr(item.organizer, lang)}
+            <Clock className="size-4 shrink-0 text-gold-600" aria-hidden />
+            <span>
+              <time dateTime={item.date}>{formatIsoDate(item.date, lang, { weekday: "long", day: "numeric", month: "long" })}</time>, {timeRange(item, lang)}
+            </span>
           </li>
-        ) : null}
-      </ul>
-      {!compact ? <p className="mt-3 text-[0.95rem]">{tr(item.description, lang)}</p> : null}
+          <li className="flex items-center gap-2">
+            <MapPin className="size-4 shrink-0 text-gold-600" aria-hidden /> {tr(item.location, lang)}
+          </li>
+          {!compact ? (
+            <li className="flex items-center gap-2">
+              <User className="size-4 shrink-0 text-gold-600" aria-hidden /> {t("events.organizer", lang)}: {tr(item.organizer, lang)}
+            </li>
+          ) : null}
+        </ul>
+        {!compact ? <p className="mt-3 text-[0.95rem] text-ink">{tr(item.description, lang)}</p> : null}
+      </EventDetailButton>
       <div className="mt-auto space-y-3 pt-4">
         <Capacity item={item} joined={joined} kind={kind} lang={lang} />
         {mine !== null ? (

@@ -17,7 +17,7 @@ import { getLanguage, t, tr } from "@/lib/i18n";
 import { href, hrefById, type NavItem } from "@/lib/pages";
 import { cartCount, useCart } from "@/lib/cart";
 import { useParishNow } from "@/lib/hooks";
-import { churchDate, primaryFeast, weekdayDedication } from "@/lib/calendar";
+import { churchDate, isOldCalendar, primaryFeast, weekdayDedication } from "@/lib/calendar";
 import { cn } from "@/lib/utils";
 
 const useIsoLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
@@ -34,14 +34,13 @@ function isActive(pathname: string, lang: string, item: NavItem): boolean {
 
 function TodayLine({ lang }: { lang: string }) {
   const now = useParishNow();
-  if (!now) return <span className="opacity-0">.</span>;
-  const feast = primaryFeast(now.day);
-  const label = feast ? tr(feast.name, lang) : tr(weekdayDedication(now.day), lang);
-  const os = site.calendar === "julian" ? churchDate(now.day) : null;
+  const feast = now ? primaryFeast(now.day) : undefined;
+  const label = now ? (feast ? tr(feast.name, lang) : tr(weekdayDedication(now.day), lang)) : "\u00a0";
+  const os = now && isOldCalendar() ? churchDate(now.day) : null;
   return (
-    <span className="flex min-w-0 items-center gap-2">
+    <span className="flex min-h-5 min-w-0 items-center gap-2" aria-busy={!now}>
       <OrthodoxCross size={14} className="shrink-0 text-gold-400" />
-      <span className="truncate">
+      <span className="min-w-0 truncate">
         {feast ? <span className="text-gold-200">{t("today", lang)}: </span> : null}
         {label}
         {os ? <span className="text-cream-100/70"> · {t("oldStyle", lang, { date: `${os.d}.${String(os.m).padStart(2, "0")}` })}</span> : null}
@@ -119,7 +118,7 @@ function navTitleFor(item: NavItem) {
 function PriorityNav({ items, lang, pathname }: { items: NavItem[]; lang: string; pathname: string }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const measureRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState<number | null>(null);
+  const [visible, setVisible] = useState(items.length);
 
   const compute = useCallback(() => {
     const wrap = wrapRef.current, measure = measureRef.current;
@@ -135,7 +134,7 @@ function PriorityNav({ items, lang, pathname }: { items: NavItem[]; lang: string
         count++;
       } else break;
     }
-    setVisible(count);
+    setVisible((prev) => (prev === count ? prev : count));
   }, []);
 
   useIsoLayoutEffect(() => {
@@ -144,11 +143,11 @@ function PriorityNav({ items, lang, pathname }: { items: NavItem[]; lang: string
     if (wrapRef.current) ro.observe(wrapRef.current);
     document.fonts?.ready.then(compute).catch(() => {});
     return () => ro.disconnect();
-  }, [compute, lang]);
+  }, [compute, lang, items]);
 
-  const shown = visible === null ? items : items.slice(0, visible);
-  const overflow = visible === null ? [] : items.slice(visible);
-  const linkCls = "flex h-10 items-center whitespace-nowrap rounded px-3 font-button text-[0.98rem] text-cream-50 transition-colors hover:text-gold-200 aria-[current=page]:text-gold-200";
+  const shown = items.slice(0, visible);
+  const overflow = items.slice(visible);
+  const linkCls = "flex h-10 items-center whitespace-nowrap rounded px-2.5 font-button text-[0.95rem] text-cream-50 transition-colors hover:text-gold-200 aria-[current=page]:text-gold-200 xl:px-3 xl:text-[0.98rem]";
 
   return (
     <div ref={wrapRef} className="relative hidden min-w-0 flex-1 justify-center lg:flex" aria-label={t("nav.main", lang)} role="navigation">
@@ -164,7 +163,7 @@ function PriorityNav({ items, lang, pathname }: { items: NavItem[]; lang: string
           <ChevronDown className="size-3.5" />
         </span>
       </div>
-      <ul className={cn("flex min-w-0 items-center", visible === null && "overflow-hidden")}>
+      <ul className="flex min-w-0 items-center">
         {shown.map((item) => (
           <li key={item.id}>
             {item.children.length ? (
@@ -230,12 +229,12 @@ function DonateButton({ lang, className }: { lang: string; className?: string })
     <Link
       href={hrefById(lang, "donate")}
       className={cn(
-        "bell-hover inline-flex h-10 items-center gap-2 whitespace-nowrap rounded-full bg-gold-400 px-4 font-button text-[0.98rem] text-green-950 shadow-[inset_0_-2px_0_rgba(0,0,0,0.15)] transition-colors hover:bg-gold-200",
+        "bell-hover inline-flex h-10 max-w-[42vw] items-center gap-1.5 whitespace-nowrap rounded-full bg-gold-400 px-3 font-button text-[0.9rem] text-green-950 shadow-[inset_0_-2px_0_rgba(0,0,0,0.15)] transition-colors hover:bg-gold-200 sm:max-w-none sm:gap-2 sm:px-4 sm:text-[0.98rem]",
         className,
       )}
     >
       <SwingingBell size={16} />
-      {t("donate", lang)}
+      <span className="truncate">{t("donate", lang)}</span>
     </Link>
   );
 }
@@ -339,27 +338,27 @@ export function SiteHeader({ lang, nav }: { lang: string; nav: NavItem[] }) {
   }, [scrolled]);
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-40 transition-[background-color,box-shadow] duration-300",
-        scrolled ? "bg-green-900/97 shadow-[0_6px_24px_-12px_rgba(0,0,0,0.6)] backdrop-blur" : "bg-gradient-to-b from-green-950/85 via-green-950/45 to-transparent",
-      )}
-    >
-      <div className={cn("hidden overflow-hidden border-b border-gold-500/20 text-[0.8rem] text-cream-100 transition-[max-height,opacity] duration-300 lg:block", scrolled ? "max-h-0 opacity-0" : "max-h-10 opacity-100")}>
-        <div className="container-sobor flex h-9 items-center justify-between gap-6">
-          <TodayLine lang={lang} />
-          <div className="flex shrink-0 items-center gap-5">
-            <a href={`tel:${site.contact.phone.replace(/\D/g, "")}`} className="flex items-center gap-1.5 hover:text-gold-200">
-              <Phone className="size-3.5" aria-hidden /> {site.contact.phone}
-            </a>
-            <a href={`mailto:${site.contact.email}`} className="hidden items-center gap-1.5 hover:text-gold-200 xl:flex">
-              <Mail className="size-3.5" aria-hidden /> {site.contact.email}
-            </a>
+    <header className="fixed inset-x-0 top-0 z-40 bg-green-900/97 shadow-[0_6px_24px_-12px_rgba(0,0,0,0.55)] backdrop-blur-md">
+      {!scrolled ? (
+        <div className="hidden border-b border-gold-500/20 text-[0.8rem] text-cream-100 lg:block">
+          <div className="container-sobor flex h-9 items-center justify-between gap-6">
+            <TodayLine lang={lang} />
+            <div className="flex shrink-0 items-center gap-5">
+              <a href={`tel:${site.contact.phone.replace(/\D/g, "")}`} className="flex items-center gap-1.5 hover:text-gold-200">
+                <Phone className="size-3.5" aria-hidden /> {site.contact.phone}
+              </a>
+              <a href={`mailto:${site.contact.email}`} className="hidden items-center gap-1.5 hover:text-gold-200 xl:flex">
+                <Mail className="size-3.5" aria-hidden /> {site.contact.email}
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="container-sobor flex items-center gap-3 transition-[height] duration-300" style={{ height: scrolled ? "var(--header-h-condensed)" : "var(--header-h)" }}>
-        <Link href={href(lang, "")} className="min-w-0 shrink rounded focus-visible:outline-gold-400 lg:max-w-[19rem] xl:max-w-none" aria-label={tr(site.name, lang)}>
+      ) : null}
+      <div
+        className="container-sobor flex items-center gap-3"
+        style={{ height: scrolled ? "var(--header-h-condensed)" : "var(--header-h)" }}
+      >
+        <Link href={href(lang, "")} className="min-w-0 shrink rounded focus-visible:outline-gold-400 lg:max-w-[17rem] xl:max-w-[20rem]" aria-label={tr(site.name, lang)}>
           <Logo lang={lang} condensed={scrolled} />
         </Link>
         <PriorityNav items={nav} lang={lang} pathname={pathname} />
@@ -368,11 +367,11 @@ export function SiteHeader({ lang, nav }: { lang: string; nav: NavItem[] }) {
             <LanguageSwitcher lang={lang} />
           </div>
           {site.modules.store ? <CartButton lang={lang} onDark /> : null}
-          <DonateButton lang={lang} className="h-9 px-3 text-[0.9rem] sm:h-10 sm:px-4 sm:text-[0.98rem]" />
+          <DonateButton lang={lang} className="h-9 px-2.5 text-[0.85rem] sm:h-10 sm:px-4 sm:text-[0.98rem]" />
           <MobileDrawer lang={lang} nav={nav} pathname={pathname} />
         </div>
       </div>
-      <div className={cn("h-px bg-gradient-to-r from-transparent via-gold-500/70 to-transparent transition-opacity", scrolled ? "opacity-100" : "opacity-0")} />
+      <div className="h-px bg-gradient-to-r from-transparent via-gold-500/70 to-transparent" />
     </header>
   );
 }

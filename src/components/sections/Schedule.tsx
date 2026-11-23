@@ -4,9 +4,10 @@ import { useEffect, useMemo, useState } from "react";
 import { CalendarDays, ChevronLeft, ChevronRight, List, Radio } from "lucide-react";
 import type { SectionProps } from "./SectionRenderer";
 import { SectionHeader, SectionShell } from "./SectionShell";
+import { ServiceRowButton } from "@/components/schedule/OccurrenceDetail";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { OrthodoxCross } from "@/components/sacred/OrthodoxCross";
-import { civil, dayNum, primaryFeast, servicesOn, startOfWeek, churchDate, type DayNum } from "@/lib/calendar";
+import { civil, dayNum, isOldCalendar, primaryFeast, servicesOn, startOfWeek, churchDate, type DayNum } from "@/lib/calendar";
 import { site } from "@/lib/content";
 import { formatDay, oldStyleLabel } from "@/lib/format";
 import { useParishNow } from "@/lib/hooks";
@@ -15,8 +16,12 @@ import { cn } from "@/lib/utils";
 
 type View = "week" | "month";
 
+function calendarLabel(lang: string) {
+  return t(site.calendarStyle === "old" ? "schedule.calendarLabel.old" : "schedule.calendarLabel.new", lang);
+}
+
 function osShort(n: DayNum, lang: string) {
-  if (site.calendar !== "julian") return null;
+  if (!isOldCalendar()) return null;
   const cd = churchDate(n);
   return new Intl.DateTimeFormat(localeOf(lang), { timeZone: "UTC", day: "numeric", month: "short" }).format(new Date(Date.UTC(2001, cd.m - 1, cd.d)));
 }
@@ -36,14 +41,14 @@ function DayBlock({ n, today, lang, compact }: { n: DayNum; today: DayNum; lang:
       )}
     >
       <div className="flex items-baseline justify-between gap-2">
-        <p className={cn("font-heading", big ? "text-kinovar" : "text-green-800")}>
+        <p className={cn("min-w-0 break-words font-heading", big ? "text-kinovar" : "text-green-800")}>
           {formatDay(n, lang, compact ? { weekday: "short", day: "numeric" } : { weekday: "long", day: "numeric", month: "long" })}
         </p>
-        {isToday ? <span className="rounded-full bg-gold-400 px-2 text-[0.75rem] font-button text-green-950">{t("today", lang)}</span> : null}
+        {isToday ? <span className="shrink-0 rounded-full bg-gold-400 px-2 text-[0.75rem] font-button text-green-950">{t("today", lang)}</span> : null}
       </div>
-      {site.calendar === "julian" ? <p className="text-[0.78rem] text-ink-muted">{oldStyleLabel(n, lang)}</p> : null}
+      {isOldCalendar() ? <p className="text-[0.78rem] text-ink-muted">{oldStyleLabel(n, lang)}</p> : null}
       {feast ? (
-        <p className={cn("mt-1.5 flex items-start gap-1.5 text-[0.88rem] leading-snug", big ? "font-heading text-kinovar" : "text-gold-700")}>
+        <p className={cn("mt-1.5 flex items-start gap-1.5 text-[0.88rem] leading-normal", big ? "font-heading text-kinovar" : "text-gold-700")}>
           {big ? <OrthodoxCross size={14} className="mt-0.5 shrink-0" /> : null}
           <span>{tr(feast.name, lang)}</span>
         </p>
@@ -51,12 +56,14 @@ function DayBlock({ n, today, lang, compact }: { n: DayNum; today: DayNum; lang:
       {services.length ? (
         <ul className="mt-2 space-y-1.5 text-[0.92rem]">
           {services.map((s) => (
-            <li key={s.id} className="flex gap-2">
-              <span className="w-14 shrink-0 tabular-nums text-green-700">{formatTime(s.time, lang)}</span>
-              <span className="min-w-0">
-                {tr(s.title, lang)}
-                {s.streamed ? <Radio className="ms-1 inline size-3.5 text-gold-600" aria-label={t("streamed", lang)} /> : null}
-              </span>
+            <li key={s.id}>
+              <ServiceRowButton lang={lang} occurrence={s} className="flex gap-2 rounded-md px-1 py-0.5 hover:bg-cream-200/80">
+                <span className="w-14 shrink-0 tabular-nums text-green-700">{formatTime(s.time, lang)}</span>
+                <span className="min-w-0">
+                  {tr(s.title, lang)}
+                  {s.streamed ? <Radio className="ms-1 inline size-3.5 text-gold-600" aria-label={t("streamed", lang)} /> : null}
+                </span>
+              </ServiceRowButton>
             </li>
           ))}
         </ul>
@@ -88,12 +95,14 @@ function MonthCell({ n, inMonth, today, lang }: { n: DayNum; inMonth: boolean; t
         </span>
         {os ? <span className="text-[0.7rem] text-ink-muted">{os}</span> : null}
       </div>
-      {feast ? <p className={cn("line-clamp-2 leading-tight", big ? "font-heading text-kinovar" : "text-gold-700")}>{tr(feast.name, lang)}</p> : null}
+      {feast ? <p className={cn("break-words leading-normal", big ? "font-heading text-kinovar" : "text-gold-700")}>{tr(feast.name, lang)}</p> : null}
       <ul className="space-y-0.5">
         {services.map((s) => (
-          <li key={s.id} className="flex gap-1 leading-tight">
-            <span className="shrink-0 tabular-nums text-green-700">{formatTime(s.time, lang)}</span>
-            <span className="line-clamp-1 min-w-0">{tr(s.title, lang)}</span>
+          <li key={s.id}>
+            <ServiceRowButton lang={lang} occurrence={s} className="flex gap-1 rounded px-0.5 leading-normal hover:bg-cream-200/80">
+              <span className="shrink-0 leading-normal tabular-nums text-green-700">{formatTime(s.time, lang)}</span>
+              <span className="min-w-0 break-words">{tr(s.title, lang)}</span>
+            </ServiceRowButton>
           </li>
         ))}
       </ul>
@@ -185,9 +194,12 @@ export function Schedule({ lang, section }: SectionProps) {
               {t("schedule.today", lang)}
             </button>
           </div>
-          <p className="font-heading text-[1.25rem] text-green-800 first-letter:uppercase" aria-live="polite">
-            {weekLabel ?? t("loading", lang)}
-          </p>
+          <div className="flex flex-col items-end gap-0.5 text-end">
+            <p className="font-heading text-[1.25rem] text-green-800 first-letter:uppercase" aria-live="polite">
+              {weekLabel ?? t("loading", lang)}
+            </p>
+            <p className="text-[0.78rem] text-ink-muted">{calendarLabel(lang)}</p>
+          </div>
         </div>
 
         {!now || !range ? (
@@ -232,7 +244,7 @@ export function Schedule({ lang, section }: SectionProps) {
         )}
 
         <div className="mt-6 flex flex-col gap-3 rounded-lg border border-cream-300 bg-cream-50 p-4 text-[0.9rem] text-ink-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>{t(`schedule.calendarNote.${site.calendar}` as "schedule.calendarNote.julian", lang)}</p>
+          <p className="text-[0.85rem]">{calendarLabel(lang)}</p>
           <ul className="flex shrink-0 flex-wrap gap-4">
             <li className="flex items-center gap-1.5">
               <span className="size-3.5 rounded-sm border border-kinovar/40 bg-kinovar-soft" aria-hidden /> {t("schedule.legendGreat", lang)}

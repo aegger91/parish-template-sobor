@@ -55,34 +55,31 @@ function orthodoxPascha(year: number): DayNum {
   return julianToDayNum(year, month, day);
 }
 
-/** Gregorian paschalion, for parishes that keep the Western date of Pascha. */
-function gregorianPascha(year: number): DayNum {
-  const a = year % 19, b = Math.floor(year / 100), c = year % 100;
-  const d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25);
-  const g = Math.floor((b - f + 1) / 3);
-  const h = (19 * a + b - d - g + 15) % 30;
-  const i = Math.floor(c / 4), k = c % 4;
-  const l = (32 + 2 * e + 2 * i - h - k) % 7;
-  const m = Math.floor((a + 11 * h + 22 * l) / 451);
-  const month = Math.floor((h + l - 7 * m + 114) / 31);
-  const day = ((h + l - 7 * m + 114) % 31) + 1;
-  return dayNum(year, month, day);
+/** True when the parish keeps the Julian (Old Style) calendar for fixed feasts. */
+export function isOldCalendar(style: CalendarStyle = site.calendarStyle) {
+  return style === "old";
 }
 
-export function paschaFor(year: number, style: CalendarStyle = site.calendar): DayNum {
-  return style === "gregorian" ? gregorianPascha(year) : orthodoxPascha(year);
+/** Pascha always follows the Orthodox paschalion for both old and new styles. */
+export function paschaFor(year: number, style: CalendarStyle = site.calendarStyle): DayNum {
+  void style;
+  return orthodoxPascha(year);
 }
 
-/** The date used for fixed feasts: Old Style for the Julian calendar, civil otherwise. */
-export function churchDate(n: DayNum, style: CalendarStyle = site.calendar) {
-  if (style === "julian") return dayNumToJulian(n);
+/**
+ * Date used for fixed feasts:
+ * - old → Julian (Old Style) month/day
+ * - new → Revised Julian, which matches civil (Gregorian) dates for fixed feasts
+ */
+export function churchDate(n: DayNum, style: CalendarStyle = site.calendarStyle) {
+  if (isOldCalendar(style)) return dayNumToJulian(n);
   const c = civil(n);
   return { y: c.y, m: c.m, d: c.d };
 }
 
 const rankOrder: Record<FeastRank, number> = { pascha: 0, great: 1, major: 2, minor: 3 };
 
-export function feastsOn(n: DayNum, style: CalendarStyle = site.calendar): Feast[] {
+export function feastsOn(n: DayNum, style: CalendarStyle = site.calendarStyle): Feast[] {
   const cd = churchDate(n, style);
   const offset = n - paschaFor(civil(n).y, style);
   const list = [
@@ -147,6 +144,16 @@ export function servicesOn(n: DayNum): Occurrence[] {
     out.push({ id: `${s.id}-${n}`, day: n, time: s.time, startMinutes: minutesOf(s.time), durationMinutes: s.durationMinutes, kind: s.kind, title: s.title, streamed: s.streamed });
   }
   return out.sort((a, b) => a.startMinutes - b.startMinutes);
+}
+
+/** Short note for an occurrence: feast name, or a recurring/dated note if present. */
+export function occurrenceNote(s: Occurrence): L | undefined {
+  if (s.feast) return s.feast.name;
+  const baseId = s.id.replace(/-\d+$/, "");
+  const recurring = schedule.recurring.find((r) => r.id === baseId);
+  if (recurring?.note) return recurring.note;
+  const dated = schedule.dated.find((d) => d.id === baseId);
+  return dated?.note;
 }
 
 export type ParishNow = { day: DayNum; minutes: number };

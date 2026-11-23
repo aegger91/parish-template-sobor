@@ -74,7 +74,7 @@ export function Sermons({ lang, section }: SectionProps) {
                         <span>{t(`sermons.${s.type}` as "sermons.audio", lang)}</span>
                         {s.durationMinutes ? <span>{t("sermons.minutes", lang, { n: s.durationMinutes })}</span> : null}
                       </p>
-                      <h3 className="mt-1 text-[1.2rem] leading-snug text-green-800">{tr(s.title, lang)}</h3>
+                      <h3 className="mt-1 text-[1.2rem] leading-normal text-green-800">{tr(s.title, lang)}</h3>
                       <p className="mt-0.5 text-[0.92rem] text-gold-700">
                         {tr(s.preacher, lang)} · <BookOpen className="inline size-3.5" aria-hidden /> {tr(s.scripture, lang)}
                       </p>

@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "site.schema.json",
   "title": "Parish settings",
-  "description": "Name, contact details, languages, calendar and which optional modules are on.",
+  "description": "Name, contact details, languages, calendarStyle and which optional modules are on.",
   "type": "object",
   "properties": {
     "$schema": {
@@ -83,13 +83,12 @@
       "type": "string",
       "description": "IANA time zone of the parish, for example America/New_York. Service times and today's feast use it."
     },
-    "calendar": {
+    "calendarStyle": {
       "enum": [
-        "julian",
-        "revised-julian",
-        "gregorian"
+        "old",
+        "new"
       ],
-      "description": "Church calendar for fixed feasts. Pascha always follows the Orthodox paschalion except for gregorian."
+      "description": "Church calendar for fixed feasts. old = Julian (civil dates with Old Style beside them). new = Revised Julian (civil dates for fixed feasts). Pascha follows the Orthodox paschalion for both."
     },
     "weekStartsOn": {
       "type": "integer",
@@ -274,7 +273,7 @@
         },
         "zapiski": {
           "type": "boolean",
-          "description": "Zapiski and Candles page and the hero shortcut."
+          "description": "Commemoration names and candles page and the hero shortcut."
         },
         "getInvolved": {
           "type": "boolean",
@@ -540,7 +539,7 @@
     "languages",
     "defaultLanguage",
     "timeZone",
-    "calendar",
+    "calendarStyle",
     "weekStartsOn",
     "currency",
     "logo",

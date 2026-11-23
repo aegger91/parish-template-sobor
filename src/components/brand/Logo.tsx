@@ -54,28 +54,30 @@ export function Logo({ lang, condensed, onDark = true, className, showText = tru
   const style = site.logo.style;
   const name = tr(site.shortName, lang);
   const size = condensed ? 44 : 58;
-  const text = (
-    <span className="flex min-w-0 flex-col leading-none">
+  const text = showText ? (
+    <span className="hidden min-w-0 flex-col leading-normal sm:flex">
       <span
         className={cn(
-          "vyaz-title line-clamp-2 transition-[font-size] duration-300 sm:truncate",
-          condensed ? "text-[1rem] sm:text-[1.15rem]" : "text-[1.05rem] sm:text-[1.45rem]",
+          "vyaz-title max-w-[11rem] md:max-w-[14rem] xl:max-w-[18rem]",
+          condensed ? "text-[1rem] md:text-[1.15rem]" : "text-[1.05rem] md:text-[1.3rem]",
           onDark ? "text-cream-50" : "text-green-800",
         )}
       >
         {name}
       </span>
-      <span className={cn("mt-1 hidden truncate text-[0.72rem] tracking-wide sm:block", condensed && "sm:hidden xl:block", onDark ? "text-gold-200/90" : "text-ink-muted")}>
+      <span className={cn("mt-1 text-[0.72rem] tracking-wide", condensed && "hidden xl:inline", onDark ? "text-gold-200/90" : "text-ink-muted")}>
         {tr(site.jurisdiction, lang)}
       </span>
     </span>
-  );
+  ) : null;
 
   if (style === "wordmark") {
     return (
       <span className={cn("flex min-w-0 items-center gap-2", className)}>
         <OrthodoxCross size={condensed ? 22 : 28} className={onDark ? "text-gold-400" : "text-gold-600"} />
-        {text}
+        {text ?? (
+          <span className={cn("vyaz-title sm:hidden", condensed ? "text-[1rem]" : "text-[1.05rem]", onDark ? "text-cream-50" : "text-green-800")}>{name}</span>
+        )}
       </span>
     );
   }
@@ -87,13 +89,13 @@ export function Logo({ lang, condensed, onDark = true, className, showText = tru
       // eslint-disable-next-line @next/next/no-img-element
       <img src={withBase(site.logo.image)} alt={tr(site.logo.imageAlt, lang)} width={size} height={size} className="rounded-[4px] object-cover" style={{ width: size, height: size }} />
     ) : (
-      <SealMark lang={lang} size={size} className="drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition-all duration-300" />
+      <SealMark lang={lang} size={size} className="drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]" />
     );
 
   return (
-    <span className={cn("flex min-w-0 items-center gap-3", className)}>
+    <span className={cn("flex min-w-0 items-center gap-2 sm:gap-3", className)}>
       <span className="shrink-0">{mark}</span>
-      {showText ? text : null}
+      {text}
     </span>
   );
 }

@@ -30,6 +30,7 @@ const newSlip = (type: NoteType = "health", stable?: string): Slip => ({
   names: [0, 1, 2].map((i) => newName(stable ? `${stable}n${i}` : undefined)),
   candleId: null,
   candleQty: 1,
+  offering: 0,
 });
 
 const selectClass =
@@ -56,6 +57,12 @@ function SlipCard({
   const type = zapiski.noteTypes.find((n) => n.id === slip.type)!;
   const prefixes = zapiski.prefixes.filter((p) => p.appliesTo.includes(slip.type));
   const commemorations = zapiski.commemorations.filter((c) => c.appliesTo.includes(slip.type));
+  const selected = commemorations.find((c) => c.id === slip.commemorationId);
+  const suggested = selected?.suggestedDonation ?? 0;
+  const offeringChips = Array.from(new Set([0, suggested].filter((n) => n >= 0)));
+  const [otherOffering, setOtherOffering] = useState("");
+  /** False only after the user picks a suggested chip; start unselected like Donate. */
+  const [offeringCustom, setOfferingCustom] = useState(true);
   const full = slip.names.length >= zapiski.maxNames;
 
   const setType = (t: NoteType) => {
@@ -66,10 +73,19 @@ function SlipCard({
       type: t,
       commemorationId: keep ? slip.commemorationId : (zapiski.commemorations.find((c) => c.appliesTo.includes(t))?.id ?? ""),
       names: slip.names.map((n) => (allowed.has(n.prefixId) ? n : { ...n, prefixId: "" })),
+      offering: 0,
     });
+    setOtherOffering("");
+    setOfferingCustom(true);
   };
 
   const setName = (id: string, patch: Partial<Slip["names"][number]>) => onChange({ ...slip, names: slip.names.map((n) => (n.id === id ? { ...n, ...patch } : n)) });
+
+  const setOfferingPreset = (amount: number) => {
+    setOtherOffering("");
+    setOfferingCustom(false);
+    onChange({ ...slip, offering: amount });
+  };
 
   return (
     <fieldset className="grid gap-5 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
@@ -190,13 +206,61 @@ function SlipCard({
                 <span className="min-w-0 flex-1">
                   <span className="flex flex-wrap items-baseline justify-between gap-x-3">
                     <span className="font-heading text-ink">{tr(c.label, lang)}</span>
-                    <span className="text-[0.88rem] text-gold-700">{formatMoney(c.suggestedDonation, lang, { whole: true })}</span>
+                    {c.suggestedDonation > 0 ? (
+                      <span className="text-[0.82rem] text-ink-muted">
+                        {t("zapiski.suggested", lang)} {formatMoney(c.suggestedDonation, lang, { whole: true })}
+                      </span>
+                    ) : null}
                   </span>
                   {c.description ? <span className="block text-[0.86rem] text-ink-muted">{tr(c.description, lang)}</span> : null}
                 </span>
               </label>
             ))}
           </div>
+        </div>
+
+        <div>
+          <p className="mb-2 font-heading text-[1.05rem] text-green-800" id={`${slip.id}-offering-label`}>
+            {t("zapiski.suggested", lang)}
+          </p>
+          <div role="radiogroup" aria-labelledby={`${slip.id}-offering-label`} className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+            {offeringChips.map((a) => (
+              <button
+                key={a}
+                type="button"
+                role="radio"
+                aria-checked={!offeringCustom && slip.offering === a}
+                onClick={() => setOfferingPreset(a)}
+                className={cn(
+                  "bell-hover flex min-h-12 items-center justify-center rounded-md border-2 font-heading text-[1.1rem] transition-colors",
+                  !offeringCustom && slip.offering === a
+                    ? "border-gold-500 bg-green-800 text-gold-200"
+                    : "border-cream-300 bg-white text-green-800 hover:border-gold-500",
+                )}
+              >
+                {formatMoney(a, lang, { whole: true })}
+              </button>
+            ))}
+          </div>
+          <Field id={`${slip.id}-offering-other`} label={t("donate.other", lang)} optionalLabel={t("optional", lang)} className="mt-3">
+            <Input
+              id={`${slip.id}-offering-other`}
+              type="number"
+              inputMode="decimal"
+              min={0}
+              step={1}
+              value={otherOffering}
+              onFocus={() => setOfferingCustom(true)}
+              onChange={(e) => {
+                const v = e.target.value;
+                setOfferingCustom(true);
+                setOtherOffering(v);
+                onChange({ ...slip, offering: Math.max(0, Number(v) || 0) });
+              }}
+              placeholder={formatMoney(0, lang, { whole: true })}
+              className={inputClass}
+            />
+          </Field>
         </div>
 
         <div className="rounded-md border border-cream-300 bg-cream-50 p-3">
@@ -369,7 +433,7 @@ export function Zapiski({ lang, section }: SectionProps) {
                               {t("zapiski.slipN", lang, { n: i + 1 })}: {tr(c?.label, lang)}
                             </span>
                           </span>
-                          <span className="shrink-0 tabular-nums">{formatMoney(c?.suggestedDonation ?? 0, lang)}</span>
+                          <span className="shrink-0 tabular-nums">{formatMoney(s.offering || 0, lang)}</span>
                         </p>
                         {candle ? (
                           <p className="flex justify-between gap-3 text-ink-muted">

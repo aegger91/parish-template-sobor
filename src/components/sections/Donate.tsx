@@ -20,7 +20,7 @@ type Freq = "once" | "monthly";
 export function Donate({ lang, section }: SectionProps) {
   const cfg = site.donations;
   const [freq, setFreq] = useState<Freq>("once");
-  const [preset, setPreset] = useState<number | null>(cfg.defaultAmount);
+  const [preset, setPreset] = useState<number | null>(null);
   const [other, setOther] = useState("");
   const [fund, setFund] = useState(cfg.funds[0]?.id ?? "");
   const [dedication, setDedication] = useState("");
@@ -32,9 +32,8 @@ export function Donate({ lang, section }: SectionProps) {
   useEffect(() => {
     if (new URLSearchParams(window.location.search).get("frequency") === "monthly") {
       setFreq("monthly");
-      setPreset(cfg.monthlyAmounts[1] ?? cfg.monthlyAmounts[0]);
     }
-  }, [cfg.monthlyAmounts]);
+  }, []);
 
   const amounts = freq === "once" ? cfg.oneTimeAmounts : cfg.monthlyAmounts;
   const amount = preset ?? Math.max(0, Number(other) || 0);
@@ -42,7 +41,10 @@ export function Donate({ lang, section }: SectionProps) {
   const switchFreq = (f: Freq) => {
     setFreq(f);
     const list = f === "once" ? cfg.oneTimeAmounts : cfg.monthlyAmounts;
-    if (preset !== null && !list.includes(preset)) setPreset(list[1] ?? list[0]);
+    if (preset !== null && !list.includes(preset)) {
+      setPreset(null);
+      setOther("");
+    }
   };
 
   const submit = async (e: React.FormEvent) => {
@@ -134,7 +136,7 @@ export function Donate({ lang, section }: SectionProps) {
                     id="don-other"
                     type="number"
                     inputMode="decimal"
-                    min={1}
+                    min={0}
                     step={1}
                     value={other}
                     onFocus={() => setPreset(null)}

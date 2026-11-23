@@ -9,6 +9,7 @@ import { Pictogram, SwingingBell } from "@/components/sacred/Pictograms";
 import { site } from "@/lib/content";
 import { formatTime, t, tr } from "@/lib/i18n";
 import { href, hrefById, withBase } from "@/lib/pages";
+import { ServiceRowButton } from "@/components/schedule/OccurrenceDetail";
 import { isLiveNow, nextServices, primaryFeast, weekdayDedication, type ParishNow } from "@/lib/calendar";
 import { oldStyleLabel, relativeDay } from "@/lib/format";
 import { useParishNow, usePrefersReducedMotion } from "@/lib/hooks";
@@ -58,13 +59,19 @@ function NextServices({ lang, now }: { lang: string; now: ParishNow | null }) {
         ) : (
           <ol className="space-y-2.5">
             {list.map((s) => (
-              <li key={s.id} className="flex items-baseline gap-3">
-                <span className="w-[5.5rem] shrink-0 text-[0.85rem] text-cream-100/75 sm:w-24">{relativeDay(s.day, now.day, lang)}</span>
-                <span className="w-16 shrink-0 font-heading tabular-nums text-gold-200">{formatTime(s.time, lang)}</span>
-                <span className="min-w-0 text-cream-50">
-                  {tr(s.title, lang)}
-                  {s.streamed ? <Radio className="ms-1.5 inline size-3.5 text-gold-400" aria-label={t("streamed", lang)} /> : null}
-                </span>
+              <li key={s.id}>
+                <ServiceRowButton
+                  lang={lang}
+                  occurrence={s}
+                  className="flex items-baseline gap-3 rounded-md px-1 py-0.5 hover:bg-cream-50/10 focus-visible:ring-offset-green-900"
+                >
+                  <span className="w-[5.5rem] shrink-0 text-[0.85rem] text-cream-100/75 sm:w-24">{relativeDay(s.day, now.day, lang)}</span>
+                  <span className="w-16 shrink-0 font-heading tabular-nums text-gold-200">{formatTime(s.time, lang)}</span>
+                  <span className="min-w-0 text-cream-50">
+                    {tr(s.title, lang)}
+                    {s.streamed ? <Radio className="ms-1.5 inline size-3.5 text-gold-400" aria-label={t("streamed", lang)} /> : null}
+                  </span>
+                </ServiceRowButton>
               </li>
             ))}
           </ol>
@@ -94,7 +101,7 @@ function TodayFeast({ lang, now }: { lang: string; now: ParishNow | null }) {
             {feast ? (
               <p className={cn("eyebrow mb-1", feast.rank === "minor" ? "text-cream-100/70" : "text-[#e9a49b]")}>{rankLabel(feast.rank, lang)}</p>
             ) : null}
-            <p className="font-heading text-[1.2rem] leading-snug text-cream-50">{tr(feast ? feast.name : weekdayDedication(now.day), lang)}</p>
+            <p className="font-heading text-[1.2rem] leading-normal text-cream-50">{tr(feast ? feast.name : weekdayDedication(now.day), lang)}</p>
             {feast ? <p className="mt-1 text-[0.88rem] text-cream-100/75">{tr(weekdayDedication(now.day), lang)}</p> : null}
             {tomorrow && tomorrow.rank !== "minor" ? (
               <p className="mt-1 text-[0.88rem] text-gold-200">

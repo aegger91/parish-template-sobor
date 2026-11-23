@@ -1,11 +1,10 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import {
-  DomeSkyline,
+  BannerRibbon,
   KokoshnikDivider,
-  OrnamentBand,
-  bannerSkylineHeight,
-  bannerSkylinePad,
+  bannerRibbonHeight,
+  bannerRibbonPad,
 } from "@/components/sacred/Ornaments";
 import { t, tr } from "@/lib/i18n";
 import { href, type ResolvedPage } from "@/lib/pages";
@@ -31,8 +30,8 @@ export function PageBanner({
   return (
     <section
       className={cn(
-        "relative overflow-hidden bg-green-900 pt-[calc(var(--header-h)+3.25rem)] text-cream-50 lg:pt-[calc(var(--header-h)+4.5rem)]",
-        bannerSkylinePad,
+        "relative bg-green-900 pt-[calc(var(--header-h)+3.25rem)] text-cream-50 lg:pt-[calc(var(--header-h)+4.5rem)]",
+        bannerRibbonPad,
       )}
     >
       <div
@@ -65,13 +64,7 @@ export function PageBanner({
         <KokoshnikDivider className="mt-4" />
         {desc ? <p className="mx-auto mt-3 max-w-2xl text-[1.05rem] text-cream-100/90">{desc}</p> : null}
       </div>
-      <DomeSkyline
-        className={cn(
-          "pointer-events-none absolute inset-x-0 bottom-0 z-0 w-full text-cream-100",
-          bannerSkylineHeight,
-        )}
-      />
-      <OrnamentBand className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] text-gold-500/50" height={6} />
+      <BannerRibbon className={bannerRibbonHeight} />
     </section>
   );
 }

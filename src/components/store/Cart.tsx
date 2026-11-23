@@ -99,7 +99,7 @@ export function Cart({ lang, section }: SectionProps) {
               <LineThumb line={l} lang={lang} />
               <div className="flex min-w-0 flex-1 flex-col">
                 <div className="flex items-start justify-between gap-3">
-                  <p className="min-w-0 font-heading text-[1.05rem] leading-snug text-green-800">{lineLabel(l, lang)}</p>
+                  <p className="min-w-0 font-heading text-[1.05rem] leading-normal text-green-800">{lineLabel(l, lang)}</p>
                   <p className="shrink-0 font-heading tabular-nums">{formatMoney(lineAmount(l), lang)}</p>
                 </div>
                 {l.kind === "zapiska" ? (

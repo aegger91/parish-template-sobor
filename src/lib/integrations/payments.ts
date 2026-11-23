@@ -38,6 +38,8 @@ export async function submitPayment(request: PaymentRequest): Promise<PaymentRes
       break;
   }
   await new Promise((r) => setTimeout(r, 700));
-  if (!request.payer.email || request.amount <= 0) return { ok: false, error: "invalid" };
+  // Commemorations may be free (amount 0); donations and store orders still need a charge.
+  const amountOk = request.purpose === "commemoration" ? request.amount >= 0 : request.amount > 0;
+  if (!request.payer.email || !amountOk) return { ok: false, error: "invalid" };
   return { ok: true, reference: `SAMPLE-${Date.now().toString(36).toUpperCase()}`, simulated: true };
 }

@@ -33,7 +33,7 @@ export function ClergyGrid({ lang, section }: SectionProps) {
         {clergy.map((p) => (
           <li key={p.id} className="flex flex-col items-center rounded-t-[160px] rounded-b-lg border border-cream-300 bg-cream-50 px-5 pb-6 pt-8 text-center shadow-sm">
             <Medallion person={p} lang={lang} />
-            <h3 className="mt-6 text-[1.3rem] leading-tight text-green-800">{tr(p.name, lang)}</h3>
+            <h3 className="mt-6 text-[1.3rem] leading-normal text-green-800">{tr(p.name, lang)}</h3>
             <p className="eyebrow mt-1.5 text-gold-700">{tr(p.role, lang)}</p>
             <p className="mt-3 text-[0.97rem] text-ink-muted">{tr(p.shortBio, lang)}</p>
             <div className="mt-auto pt-5">

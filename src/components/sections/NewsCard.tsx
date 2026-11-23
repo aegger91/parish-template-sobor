@@ -29,7 +29,7 @@ export function NewsCard({ item, lang }: { item: NewsItem; lang: string }) {
           {cat ? <span className="eyebrow rounded-full bg-gold-200/60 px-2.5 py-0.5 text-gold-700">{tr(cat.name, lang)}</span> : null}
           <time dateTime={item.date} className="text-ink-muted">{formatIsoDate(item.date, lang)}</time>
         </p>
-        <h3 className="mt-3 text-[1.25rem] leading-snug text-green-800">
+        <h3 className="mt-3 text-[1.25rem] leading-normal text-green-800">
           <Link href={newsHref(lang, item)} className="hover:underline hover:decoration-gold-500 hover:underline-offset-4">
             {tr(item.title, lang)}
           </Link>

@@ -26,13 +26,14 @@
   --sobor-kinovar-soft: #f4dcd5;
   --sobor-black: #141414;
 
-  /* Font roles. Tradition fonts carry headings, buttons and ornaments; body stays readable. */
-  --font-role-display: "Monomakh", "Ponomar", "Old Standard TT", Georgia, serif;
-  --font-role-heading: "Ponomar", "Old Standard TT", Georgia, serif;
-  --font-role-button: "Ponomar", "Old Standard TT", Georgia, serif;
-  --font-role-ornament: "Monomakh", "Ponomar", Georgia, serif;
-  --font-role-body: "PT Serif", Georgia, "Times New Roman", serif;
-  --font-role-ui: "PT Serif", Georgia, serif;
+  /* Font roles. Tradition fonts carry headings, buttons and ornaments; body stays readable.
+     Noto Serif supplies Greek / Greek-ext (and Latin-ext fallback) when display fonts lack glyphs. */
+  --font-role-display: "Monomakh", "Ponomar", "Noto Serif", "Old Standard TT", Georgia, serif;
+  --font-role-heading: "Ponomar", "Noto Serif", "Old Standard TT", Georgia, serif;
+  --font-role-button: "Ponomar", "Noto Serif", "Old Standard TT", Georgia, serif;
+  --font-role-ornament: "Monomakh", "Ponomar", "Noto Serif", Georgia, serif;
+  --font-role-body: "PT Serif", "Noto Serif", Georgia, "Times New Roman", serif;
+  --font-role-ui: "PT Serif", "Noto Serif", Georgia, serif;
 
   /* Type scale (fluid) */
   --text-display: clamp(2.1rem, 1.3rem + 3.6vw, 4.6rem);

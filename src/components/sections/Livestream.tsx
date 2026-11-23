@@ -7,6 +7,7 @@ import { SectionShell } from "./SectionShell";
 import { LiveBadge } from "./Hero";
 import { DomeSkyline } from "@/components/sacred/Ornaments";
 import { CrossWithInscription } from "@/components/sacred/OrthodoxCross";
+import { ServiceRowButton } from "@/components/schedule/OccurrenceDetail";
 import { isLiveNow, nextServices, serviceInProgress, type ParishNow } from "@/lib/calendar";
 import { site } from "@/lib/content";
 import { relativeDay } from "@/lib/format";
@@ -62,10 +63,12 @@ function StreamStatus({ lang, now }: { lang: string; now: ParishNow | null }) {
           {!now
             ? [0, 1, 2].map((i) => <li key={i} className="h-5 animate-pulse rounded bg-cream-200" />)
             : upcoming.map((s) => (
-                <li key={s.id} className="flex gap-3">
-                  <span className="w-24 shrink-0 text-[0.88rem] text-ink-muted">{relativeDay(s.day, now.day, lang)}</span>
-                  <span className="w-14 shrink-0 tabular-nums text-green-700">{formatTime(s.time, lang)}</span>
-                  <span className="min-w-0">{tr(s.title, lang)}</span>
+                <li key={s.id}>
+                  <ServiceRowButton lang={lang} occurrence={s} className="flex gap-3 rounded-md px-1 py-0.5 hover:bg-cream-200/80">
+                    <span className="w-24 shrink-0 text-[0.88rem] text-ink-muted">{relativeDay(s.day, now.day, lang)}</span>
+                    <span className="w-14 shrink-0 tabular-nums text-green-700">{formatTime(s.time, lang)}</span>
+                    <span className="min-w-0">{tr(s.title, lang)}</span>
+                  </ServiceRowButton>
                 </li>
               ))}
         </ul>
