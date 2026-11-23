@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ExternalLink, Mail, MapPin, Phone } from "lucide-react";
 import { SealMark } from "@/components/brand/Logo";
-import { DomeSkyline, skylineHeight, OrnamentBand } from "@/components/sacred/Ornaments";
+import { FooterWave, footerWaveHeight, OrnamentBand } from "@/components/sacred/Ornaments";
 import { OrthodoxCross } from "@/components/sacred/OrthodoxCross";
 import { SwingingBell } from "@/components/sacred/Pictograms";
 import { Newsletter } from "./Newsletter";
@@ -23,7 +23,8 @@ export function SiteFooter({ lang }: { lang: string }) {
 
   return (
     <footer className="relative mt-16 text-cream-100">
-      <DomeSkyline className={`pointer-events-none relative z-[1] -mb-[2px] block w-full text-green-900 ${skylineHeight}`} />
+      {/* In-flow wave tucks 1px into the green body so the join never opens a cream seam */}
+      <FooterWave className={`relative z-[1] -mb-px block w-full ${footerWaveHeight}`} />
       <div className="relative bg-green-900">
         <OrnamentBand className="relative z-[1] text-gold-500/60" height={10} />
         {showNewsletter ? (

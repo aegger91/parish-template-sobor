@@ -39,31 +39,78 @@ export function KokoshnikDivider({ className }: { className?: string }) {
 export const skylineHeight = "h-[clamp(56px,11vw,160px)]";
 
 /** Inner-page banner ribbon height and matching bottom padding. */
-export const bannerRibbonHeight = "h-[clamp(36px,6vw,52px)]";
-export const bannerRibbonPad = "pb-[calc(clamp(36px,6vw,52px)+1.25rem)]";
+export const bannerRibbonHeight = "h-[clamp(36px,6vw,56px)]";
+export const bannerRibbonPad = "pb-[calc(clamp(36px,6vw,56px)+1.25rem)]";
 
 /**
- * Elegant ribbon edge for inner-page banners: cream band, gold double rule,
- * and a centered three-bar Orthodox cross. No buildings.
+ * Soft single full-width wave. Crest sits in the upper half of the viewBox so the
+ * fill always covers below the gold ribbon (no cream sliver between stroke and fill).
+ */
+const WAVE_CREST = "M0 22 C300 4, 540 4, 720 28 C900 52, 1140 52, 1440 20";
+const WAVE_FILL = `${WAVE_CREST} L1440 64 L0 64 Z`;
+
+export const footerWaveHeight = "h-[clamp(32px,5vw,52px)]";
+
+/**
+ * Full-width soft wave from the page background into the dark green footer.
+ * Gold ribbon rides just inside the green fill; no buildings or crosses.
+ */
+export function FooterWave({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 1440 64"
+      preserveAspectRatio="none"
+      className={cn("pointer-events-none block w-full text-green-900", className)}
+      aria-hidden
+    >
+      <path fill="currentColor" d={WAVE_FILL} />
+      {/* Stroke inset 1.5 units into the fill so antialias never opens a cream seam */}
+      <path
+        d={WAVE_CREST}
+        fill="none"
+        stroke="var(--sobor-gold-500)"
+        strokeWidth="2"
+        strokeLinecap="round"
+        vectorEffect="non-scaling-stroke"
+        transform="translate(0 1.5)"
+      />
+    </svg>
+  );
+}
+
+/**
+ * Inner-page banner edge: cream wave into the page, continuous gold ribbon on the crest.
+ * No centered cross or broken rule.
  */
 export function BannerRibbon({ className }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 1440 52"
+      viewBox="0 0 1440 64"
       preserveAspectRatio="none"
       className={cn("pointer-events-none absolute inset-x-0 bottom-0 z-0 block w-full text-cream-100", className)}
       aria-hidden
     >
-      <path fill="currentColor" d="M0 20c160 8 320 14 480 12s320-10 480-8 320 10 480 6v22H0z" />
-      <g fill="none" stroke="var(--sobor-gold-500)" strokeLinecap="round">
-        <path d="M48 28h648" strokeWidth="1.4" opacity="0.85" />
-        <path d="M48 32h648" strokeWidth="0.9" opacity="0.45" />
-        <path d="M744 28h648" strokeWidth="1.4" opacity="0.85" />
-        <path d="M744 32h648" strokeWidth="0.9" opacity="0.45" />
-      </g>
-      <g fill="var(--sobor-gold-400)">
-        <OrthodoxCross x={708} y={8} width={24} height={36} />
-      </g>
+      <path fill="currentColor" d={WAVE_FILL} />
+      <path
+        d={WAVE_CREST}
+        fill="none"
+        stroke="var(--sobor-gold-500)"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        vectorEffect="non-scaling-stroke"
+        transform="translate(0 1.5)"
+        opacity="0.95"
+      />
+      <path
+        d={WAVE_CREST}
+        fill="none"
+        stroke="var(--sobor-gold-400)"
+        strokeWidth="0.8"
+        strokeLinecap="round"
+        vectorEffect="non-scaling-stroke"
+        transform="translate(0 4)"
+        opacity="0.4"
+      />
     </svg>
   );
 }
