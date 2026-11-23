@@ -1,0 +1,104 @@
+{
+  "$schema": "./schema/clergy.schema.json",
+  "clergy": [
+    {
+      "id": "clergy-rector",
+      "initials": "НП",
+      "name": {
+        "en": "Archpriest Nicholas Example",
+        "ru": "Протоиерей Николай Примеров",
+        "uk": "Протоієрей Миколай Прикладов"
+      },
+      "role": {
+        "en": "Dean of the cathedral",
+        "ru": "Настоятель собора",
+        "uk": "Настоятель собору"
+      },
+      "shortBio": {
+        "en": "Sample profile. A short note goes here.",
+        "ru": "Пример профиля. Здесь будет краткая заметка.",
+        "uk": "Приклад профілю. Тут буде коротка примітка."
+      },
+      "bio": {
+        "en": "Sample biography. A few lines about this person go here.",
+        "ru": "Пример биографии. Здесь будет несколько строк о человеке.",
+        "uk": "Приклад біографії. Тут буде кілька рядків про людину."
+      },
+      "email": "dean@example.org"
+    },
+    {
+      "id": "clergy-priest",
+      "initials": "ПО",
+      "name": {
+        "en": "Priest Peter Sample",
+        "ru": "Иерей Петр Образцов",
+        "uk": "Ієрей Петро Зразков"
+      },
+      "role": {
+        "en": "Assistant priest",
+        "ru": "Клирик собора",
+        "uk": "Клірик собору"
+      },
+      "shortBio": {
+        "en": "Sample profile. A short note goes here.",
+        "ru": "Пример профиля. Здесь будет краткая заметка.",
+        "uk": "Приклад профілю. Тут буде коротка примітка."
+      },
+      "bio": {
+        "en": "Sample biography. A few lines about this person go here.",
+        "ru": "Пример биографии. Здесь будет несколько строк о человеке.",
+        "uk": "Приклад біографії. Тут буде кілька рядків про людину."
+      },
+      "email": "priest@example.org"
+    },
+    {
+      "id": "clergy-deacon",
+      "initials": "СП",
+      "name": {
+        "en": "Protodeacon Stephen Example",
+        "ru": "Протодиакон Стефан Примеров",
+        "uk": "Протодиякон Стефан Прикладов"
+      },
+      "role": {
+        "en": "Protodeacon",
+        "ru": "Протодиакон",
+        "uk": "Протодиякон"
+      },
+      "shortBio": {
+        "en": "Sample profile. A short note goes here.",
+        "ru": "Пример профиля. Здесь будет краткая заметка.",
+        "uk": "Приклад профілю. Тут буде коротка примітка."
+      },
+      "bio": {
+        "en": "Sample biography. A few lines about this person go here.",
+        "ru": "Пример биографии. Здесь будет несколько строк о человеке.",
+        "uk": "Приклад біографії. Тут буде кілька рядків про людину."
+      }
+    },
+    {
+      "id": "staff-choir",
+      "initials": "МО",
+      "name": {
+        "en": "Maria Sample",
+        "ru": "Мария Образцова",
+        "uk": "Марія Зразкова"
+      },
+      "role": {
+        "en": "Choir director (regent)",
+        "ru": "Регент хора",
+        "uk": "Регент хору"
+      },
+      "shortBio": {
+        "en": "Sample profile. A short note goes here.",
+        "ru": "Пример профиля. Здесь будет краткая заметка.",
+        "uk": "Приклад профілю. Тут буде коротка примітка."
+      },
+      "bio": {
+        "en": "Sample biography. A few lines about this person go here.",
+        "ru": "Пример биографии. Здесь будет несколько строк о человеке.",
+        "uk": "Приклад біографії. Тут буде кілька рядків про людину."
+      },
+      "email": "choir@example.org"
+    }
+  ]
+}

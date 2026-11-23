@@ -1,0 +1,438 @@
+{
+  "$schema": "./schema/connect.schema.json",
+  "eventCategories": [
+    {
+      "id": "education",
+      "name": {
+        "en": "Classes",
+        "ru": "Занятия",
+        "uk": "Заняття"
+      }
+    },
+    {
+      "id": "children",
+      "name": {
+        "en": "Children",
+        "ru": "Дети",
+        "uk": "Діти"
+      }
+    },
+    {
+      "id": "music",
+      "name": {
+        "en": "Music",
+        "ru": "Пение",
+        "uk": "Спів"
+      }
+    },
+    {
+      "id": "fellowship",
+      "name": {
+        "en": "Fellowship",
+        "ru": "Общение",
+        "uk": "Спілкування"
+      }
+    },
+    {
+      "id": "pilgrimage",
+      "name": {
+        "en": "Pilgrimage",
+        "ru": "Паломничество",
+        "uk": "Прочанство"
+      }
+    }
+  ],
+  "needCategories": [
+    {
+      "id": "coffee-hour",
+      "name": {
+        "en": "Coffee hour",
+        "ru": "Трапеза",
+        "uk": "Трапеза"
+      }
+    },
+    {
+      "id": "cleaning",
+      "name": {
+        "en": "Cleaning",
+        "ru": "Уборка",
+        "uk": "Прибирання"
+      }
+    },
+    {
+      "id": "choir",
+      "name": {
+        "en": "Choir",
+        "ru": "Хор",
+        "uk": "Хор"
+      }
+    },
+    {
+      "id": "food-drive",
+      "name": {
+        "en": "Food drive",
+        "ru": "Сбор продуктов",
+        "uk": "Збір продуктів"
+      }
+    },
+    {
+      "id": "meals",
+      "name": {
+        "en": "Meals for families",
+        "ru": "Обеды для семей",
+        "uk": "Обіди для родин"
+      }
+    }
+  ],
+  "events": [
+    {
+      "id": "oc-evt-catechism",
+      "title": {
+        "en": "Parish study evening (sample)",
+        "ru": "Приходской вечер (пример)",
+        "uk": "Парафіяльний вечір (приклад)"
+      },
+      "date": "2026-11-25",
+      "time": "19:30",
+      "endTime": "20:30",
+      "location": {
+        "en": "Parish hall",
+        "ru": "Приходской дом",
+        "uk": "Парафіяльний будинок"
+      },
+      "capacity": 30,
+      "signups": 12,
+      "organizer": {
+        "en": "Archpriest Nicholas Example",
+        "ru": "Протоиерей Николай Примеров",
+        "uk": "Протоієрей Миколай Прикладов"
+      },
+      "category": "education",
+      "description": {
+        "en": "Sample event. Details go here.",
+        "ru": "Пример события. Здесь будут подробности.",
+        "uk": "Приклад події. Тут будуть подробиці."
+      }
+    },
+    {
+      "id": "oc-evt-choir",
+      "title": {
+        "en": "Open choir rehearsal (sample)",
+        "ru": "Открытая спевка (пример)",
+        "uk": "Відкрита співанка (приклад)"
+      },
+      "date": "2026-12-03",
+      "time": "19:00",
+      "endTime": "20:30",
+      "location": {
+        "en": "Choir loft",
+        "ru": "Клирос",
+        "uk": "Крилос"
+      },
+      "capacity": 20,
+      "signups": 9,
+      "organizer": {
+        "en": "Maria Sample",
+        "ru": "Мария Образцова",
+        "uk": "Марія Зразкова"
+      },
+      "category": "music",
+      "description": {
+        "en": "Sample event. Details go here.",
+        "ru": "Пример события. Здесь будут подробности.",
+        "uk": "Приклад події. Тут будуть подробиці."
+      }
+    },
+    {
+      "id": "oc-evt-communion-talk",
+      "title": {
+        "en": "Parish talk (sample)",
+        "ru": "Приходская беседа (пример)",
+        "uk": "Парафіяльна бесіда (приклад)"
+      },
+      "date": "2026-12-06",
+      "time": "12:00",
+      "endTime": "13:00",
+      "location": {
+        "en": "Parish hall",
+        "ru": "Приходской дом",
+        "uk": "Парафіяльний будинок"
+      },
+      "capacity": 40,
+      "signups": 15,
+      "organizer": {
+        "en": "Priest Peter Sample",
+        "ru": "Иерей Петр Образцов",
+        "uk": "Ієрей Петро Зразков"
+      },
+      "category": "education",
+      "description": {
+        "en": "Sample event. Details go here.",
+        "ru": "Пример события. Здесь будут подробности.",
+        "uk": "Приклад події. Тут будуть подробиці."
+      }
+    },
+    {
+      "id": "oc-evt-st-nicholas",
+      "title": {
+        "en": "St. Nicholas Day for children (sample)",
+        "ru": "День святителя Николая для детей (пример)",
+        "uk": "День святителя Миколая для дітей (приклад)"
+      },
+      "date": "2026-12-19",
+      "time": "12:00",
+      "endTime": "14:00",
+      "location": {
+        "en": "Parish hall",
+        "ru": "Приходской дом",
+        "uk": "Парафіяльний будинок"
+      },
+      "capacity": 60,
+      "signups": 41,
+      "organizer": {
+        "en": "Church school",
+        "ru": "Воскресная школа",
+        "uk": "Недільна школа"
+      },
+      "category": "children",
+      "description": {
+        "en": "Sample event. Details go here.",
+        "ru": "Пример события. Здесь будут подробности.",
+        "uk": "Приклад події. Тут будуть подробиці."
+      }
+    },
+    {
+      "id": "oc-evt-carols",
+      "title": {
+        "en": "Nativity carol evening (sample)",
+        "ru": "Рождественские колядки (пример)",
+        "uk": "Різдвяні колядки (приклад)"
+      },
+      "date": "2027-01-09",
+      "time": "18:00",
+      "endTime": "20:00",
+      "location": {
+        "en": "Parish hall",
+        "ru": "Приходской дом",
+        "uk": "Парафіяльний будинок"
+      },
+      "capacity": 80,
+      "signups": 23,
+      "organizer": {
+        "en": "Sisterhood",
+        "ru": "Сестричество",
+        "uk": "Сестринство"
+      },
+      "category": "fellowship",
+      "description": {
+        "en": "Sample event. Details go here.",
+        "ru": "Пример события. Здесь будут подробности.",
+        "uk": "Приклад події. Тут будуть подробиці."
+      }
+    },
+    {
+      "id": "oc-evt-pilgrimage",
+      "title": {
+        "en": "Pilgrimage to a monastery (sample)",
+        "ru": "Паломничество в монастырь (пример)",
+        "uk": "Прочанство до монастиря (приклад)"
+      },
+      "date": "2027-01-23",
+      "time": "07:00",
+      "endTime": "19:00",
+      "location": {
+        "en": "Leaves from the church parking lot",
+        "ru": "Отправление от парковки храма",
+        "uk": "Відправлення від парковки храму"
+      },
+      "capacity": 25,
+      "signups": 25,
+      "organizer": {
+        "en": "Pilgrimage group",
+        "ru": "Паломническая группа",
+        "uk": "Прочанська група"
+      },
+      "category": "pilgrimage",
+      "description": {
+        "en": "Sample event. Details go here.",
+        "ru": "Пример события. Здесь будут подробности.",
+        "uk": "Приклад події. Тут будуть подробиці."
+      }
+    }
+  ],
+  "needs": [
+    {
+      "id": "oc-need-food-sort",
+      "title": {
+        "en": "Sort and deliver the food drive (sample)",
+        "ru": "Разобрать и развезти продукты (пример)",
+        "uk": "Розібрати й розвезти продукти (приклад)"
+      },
+      "date": "2026-11-28",
+      "time": "10:00",
+      "endTime": "12:00",
+      "location": {
+        "en": "Parish hall",
+        "ru": "Приходской дом",
+        "uk": "Парафіяльний будинок"
+      },
+      "capacity": 8,
+      "signups": 8,
+      "organizer": {
+        "en": "Charity committee",
+        "ru": "Социальный отдел",
+        "uk": "Соціальний відділ"
+      },
+      "category": "food-drive",
+      "description": {
+        "en": "Sample need. Details go here.",
+        "ru": "Пример просьбы. Здесь будут подробности.",
+        "uk": "Приклад потреби. Тут будуть подробиці."
+      }
+    },
+    {
+      "id": "oc-need-coffee-1",
+      "title": {
+        "en": "Coffee hour hosts (sample)",
+        "ru": "Дежурные на трапезе (пример)",
+        "uk": "Чергові на трапезі (приклад)"
+      },
+      "date": "2026-11-29",
+      "time": "11:30",
+      "endTime": "13:00",
+      "location": {
+        "en": "Parish hall",
+        "ru": "Приходской дом",
+        "uk": "Парафіяльний будинок"
+      },
+      "capacity": 4,
+      "signups": 2,
+      "organizer": {
+        "en": "Sisterhood",
+        "ru": "Сестричество",
+        "uk": "Сестринство"
+      },
+      "category": "coffee-hour",
+      "description": {
+        "en": "Sample need. Details go here.",
+        "ru": "Пример просьбы. Здесь будут подробности.",
+        "uk": "Приклад потреби. Тут будуть подробиці."
+      }
+    },
+    {
+      "id": "oc-need-meals",
+      "title": {
+        "en": "Meals for a family with a new baby (sample)",
+        "ru": "Обеды для семьи с новорождённым (пример)",
+        "uk": "Обіди для родини з немовлям (приклад)"
+      },
+      "date": "2026-12-01",
+      "time": "17:00",
+      "location": {
+        "en": "Delivered to the family's home",
+        "ru": "Доставка на дом",
+        "uk": "Доставка додому"
+      },
+      "capacity": 7,
+      "signups": 4,
+      "organizer": {
+        "en": "Sisterhood",
+        "ru": "Сестричество",
+        "uk": "Сестринство"
+      },
+      "category": "meals",
+      "description": {
+        "en": "Sample need. Details go here.",
+        "ru": "Пример просьбы. Здесь будут подробности.",
+        "uk": "Приклад потреби. Тут будуть подробиці."
+      }
+    },
+    {
+      "id": "oc-need-coffee-2",
+      "title": {
+        "en": "Coffee hour hosts (sample)",
+        "ru": "Дежурные на трапезе (пример)",
+        "uk": "Чергові на трапезі (приклад)"
+      },
+      "date": "2026-12-06",
+      "time": "11:30",
+      "endTime": "13:00",
+      "location": {
+        "en": "Parish hall",
+        "ru": "Приходской дом",
+        "uk": "Парафіяльний будинок"
+      },
+      "capacity": 4,
+      "signups": 0,
+      "organizer": {
+        "en": "Sisterhood",
+        "ru": "Сестричество",
+        "uk": "Сестринство"
+      },
+      "category": "coffee-hour",
+      "description": {
+        "en": "Sample need. Details go here.",
+        "ru": "Пример просьбы. Здесь будут подробности.",
+        "uk": "Приклад потреби. Тут будуть подробиці."
+      }
+    },
+    {
+      "id": "oc-need-tenors",
+      "title": {
+        "en": "Tenors for the Nativity services (sample)",
+        "ru": "Тенора на Рождество (пример)",
+        "uk": "Тенори на Різдво (приклад)"
+      },
+      "date": "2026-12-10",
+      "time": "19:00",
+      "endTime": "20:30",
+      "location": {
+        "en": "Choir loft",
+        "ru": "Клирос",
+        "uk": "Крилос"
+      },
+      "capacity": 4,
+      "signups": 1,
+      "organizer": {
+        "en": "Maria Sample",
+        "ru": "Мария Образцова",
+        "uk": "Марія Зразкова"
+      },
+      "category": "choir",
+      "description": {
+        "en": "Sample need. Details go here.",
+        "ru": "Пример просьбы. Здесь будут подробности.",
+        "uk": "Приклад потреби. Тут будуть подробиці."
+      }
+    },
+    {
+      "id": "oc-need-cleaning",
+      "title": {
+        "en": "Clean the church before the Nativity (sample)",
+        "ru": "Уборка храма перед Рождеством (пример)",
+        "uk": "Прибирання храму перед Різдвом (приклад)"
+      },
+      "date": "2027-01-03",
+      "time": "10:00",
+      "endTime": "13:00",
+      "location": {
+        "en": "Cathedral",
+        "ru": "Собор",
+        "uk": "Собор"
+      },
+      "capacity": 10,
+      "signups": 3,
+      "organizer": {
+        "en": "Church warden",
+        "ru": "Староста",
+        "uk": "Староста"
+      },
+      "category": "cleaning",
+      "description": {
+        "en": "Sample need. Details go here.",
+        "ru": "Пример просьбы. Здесь будут подробности.",
+        "uk": "Приклад потреби. Тут будуть подробиці."
+      }
+    }
+  ]
+}

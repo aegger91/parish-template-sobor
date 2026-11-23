@@ -1,0 +1,143 @@
+{
+  "$schema": "./schema/sermons.schema.json",
+  "sermons": [
+    {
+      "id": "sermon-entry",
+      "date": "2025-12-04",
+      "type": "video",
+      "durationMinutes": 14,
+      "title": {
+        "en": "The Entry of the Theotokos (sample)",
+        "ru": "Введение во храм (пример)",
+        "uk": "Введення в храм (приклад)"
+      },
+      "preacher": {
+        "en": "Archpriest Nicholas Example",
+        "ru": "Протоиерей Николай Примеров",
+        "uk": "Протоієрей Миколай Прикладов"
+      },
+      "scripture": {
+        "en": "Luke 10:38-42; 11:27-28",
+        "ru": "Лк. 10:38-42; 11:27-28",
+        "uk": "Лк. 10:38-42; 11:27-28"
+      },
+      "summary": {
+        "en": "Sample sermon. Summary goes here.",
+        "ru": "Пример проповеди. Здесь будет краткое содержание.",
+        "uk": "Приклад проповіді. Тут буде короткий зміст."
+      },
+      "mediaUrl": ""
+    },
+    {
+      "id": "sermon-rich-man",
+      "date": "2026-11-15",
+      "type": "audio",
+      "durationMinutes": 11,
+      "title": {
+        "en": "Rich toward God (sample)",
+        "ru": "Богатеть в Бога (пример)",
+        "uk": "Багатіти в Бога (приклад)"
+      },
+      "preacher": {
+        "en": "Priest Peter Sample",
+        "ru": "Иерей Петр Образцов",
+        "uk": "Ієрей Петро Зразков"
+      },
+      "scripture": {
+        "en": "Luke 12:16-21",
+        "ru": "Лк. 12:16-21",
+        "uk": "Лк. 12:16-21"
+      },
+      "summary": {
+        "en": "Sample sermon. Summary goes here.",
+        "ru": "Пример проповеди. Здесь будет краткое содержание.",
+        "uk": "Приклад проповіді. Тут буде короткий зміст."
+      },
+      "mediaUrl": ""
+    },
+    {
+      "id": "sermon-samaritan",
+      "date": "2026-11-08",
+      "type": "text",
+      "title": {
+        "en": "Who is my neighbor? (sample)",
+        "ru": "Кто мой ближний? (пример)",
+        "uk": "Хто мій ближній? (приклад)"
+      },
+      "preacher": {
+        "en": "Archpriest Nicholas Example",
+        "ru": "Протоиерей Николай Примеров",
+        "uk": "Протоієрей Миколай Прикладов"
+      },
+      "scripture": {
+        "en": "Luke 10:25-37",
+        "ru": "Лк. 10:25-37",
+        "uk": "Лк. 10:25-37"
+      },
+      "summary": {
+        "en": "Sample sermon. Summary goes here.",
+        "ru": "Пример проповеди. Здесь будет краткое содержание.",
+        "uk": "Приклад проповіді. Тут буде короткий зміст."
+      },
+      "text": {
+        "en": "Sermon text goes here.",
+        "ru": "Здесь будет текст проповеди.",
+        "uk": "Тут буде текст проповіді."
+      }
+    },
+    {
+      "id": "sermon-jairus",
+      "date": "2026-10-25",
+      "type": "audio",
+      "durationMinutes": 9,
+      "title": {
+        "en": "Do not be afraid, only believe (sample)",
+        "ru": "Не бойся, только веруй (пример)",
+        "uk": "Не бійся, тільки віруй (приклад)"
+      },
+      "preacher": {
+        "en": "Priest Peter Sample",
+        "ru": "Иерей Петр Образцов",
+        "uk": "Ієрей Петро Зразков"
+      },
+      "scripture": {
+        "en": "Luke 8:41-56",
+        "ru": "Лк. 8:41-56",
+        "uk": "Лк. 8:41-56"
+      },
+      "summary": {
+        "en": "Sample sermon. Summary goes here.",
+        "ru": "Пример проповеди. Здесь будет краткое содержание.",
+        "uk": "Приклад проповіді. Тут буде короткий зміст."
+      },
+      "mediaUrl": ""
+    },
+    {
+      "id": "sermon-sower",
+      "date": "2026-10-18",
+      "type": "video",
+      "durationMinutes": 16,
+      "title": {
+        "en": "The sower and the seed (sample)",
+        "ru": "Сеятель и семя (пример)",
+        "uk": "Сіяч і зерно (приклад)"
+      },
+      "preacher": {
+        "en": "Archpriest Nicholas Example",
+        "ru": "Протоиерей Николай Примеров",
+        "uk": "Протоієрей Миколай Прикладов"
+      },
+      "scripture": {
+        "en": "Luke 8:5-15",
+        "ru": "Лк. 8:5-15",
+        "uk": "Лк. 8:5-15"
+      },
+      "summary": {
+        "en": "Sample sermon. Summary goes here.",
+        "ru": "Пример проповеди. Здесь будет краткое содержание.",
+        "uk": "Приклад проповіді. Тут буде короткий зміст."
+      },
+      "mediaUrl": ""
+    }
+  ]
+}

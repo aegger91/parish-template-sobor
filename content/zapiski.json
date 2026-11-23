@@ -1,0 +1,246 @@
+{
+  "$schema": "./schema/zapiski.schema.json",
+  "maxNames": 10,
+  "retentionDays": 45,
+  "noteTypes": [
+    {
+      "id": "health",
+      "label": {
+        "en": "For Health",
+        "ru": "О здравии",
+        "uk": "За здоров'я"
+      },
+      "slipHeading": {
+        "en": "For Health",
+        "ru": "О здравии",
+        "uk": "За здоров'я"
+      }
+    },
+    {
+      "id": "repose",
+      "label": {
+        "en": "For the Repose",
+        "ru": "Об упокоении",
+        "uk": "За упокій"
+      },
+      "slipHeading": {
+        "en": "For the Repose",
+        "ru": "Об упокоении",
+        "uk": "За упокій"
+      }
+    }
+  ],
+  "commemorations": [
+    {
+      "id": "proskomedia",
+      "label": {
+        "en": "Proskomedia",
+        "ru": "Проскомидия",
+        "uk": "Проскомидія"
+      },
+      "suggestedDonation": 5,
+      "appliesTo": [
+        "health",
+        "repose"
+      ]
+    },
+    {
+      "id": "liturgy",
+      "label": {
+        "en": "At the Liturgy",
+        "ru": "Обедня (на ектении)",
+        "uk": "Обідня (на єктенії)"
+      },
+      "suggestedDonation": 3,
+      "appliesTo": [
+        "health",
+        "repose"
+      ]
+    },
+    {
+      "id": "moleben",
+      "label": {
+        "en": "Moleben",
+        "ru": "Молебен",
+        "uk": "Молебень"
+      },
+      "suggestedDonation": 5,
+      "appliesTo": [
+        "health"
+      ]
+    },
+    {
+      "id": "panikhida",
+      "label": {
+        "en": "Panikhida",
+        "ru": "Панихида",
+        "uk": "Панахида"
+      },
+      "suggestedDonation": 5,
+      "appliesTo": [
+        "repose"
+      ]
+    },
+    {
+      "id": "sorokoust",
+      "label": {
+        "en": "Sorokoust (40 days)",
+        "ru": "Сорокоуст",
+        "uk": "Сорокоуст"
+      },
+      "suggestedDonation": 40,
+      "appliesTo": [
+        "health",
+        "repose"
+      ]
+    }
+  ],
+  "prefixes": [
+    {
+      "id": "infant",
+      "label": {
+        "en": "Infant (under 7)",
+        "ru": "Младенец (до 7 лет)",
+        "uk": "Немовля (до 7 років)"
+      },
+      "slipText": {
+        "en": "infant",
+        "ru": "мл.",
+        "uk": "мл."
+      },
+      "appliesTo": [
+        "health",
+        "repose"
+      ]
+    },
+    {
+      "id": "child",
+      "label": {
+        "en": "Child (7 to 14)",
+        "ru": "Отрок, отроковица (7-14 лет)",
+        "uk": "Отрок, отроковиця (7-14 років)"
+      },
+      "slipText": {
+        "en": "child",
+        "ru": "отр.",
+        "uk": "отр."
+      },
+      "appliesTo": [
+        "health",
+        "repose"
+      ]
+    },
+    {
+      "id": "sick",
+      "label": {
+        "en": "Sick",
+        "ru": "Болящий",
+        "uk": "Недужий"
+      },
+      "slipText": {
+        "en": "sick",
+        "ru": "бол.",
+        "uk": "бол."
+      },
+      "appliesTo": [
+        "health"
+      ]
+    },
+    {
+      "id": "newly-departed",
+      "label": {
+        "en": "Newly departed (first 40 days)",
+        "ru": "Новопреставленный (до 40 дней)",
+        "uk": "Новопреставлений (до 40 днів)"
+      },
+      "slipText": {
+        "en": "newly departed",
+        "ru": "нпр.",
+        "uk": "нпр."
+      },
+      "appliesTo": [
+        "repose"
+      ]
+    },
+    {
+      "id": "priest",
+      "label": {
+        "en": "Priest",
+        "ru": "Иерей",
+        "uk": "Ієрей"
+      },
+      "slipText": {
+        "en": "Priest",
+        "ru": "иер.",
+        "uk": "ієр."
+      },
+      "appliesTo": [
+        "health",
+        "repose"
+      ]
+    },
+    {
+      "id": "deacon",
+      "label": {
+        "en": "Deacon",
+        "ru": "Диакон",
+        "uk": "Диякон"
+      },
+      "slipText": {
+        "en": "Deacon",
+        "ru": "диак.",
+        "uk": "дияк."
+      },
+      "appliesTo": [
+        "health",
+        "repose"
+      ]
+    },
+    {
+      "id": "monastic",
+      "label": {
+        "en": "Monk or nun",
+        "ru": "Монах, монахиня",
+        "uk": "Монах, черниця"
+      },
+      "slipText": {
+        "en": "Monastic",
+        "ru": "мон.",
+        "uk": "мон."
+      },
+      "appliesTo": [
+        "health",
+        "repose"
+      ]
+    }
+  ],
+  "candles": [
+    {
+      "id": "candle-small",
+      "label": {
+        "en": "Small candle",
+        "ru": "Малая свеча",
+        "uk": "Мала свічка"
+      },
+      "price": 1
+    },
+    {
+      "id": "candle-medium",
+      "label": {
+        "en": "Medium candle",
+        "ru": "Средняя свеча",
+        "uk": "Середня свічка"
+      },
+      "price": 3
+    },
+    {
+      "id": "candle-large",
+      "label": {
+        "en": "Large candle",
+        "ru": "Большая свеча",
+        "uk": "Велика свічка"
+      },
+      "price": 5
+    }
+  ]
+}

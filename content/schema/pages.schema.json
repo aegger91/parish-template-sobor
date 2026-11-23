@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pages.schema.json",
+  "title": "Pages and menu",
+  "description": "The page tree. Order here is menu order. Children become dropdowns and subpages.",
+  "$defs": {
+    "page": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "slug",
+        "title",
+        "enabled",
+        "showInNav",
+        "sections"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/id",
+          "description": "Stable id. Never change it after publishing; links and translations rely on it."
+        },
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]*$",
+          "description": "URL part. Empty for the home page."
+        },
+        "title": {
+          "$ref": "common.schema.json#/$defs/text"
+        },
+        "navTitle": {
+          "$ref": "common.schema.json#/$defs/text",
+          "description": "Shorter title for the menu."
+        },
+        "description": {
+          "$ref": "common.schema.json#/$defs/text"
+        },
+        "icon": {
+          "type": "string",
+          "description": "Pictogram for cards linking to this page: church, chalice, censer, candle, prayer-rope, gospel, icon-frame, bells, slip, calendar-feast and others."
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "showInNav": {
+          "type": "boolean"
+        },
+        "requiresModule": {
+          "enum": [
+            "livestream",
+            "store",
+            "requestService",
+            "zapiski",
+            "getInvolved"
+          ],
+          "description": "Page only exists when this module is on."
+        },
+        "navGroupOnly": {
+          "type": "boolean",
+          "description": "Menu opens the group instead of linking to this page."
+        },
+        "collection": {
+          "enum": [
+            "news",
+            "products"
+          ],
+          "description": "Also build one page per news post or product under this page."
+        },
+        "sections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "common.schema.json#/$defs/id",
+                "description": "Stable id. Never change it after publishing; links and translations rely on it."
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "hero",
+                  "welcome",
+                  "rich-text",
+                  "subpage-cards",
+                  "parish-life",
+                  "news-latest",
+                  "news-list",
+                  "week-glance",
+                  "schedule",
+                  "clergy-grid",
+                  "timeline",
+                  "gallery",
+                  "livestream",
+                  "livestream-teaser",
+                  "sermons",
+                  "events",
+                  "events-preview",
+                  "needs",
+                  "needs-preview",
+                  "service-requests",
+                  "zapiski",
+                  "store",
+                  "cart",
+                  "checkout",
+                  "donate",
+                  "donate-band",
+                  "contact",
+                  "visit",
+                  "credits"
+                ],
+                "description": "Which section to show. Any section can go on any page."
+              },
+              "enabled": {
+                "type": "boolean",
+                "description": "Hide the section without deleting it."
+              },
+              "title": {
+                "$ref": "common.schema.json#/$defs/text",
+                "description": "Section heading."
+              },
+              "intro": {
+                "$ref": "common.schema.json#/$defs/text",
+                "description": "Short text under the heading."
+              },
+              "stickyHeader": {
+                "type": "boolean",
+                "description": "Keep the section heading pinned while scrolling through it."
+              },
+              "props": {
+                "type": "object",
+                "description": "Extra settings: limit (number of items) for previews, body (text) for rich-text."
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "type",
+              "enabled"
+            ]
+          },
+          "description": "Sections in display order. Reorder to change the page."
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/page"
+          },
+          "description": "Subpages. Nest as deep as needed."
+        }
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "pages": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/page"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "pages"
+  ]
+}

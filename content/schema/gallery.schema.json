@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "gallery.schema.json",
+  "title": "Photo gallery",
+  "description": "Albums and photos. Thumbnails should be about 640 pixels wide.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "albums": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "Stable id. Never change it after publishing; links and translations rely on it."
+          },
+          "name": {
+            "$ref": "common.schema.json#/$defs/text"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name"
+        ]
+      }
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "Stable id. Never change it after publishing; links and translations rely on it."
+          },
+          "album": {
+            "type": "string",
+            "description": "Album id."
+          },
+          "src": {
+            "type": "string",
+            "description": "Path under /public, for example /images/photos/church.jpg, or a full URL."
+          },
+          "thumb": {
+            "type": "string",
+            "description": "Path under /public, for example /images/photos/church.jpg, or a full URL."
+          },
+          "width": {
+            "type": "integer"
+          },
+          "height": {
+            "type": "integer"
+          },
+          "credit": {
+            "type": "string",
+            "description": "Author and license."
+          },
+          "caption": {
+            "$ref": "common.schema.json#/$defs/text"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "album",
+          "src",
+          "thumb",
+          "width",
+          "height",
+          "credit",
+          "caption"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "albums",
+    "items"
+  ]
+}

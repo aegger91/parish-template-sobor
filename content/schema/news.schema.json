@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "news.schema.json",
+  "title": "News",
+  "description": "Categories and posts. Each post gets its own page.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "Stable id. Never change it after publishing; links and translations rely on it."
+          },
+          "name": {
+            "$ref": "common.schema.json#/$defs/text"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name"
+        ]
+      }
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "Stable id. Never change it after publishing; links and translations rely on it."
+          },
+          "slug": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$",
+            "description": "URL part of the post page."
+          },
+          "date": {
+            "$ref": "common.schema.json#/$defs/date"
+          },
+          "category": {
+            "type": "string"
+          },
+          "title": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "excerpt": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "body": {
+            "$ref": "common.schema.json#/$defs/text",
+            "description": "Blank lines start new paragraphs."
+          },
+          "image": {
+            "type": "string",
+            "description": "Path under /public, for example /images/photos/church.jpg, or a full URL."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "slug",
+          "date",
+          "category",
+          "title",
+          "excerpt",
+          "body"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "categories",
+    "items"
+  ]
+}

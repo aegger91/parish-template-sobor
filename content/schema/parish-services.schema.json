@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "parish-services.schema.json",
+  "title": "Request a Service",
+  "description": "Cards on the Request a Service page.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "services": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "Stable id. Never change it after publishing; links and translations rely on it."
+          },
+          "illustration": {
+            "type": "string",
+            "description": "Pictogram name: font, chrism, analoy, crowns, unction, blessing, kanun, slip, moleben, gospel and others."
+          },
+          "title": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "subtitle": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "description": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "price": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "enum": [
+                  "free",
+                  "donation"
+                ]
+              },
+              "suggested": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Amount in the site currency (site.json currency)."
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "kind"
+            ]
+          },
+          "duration": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "routeTo": {
+            "enum": [
+              "priest",
+              "office"
+            ],
+            "description": "Who receives the request."
+          },
+          "action": {
+            "enum": [
+              "form",
+              "link"
+            ],
+            "description": "form opens the request form. link goes to href."
+          },
+          "href": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "illustration",
+          "title",
+          "description",
+          "price",
+          "duration",
+          "routeTo",
+          "action"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "services"
+  ]
+}
