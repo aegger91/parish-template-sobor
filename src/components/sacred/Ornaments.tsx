@@ -38,6 +38,11 @@ export function KokoshnikDivider({ className }: { className?: string }) {
 
 export const skylineHeight = "h-[clamp(52px,12.9vw,186px)]";
 
+/** Inner-page banner skyline: shorter than the home hero, scales with the viewport. */
+export const bannerSkylineHeight = "h-[clamp(48px,9vw,112px)]";
+/** Bottom padding that keeps banner title, divider and subtitle fully above the skyline. */
+export const bannerSkylinePad = "pb-[calc(clamp(48px,9vw,112px)+2.25rem)]";
+
 function onion(cx: number, by: number, w: number, h: number) {
   const L = (fx: number) => cx - w * fx, R = (fx: number) => cx + w * fx;
   return (
