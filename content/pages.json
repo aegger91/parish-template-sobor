@@ -1,0 +1,703 @@
+{
+  "$schema": "./schema/pages.schema.json",
+  "pages": [
+    {
+      "id": "home",
+      "slug": "",
+      "title": {
+        "en": "Home",
+        "ru": "Главная",
+        "uk": "Головна"
+      },
+      "description": {
+        "en": "Sample parish website: St. Example Russian Orthodox Cathedral.",
+        "ru": "Образец сайта прихода: русский православный собор святого Примера.",
+        "uk": "Зразок сайту парафії: російський православний собор святого Прикладу."
+      },
+      "enabled": true,
+      "showInNav": true,
+      "sections": [
+        {
+          "id": "home-hero",
+          "type": "hero",
+          "enabled": true
+        },
+        {
+          "id": "home-welcome",
+          "type": "welcome",
+          "enabled": true,
+          "title": {
+            "en": "Welcome",
+            "ru": "Добро пожаловать",
+            "uk": "Ласкаво просимо"
+          },
+          "intro": {
+            "en": "Welcome text goes here. One or two lines about the parish.",
+            "ru": "Здесь будет приветствие. Одна-две строки о приходе.",
+            "uk": "Тут буде привітання. Один-два рядки про парафію."
+          }
+        },
+        {
+          "id": "home-week",
+          "type": "week-glance",
+          "enabled": true,
+          "stickyHeader": true,
+          "title": {
+            "en": "This week at the cathedral",
+            "ru": "Богослужения на этой неделе",
+            "uk": "Богослужіння цього тижня"
+          }
+        },
+        {
+          "id": "home-parish-life",
+          "type": "parish-life",
+          "enabled": true,
+          "title": {
+            "en": "Parish life online",
+            "ru": "Приход онлайн",
+            "uk": "Парафія онлайн"
+          },
+          "intro": {
+            "en": "Send names for commemoration, ask for a service, find a volunteer slot or visit the church shop.",
+            "ru": "Подайте записку, попросите о требе, запишитесь помогать или загляните в церковную лавку.",
+            "uk": "Подайте записку, попросіть про требу, запишіться допомагати або завітайте до церковної крамниці."
+          }
+        },
+        {
+          "id": "home-news",
+          "type": "news-latest",
+          "enabled": true,
+          "title": {
+            "en": "Parish news",
+            "ru": "Новости прихода",
+            "uk": "Новини парафії"
+          },
+          "props": {
+            "limit": 3
+          }
+        },
+        {
+          "id": "home-livestream",
+          "type": "livestream-teaser",
+          "enabled": true,
+          "title": {
+            "en": "Pray with us from home",
+            "ru": "Молитесь с нами из дома",
+            "uk": "Моліться з нами з дому"
+          }
+        },
+        {
+          "id": "home-events",
+          "type": "events-preview",
+          "enabled": true,
+          "title": {
+            "en": "Coming up",
+            "ru": "Ближайшие события",
+            "uk": "Найближчі події"
+          },
+          "props": {
+            "limit": 3
+          }
+        },
+        {
+          "id": "home-donate",
+          "type": "donate-band",
+          "enabled": true
+        },
+        {
+          "id": "home-visit",
+          "type": "visit",
+          "enabled": true,
+          "title": {
+            "en": "Visit the cathedral",
+            "ru": "Как добраться",
+            "uk": "Як дістатися"
+          }
+        }
+      ]
+    },
+    {
+      "id": "our-parish",
+      "slug": "our-parish",
+      "title": {
+        "en": "Our Parish",
+        "ru": "Наш приход",
+        "uk": "Наша парафія"
+      },
+      "navTitle": {
+        "en": "About the parish",
+        "ru": "О приходе",
+        "uk": "Про парафію"
+      },
+      "description": {
+        "en": "Who we are, our clergy, our history and our life together.",
+        "ru": "Кто мы, наше духовенство, история и жизнь прихода.",
+        "uk": "Хто ми, наше духовенство, історія та життя парафії."
+      },
+      "enabled": true,
+      "showInNav": true,
+      "sections": [
+        {
+          "id": "parish-about",
+          "type": "rich-text",
+          "enabled": true,
+          "title": {
+            "en": "About us",
+            "ru": "О нас",
+            "uk": "Про нас"
+          },
+          "props": {
+            "body": {
+              "en": "About us text goes here. A few lines about the parish and its people.",
+              "ru": "Здесь будет текст о приходе. Несколько строк о приходе и прихожанах.",
+              "uk": "Тут буде текст про парафію. Кілька рядків про парафію та парафіян."
+            }
+          }
+        },
+        {
+          "id": "parish-subpages",
+          "type": "subpage-cards",
+          "enabled": true,
+          "title": {
+            "en": "Learn more",
+            "ru": "Подробнее",
+            "uk": "Докладніше"
+          }
+        }
+      ],
+      "children": [
+        {
+          "id": "clergy",
+          "slug": "clergy",
+          "title": {
+            "en": "Clergy",
+            "ru": "Духовенство",
+            "uk": "Духовенство"
+          },
+          "description": {
+            "en": "The priests and deacons who serve at the cathedral. Sample profiles.",
+            "ru": "Священники и диаконы собора. Примеры анкет.",
+            "uk": "Священики та диякони собору. Приклади анкет."
+          },
+          "enabled": true,
+          "showInNav": true,
+          "sections": [
+            {
+              "id": "clergy-grid",
+              "type": "clergy-grid",
+              "enabled": true
+            }
+          ]
+        },
+        {
+          "id": "history",
+          "slug": "history",
+          "title": {
+            "en": "History",
+            "ru": "История",
+            "uk": "Історія"
+          },
+          "description": {
+            "en": "How the parish grew, from a house church to a cathedral. Sample timeline.",
+            "ru": "Как рос приход: от домовой церкви до собора. Пример летописи.",
+            "uk": "Як зростала парафія: від домової церкви до собору. Приклад літопису."
+          },
+          "enabled": true,
+          "showInNav": true,
+          "sections": [
+            {
+              "id": "history-timeline",
+              "type": "timeline",
+              "enabled": true,
+              "stickyHeader": true,
+              "title": {
+                "en": "Parish chronicle",
+                "ru": "Летопись прихода",
+                "uk": "Літопис парафії"
+              }
+            }
+          ]
+        },
+        {
+          "id": "gallery",
+          "slug": "gallery",
+          "title": {
+            "en": "Gallery",
+            "ru": "Фотогалерея",
+            "uk": "Фотогалерея"
+          },
+          "description": {
+            "en": "Placeholder photographs from public domain archives. Replace them with your own.",
+            "ru": "Фотографии для примера из общественного достояния. Замените их своими.",
+            "uk": "Фотографії для прикладу із суспільного надбання. Замініть їх своїми."
+          },
+          "enabled": true,
+          "showInNav": true,
+          "sections": [
+            {
+              "id": "gallery-grid",
+              "type": "gallery",
+              "enabled": true
+            }
+          ]
+        },
+        {
+          "id": "news",
+          "slug": "news",
+          "title": {
+            "en": "News",
+            "ru": "Новости",
+            "uk": "Новини"
+          },
+          "description": {
+            "en": "Announcements and stories from parish life. Sample posts.",
+            "ru": "Объявления и рассказы о жизни прихода. Примеры записей.",
+            "uk": "Оголошення та розповіді про життя парафії. Приклади дописів."
+          },
+          "enabled": true,
+          "showInNav": true,
+          "collection": "news",
+          "sections": [
+            {
+              "id": "news-list",
+              "type": "news-list",
+              "enabled": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "services",
+      "slug": "services",
+      "title": {
+        "en": "Services",
+        "ru": "Богослужения",
+        "uk": "Богослужіння"
+      },
+      "navTitle": {
+        "en": "Services overview",
+        "ru": "Обзор",
+        "uk": "Огляд"
+      },
+      "description": {
+        "en": "Service times, requests for sacraments and prayers, and commemoration notes.",
+        "ru": "Расписание, требы и записки о поминовении.",
+        "uk": "Розклад, треби та записки про поминання."
+      },
+      "enabled": true,
+      "showInNav": true,
+      "sections": [
+        {
+          "id": "services-cards",
+          "type": "subpage-cards",
+          "enabled": true,
+          "title": {
+            "en": "How can we help?",
+            "ru": "Чем мы можем помочь?",
+            "uk": "Чим ми можемо допомогти?"
+          }
+        },
+        {
+          "id": "services-week",
+          "type": "week-glance",
+          "enabled": true,
+          "stickyHeader": true,
+          "title": {
+            "en": "This week",
+            "ru": "На этой неделе",
+            "uk": "Цього тижня"
+          }
+        }
+      ],
+      "children": [
+        {
+          "id": "schedule",
+          "slug": "schedule",
+          "title": {
+            "en": "Schedule",
+            "ru": "Расписание",
+            "uk": "Розклад"
+          },
+          "description": {
+            "en": "Weekly and monthly service times with the feasts of the Church.",
+            "ru": "Расписание на неделю и месяц с праздниками Церкви.",
+            "uk": "Розклад на тиждень і місяць зі святами Церкви."
+          },
+          "enabled": true,
+          "showInNav": true,
+          "sections": [
+            {
+              "id": "schedule-main",
+              "type": "schedule",
+              "enabled": true,
+              "stickyHeader": true,
+              "title": {
+                "en": "Divine services",
+                "ru": "Богослужения",
+                "uk": "Богослужіння"
+              }
+            }
+          ]
+        },
+        {
+          "id": "request-a-service",
+          "slug": "request-a-service",
+          "title": {
+            "en": "Request a Service",
+            "ru": "Заказать требу",
+            "uk": "Замовити требу"
+          },
+          "description": {
+            "en": "Ask the priest or the parish office for a sacrament, a prayer service or a blessing.",
+            "ru": "Обратитесь к священнику или в канцелярию о таинстве, молебне или освящении.",
+            "uk": "Зверніться до священика або до канцелярії щодо таїнства, молебню чи освячення."
+          },
+          "enabled": true,
+          "showInNav": true,
+          "requiresModule": "requestService",
+          "sections": [
+            {
+              "id": "request-grid",
+              "type": "service-requests",
+              "enabled": true
+            }
+          ]
+        },
+        {
+          "id": "zapiski",
+          "slug": "zapiski-and-candles",
+          "title": {
+            "en": "Zapiski and Candles",
+            "ru": "Записки и свечи",
+            "uk": "Записки та свічки"
+          },
+          "description": {
+            "en": "Send names to be commemorated at the altar and ask us to light a candle for them.",
+            "ru": "Подайте имена для поминовения в алтаре и попросите поставить свечу.",
+            "uk": "Подайте імена для поминання у вівтарі та попросіть поставити свічку."
+          },
+          "enabled": true,
+          "showInNav": true,
+          "requiresModule": "zapiski",
+          "sections": [
+            {
+              "id": "zapiski-builder",
+              "type": "zapiski",
+              "enabled": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "livestream",
+      "slug": "livestream-sermons",
+      "title": {
+        "en": "Livestream & Sermons",
+        "ru": "Трансляции и проповеди",
+        "uk": "Трансляції та проповіді"
+      },
+      "navTitle": {
+        "en": "Livestream",
+        "ru": "Трансляции",
+        "uk": "Трансляції"
+      },
+      "description": {
+        "en": "Watch the services live and listen to recent sermons.",
+        "ru": "Смотрите богослужения в прямом эфире и слушайте проповеди.",
+        "uk": "Дивіться богослужіння наживо та слухайте проповіді."
+      },
+      "enabled": true,
+      "showInNav": true,
+      "requiresModule": "livestream",
+      "sections": [
+        {
+          "id": "livestream-player",
+          "type": "livestream",
+          "enabled": true
+        },
+        {
+          "id": "sermon-archive",
+          "type": "sermons",
+          "enabled": true,
+          "stickyHeader": true,
+          "title": {
+            "en": "Sermon archive",
+            "ru": "Архив проповедей",
+            "uk": "Архів проповідей"
+          }
+        }
+      ]
+    },
+    {
+      "id": "get-involved",
+      "slug": "get-involved",
+      "title": {
+        "en": "Get Involved",
+        "ru": "Участие",
+        "uk": "Долучайтеся"
+      },
+      "navTitle": {
+        "en": "Overview",
+        "ru": "Обзор",
+        "uk": "Огляд"
+      },
+      "description": {
+        "en": "Events, volunteering and parish needs, organized through OrthodoxConnect.",
+        "ru": "События, помощь и нужды прихода через OrthodoxConnect.",
+        "uk": "Події, волонтерство та потреби парафії через OrthodoxConnect."
+      },
+      "enabled": true,
+      "showInNav": true,
+      "requiresModule": "getInvolved",
+      "sections": [
+        {
+          "id": "involved-cards",
+          "type": "subpage-cards",
+          "enabled": true,
+          "title": {
+            "en": "Find your place",
+            "ru": "Найдите своё дело",
+            "uk": "Знайдіть свою справу"
+          }
+        },
+        {
+          "id": "involved-events",
+          "type": "events-preview",
+          "enabled": true,
+          "title": {
+            "en": "Next events",
+            "ru": "Ближайшие события",
+            "uk": "Найближчі події"
+          },
+          "props": {
+            "limit": 3
+          }
+        },
+        {
+          "id": "involved-needs",
+          "type": "needs-preview",
+          "enabled": true,
+          "title": {
+            "en": "Help needed",
+            "ru": "Нужна помощь",
+            "uk": "Потрібна допомога"
+          },
+          "props": {
+            "limit": 3
+          }
+        }
+      ],
+      "children": [
+        {
+          "id": "events",
+          "slug": "events",
+          "title": {
+            "en": "Events",
+            "ru": "События",
+            "uk": "Події"
+          },
+          "description": {
+            "en": "Parish gatherings, classes and trips. RSVP with your OrthodoxConnect account.",
+            "ru": "Встречи, занятия и поездки прихода. Отметьтесь через аккаунт OrthodoxConnect.",
+            "uk": "Зустрічі, заняття та поїздки парафії. Відмітьтеся через акаунт OrthodoxConnect."
+          },
+          "enabled": true,
+          "showInNav": true,
+          "sections": [
+            {
+              "id": "events-main",
+              "type": "events",
+              "enabled": true,
+              "stickyHeader": true,
+              "title": {
+                "en": "Parish events",
+                "ru": "События прихода",
+                "uk": "Події парафії"
+              }
+            }
+          ]
+        },
+        {
+          "id": "volunteer",
+          "slug": "volunteer-and-needs",
+          "title": {
+            "en": "Volunteer and Needs",
+            "ru": "Помощь и нужды",
+            "uk": "Допомога та потреби"
+          },
+          "description": {
+            "en": "Sign up for a slot: coffee hour, cleaning, choir, food drive or meals for families.",
+            "ru": "Запишитесь помочь: трапеза, уборка, хор, сбор продуктов, обеды для семей.",
+            "uk": "Запишіться допомогти: трапеза, прибирання, хор, збір продуктів, обіди для родин."
+          },
+          "enabled": true,
+          "showInNav": true,
+          "sections": [
+            {
+              "id": "needs-main",
+              "type": "needs",
+              "enabled": true,
+              "stickyHeader": true,
+              "title": {
+                "en": "Open slots",
+                "ru": "Свободные места",
+                "uk": "Вільні місця"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "store",
+      "slug": "store",
+      "title": {
+        "en": "Store",
+        "ru": "Лавка",
+        "uk": "Крамниця"
+      },
+      "description": {
+        "en": "Icons, candles, books and gifts from the church shop. Sample listings.",
+        "ru": "Иконы, свечи, книги и подарки из церковной лавки. Примеры товаров.",
+        "uk": "Ікони, свічки, книги та подарунки з церковної крамниці. Приклади товарів."
+      },
+      "enabled": true,
+      "showInNav": true,
+      "requiresModule": "store",
+      "collection": "products",
+      "sections": [
+        {
+          "id": "store-grid",
+          "type": "store",
+          "enabled": true
+        }
+      ],
+      "children": [
+        {
+          "id": "cart",
+          "slug": "cart",
+          "title": {
+            "en": "Your cart",
+            "ru": "Корзина",
+            "uk": "Кошик"
+          },
+          "enabled": true,
+          "showInNav": false,
+          "sections": [
+            {
+              "id": "cart-main",
+              "type": "cart",
+              "enabled": true
+            }
+          ]
+        },
+        {
+          "id": "checkout",
+          "slug": "checkout",
+          "title": {
+            "en": "Checkout",
+            "ru": "Оформление",
+            "uk": "Оформлення"
+          },
+          "enabled": true,
+          "showInNav": false,
+          "sections": [
+            {
+              "id": "checkout-main",
+              "type": "checkout",
+              "enabled": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "donate",
+      "slug": "donate",
+      "title": {
+        "en": "Donate",
+        "ru": "Пожертвовать",
+        "uk": "Пожертвувати"
+      },
+      "description": {
+        "en": "Your gifts keep the lamps lit, the choir singing and the doors open.",
+        "ru": "Ваши пожертвования помогают храму жить: горят лампады, поёт хор, открыты двери.",
+        "uk": "Ваші пожертви допомагають храму жити: горять лампади, співає хор, відчинені двері."
+      },
+      "enabled": true,
+      "showInNav": false,
+      "sections": [
+        {
+          "id": "donate-form",
+          "type": "donate",
+          "enabled": true
+        },
+        {
+          "id": "donate-other",
+          "type": "rich-text",
+          "enabled": true,
+          "title": {
+            "en": "Other ways to give",
+            "ru": "Другие способы помочь",
+            "uk": "Інші способи допомогти"
+          },
+          "props": {
+            "body": {
+              "en": "Text about other ways to give goes here.",
+              "ru": "Здесь будет текст о других способах пожертвования.",
+              "uk": "Тут буде текст про інші способи пожертви."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "slug": "contact",
+      "title": {
+        "en": "Contact",
+        "ru": "Контакты",
+        "uk": "Контакти"
+      },
+      "description": {
+        "en": "Write to the parish office, find directions and parking.",
+        "ru": "Напишите в канцелярию, узнайте, как доехать и где оставить машину.",
+        "uk": "Напишіть до канцелярії, дізнайтеся, як доїхати і де залишити авто."
+      },
+      "enabled": true,
+      "showInNav": true,
+      "sections": [
+        {
+          "id": "contact-main",
+          "type": "contact",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "id": "credits",
+      "slug": "image-credits",
+      "title": {
+        "en": "Image credits",
+        "ru": "Источники изображений",
+        "uk": "Джерела зображень"
+      },
+      "description": {
+        "en": "Public domain photographs used as placeholders in this sample site.",
+        "ru": "Фотографии из общественного достояния, использованные в образце сайта.",
+        "uk": "Фотографії із суспільного надбання, використані у зразку сайту."
+      },
+      "enabled": true,
+      "showInNav": false,
+      "sections": [
+        {
+          "id": "credits-list",
+          "type": "credits",
+          "enabled": true
+        }
+      ]
+    }
+  ]
+}

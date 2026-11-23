@@ -1,0 +1,149 @@
+{
+  "$schema": "./schema/news.schema.json",
+  "categories": [
+    {
+      "id": "announcements",
+      "name": {
+        "en": "Announcements",
+        "ru": "Объявления",
+        "uk": "Оголошення"
+      }
+    },
+    {
+      "id": "parish-life",
+      "name": {
+        "en": "Parish life",
+        "ru": "Жизнь прихода",
+        "uk": "Життя парафії"
+      }
+    },
+    {
+      "id": "church-school",
+      "name": {
+        "en": "Church school",
+        "ru": "Воскресная школа",
+        "uk": "Недільна школа"
+      }
+    },
+    {
+      "id": "charity",
+      "name": {
+        "en": "Charity",
+        "ru": "Милосердие",
+        "uk": "Милосердя"
+      }
+    }
+  ],
+  "items": [
+    {
+      "id": "news-nativity-fast",
+      "slug": "nativity-fast-schedule",
+      "date": "2026-11-20",
+      "category": "announcements",
+      "image": "/images/photos/kostroma-dormition-cathedral-sm.jpg",
+      "title": {
+        "en": "Service times for the Nativity Fast (sample)",
+        "ru": "Расписание на Рождественский пост (пример)",
+        "uk": "Розклад на Різдвяний піст (приклад)"
+      },
+      "excerpt": {
+        "en": "Sample post. A short summary goes here.",
+        "ru": "Пример записи. Здесь будет краткое описание.",
+        "uk": "Приклад допису. Тут буде короткий опис."
+      },
+      "body": {
+        "en": "This is a sample post. Post text goes here.",
+        "ru": "Это пример записи. Здесь будет текст.",
+        "uk": "Це приклад допису. Тут буде текст."
+      }
+    },
+    {
+      "id": "news-choir",
+      "slug": "choir-welcomes-new-voices",
+      "date": "2026-11-12",
+      "category": "parish-life",
+      "image": "/images/photos/yaroslavl-wall-painting-sm.jpg",
+      "title": {
+        "en": "The choir welcomes new voices (sample)",
+        "ru": "Хор ждёт новые голоса (пример)",
+        "uk": "Хор чекає на нові голоси (приклад)"
+      },
+      "excerpt": {
+        "en": "Sample post. A short summary goes here.",
+        "ru": "Пример записи. Здесь будет краткое описание.",
+        "uk": "Приклад допису. Тут буде короткий опис."
+      },
+      "body": {
+        "en": "This is a sample post. Post text goes here.",
+        "ru": "Это пример записи. Здесь будет текст.",
+        "uk": "Це приклад допису. Тут буде текст."
+      }
+    },
+    {
+      "id": "news-school",
+      "slug": "church-school-term",
+      "date": "2026-10-30",
+      "category": "church-school",
+      "image": "/images/photos/suzdal-nativity-cathedral-sm.jpg",
+      "title": {
+        "en": "Church school: new term (sample)",
+        "ru": "Воскресная школа: новый семестр (пример)",
+        "uk": "Недільна школа: новий семестр (приклад)"
+      },
+      "excerpt": {
+        "en": "Sample post. A short summary goes here.",
+        "ru": "Пример записи. Здесь будет краткое описание.",
+        "uk": "Приклад допису. Тут буде короткий опис."
+      },
+      "body": {
+        "en": "This is a sample post. Post text goes here.",
+        "ru": "Это пример записи. Здесь будет текст.",
+        "uk": "Це приклад допису. Тут буде текст."
+      }
+    },
+    {
+      "id": "news-food",
+      "slug": "food-drive",
+      "date": "2026-10-18",
+      "category": "charity",
+      "image": "/images/photos/goritsky-monastery-sm.jpg",
+      "title": {
+        "en": "Food drive for local families (sample)",
+        "ru": "Сбор продуктов для семей (пример)",
+        "uk": "Збір продуктів для родин (приклад)"
+      },
+      "excerpt": {
+        "en": "Sample post. A short summary goes here.",
+        "ru": "Пример записи. Здесь будет краткое описание.",
+        "uk": "Приклад допису. Тут буде короткий опис."
+      },
+      "body": {
+        "en": "This is a sample post. Post text goes here.",
+        "ru": "Это пример записи. Здесь будет текст.",
+        "uk": "Це приклад допису. Тут буде текст."
+      }
+    },
+    {
+      "id": "news-bells",
+      "slug": "bell-ringers",
+      "date": "2026-09-27",
+      "category": "parish-life",
+      "image": "/images/photos/borisoglebsky-bell-tower-sm.jpg",
+      "title": {
+        "en": "Learning to ring the bells (sample)",
+        "ru": "Учимся звонить (пример)",
+        "uk": "Вчимося дзвонити (приклад)"
+      },
+      "excerpt": {
+        "en": "Sample post. A short summary goes here.",
+        "ru": "Пример записи. Здесь будет краткое описание.",
+        "uk": "Приклад допису. Тут буде короткий опис."
+      },
+      "body": {
+        "en": "This is a sample post. Post text goes here.",
+        "ru": "Это пример записи. Здесь будет текст.",
+        "uk": "Це приклад допису. Тут буде текст."
+      }
+    }
+  ]
+}

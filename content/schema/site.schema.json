@@ -1,0 +1,557 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "site.schema.json",
+  "title": "Parish settings",
+  "description": "Name, contact details, languages, calendar and which optional modules are on.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "id": {
+      "$ref": "common.schema.json#/$defs/id",
+      "description": "Stable parish id for this site."
+    },
+    "sampleNotice": {
+      "$ref": "common.schema.json#/$defs/text",
+      "description": "Short line in the footer saying the content is sample content. Clear it for a real parish."
+    },
+    "name": {
+      "$ref": "common.schema.json#/$defs/text",
+      "description": "Full parish name."
+    },
+    "shortName": {
+      "$ref": "common.schema.json#/$defs/text",
+      "description": "Short name used in tight spaces."
+    },
+    "tagline": {
+      "$ref": "common.schema.json#/$defs/text",
+      "description": "One sentence used as the default page description."
+    },
+    "jurisdiction": {
+      "$ref": "common.schema.json#/$defs/text",
+      "description": "Diocese or jurisdiction line shown under the name."
+    },
+    "languages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]+)?$",
+            "description": "Language code used in URLs and text fields, for example en."
+          },
+          "label": {
+            "type": "string",
+            "description": "Language name written in that language, for example Українська."
+          },
+          "shortLabel": {
+            "type": "string",
+            "maxLength": 4,
+            "description": "Short label for the header switcher, for example УКР."
+          },
+          "locale": {
+            "type": "string",
+            "description": "Locale for dates, times and money, for example uk-UA."
+          },
+          "dir": {
+            "enum": [
+              "ltr",
+              "rtl"
+            ],
+            "description": "Text direction. Use rtl for Arabic, Hebrew and similar."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "code",
+          "label",
+          "shortLabel",
+          "locale",
+          "dir"
+        ]
+      },
+      "description": "Languages offered, in switcher order. Add as many as needed.",
+      "minItems": 1
+    },
+    "defaultLanguage": {
+      "type": "string",
+      "description": "Code of the language used when a translation is missing."
+    },
+    "timeZone": {
+      "type": "string",
+      "description": "IANA time zone of the parish, for example America/New_York. Service times and today's feast use it."
+    },
+    "calendar": {
+      "enum": [
+        "julian",
+        "revised-julian",
+        "gregorian"
+      ],
+      "description": "Church calendar for fixed feasts. Pascha always follows the Orthodox paschalion except for gregorian."
+    },
+    "weekStartsOn": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 6,
+      "description": "First day of the week in schedules. 0 is Sunday."
+    },
+    "currency": {
+      "type": "string",
+      "pattern": "^[A-Z]{3}$",
+      "description": "ISO currency code, for example USD."
+    },
+    "logo": {
+      "type": "object",
+      "properties": {
+        "style": {
+          "enum": [
+            "seal",
+            "kiot",
+            "square",
+            "wordmark"
+          ],
+          "description": "seal: round seal with the cross and the name on the ring. kiot: arched icon-case frame. square: your own image. wordmark: name only."
+        },
+        "ringText": {
+          "$ref": "common.schema.json#/$defs/text",
+          "description": "Text around the seal ring. Usually the full parish name."
+        },
+        "image": {
+          "type": "string",
+          "description": "Logo image for the square style."
+        },
+        "imageAlt": {
+          "$ref": "common.schema.json#/$defs/text",
+          "description": "Description of the logo image."
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "style",
+        "ringText"
+      ]
+    },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "object",
+          "properties": {
+            "line1": {
+              "type": "string"
+            },
+            "line2": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "postalCode": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "line1",
+            "city",
+            "region",
+            "postalCode",
+            "country"
+          ]
+        },
+        "phone": {
+          "type": "string",
+          "description": "Office phone, written as (000)-000-0000."
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "officeHours": {
+          "$ref": "common.schema.json#/$defs/text",
+          "description": "Office hours in plain words."
+        },
+        "directions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "common.schema.json#/$defs/id",
+                "description": "Stable id. Never change it after publishing; links and translations rely on it."
+              },
+              "title": {
+                "$ref": "common.schema.json#/$defs/text"
+              },
+              "body": {
+                "$ref": "common.schema.json#/$defs/text"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "title",
+              "body"
+            ]
+          },
+          "description": "Directions by car, bus, on foot and so on."
+        },
+        "parking": {
+          "$ref": "common.schema.json#/$defs/text",
+          "description": "Where to park."
+        },
+        "mapEmbedUrl": {
+          "type": "string",
+          "description": "Optional map embed link (OpenStreetMap or Google Maps embed). Leave empty to show the drawn map."
+        },
+        "directionsUrl": {
+          "type": "string",
+          "description": "Optional link to open the address in a maps app."
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "address",
+        "phone",
+        "email",
+        "officeHours",
+        "directions",
+        "parking"
+      ]
+    },
+    "socials": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "Stable id. Never change it after publishing; links and translations rely on it."
+          },
+          "label": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "description": "youtube, facebook, instagram, telegram, vk or other."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "label",
+          "url",
+          "kind"
+        ]
+      },
+      "description": "Social links shown in the footer."
+    },
+    "modules": {
+      "type": "object",
+      "properties": {
+        "livestream": {
+          "type": "boolean",
+          "description": "Livestream and sermons page, live badge and home teaser."
+        },
+        "store": {
+          "type": "boolean",
+          "description": "Church shop, cart icon in the header, cart and checkout."
+        },
+        "requestService": {
+          "type": "boolean",
+          "description": "Request a Service page."
+        },
+        "zapiski": {
+          "type": "boolean",
+          "description": "Zapiski and Candles page and the hero shortcut."
+        },
+        "getInvolved": {
+          "type": "boolean",
+          "description": "Events and Volunteer and Needs pages, linked to OrthodoxConnect."
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "livestream",
+        "store",
+        "requestService",
+        "zapiski",
+        "getInvolved"
+      ],
+      "description": "Turn optional modules on or off. Pages, menu items and home sections for a module disappear when it is off."
+    },
+    "livestream": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "auto",
+            "live",
+            "offline"
+          ],
+          "description": "auto shows Live now during streamed services in the schedule. live and offline force the badge."
+        },
+        "embedUrl": {
+          "type": "string",
+          "description": "Embed link of the stream player."
+        },
+        "watchUrl": {
+          "type": "string",
+          "description": "Link to the channel page."
+        },
+        "provider": {
+          "$ref": "common.schema.json#/$defs/text",
+          "description": "Name of the stream channel."
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "provider"
+      ]
+    },
+    "orthodoxConnect": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "parishId": {
+          "type": "string",
+          "description": "Parish id in OrthodoxConnect, used in deep links."
+        },
+        "appUrl": {
+          "type": "string",
+          "description": "Base address of the OrthodoxConnect app."
+        },
+        "newsletter": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "description": "Show the newsletter sign-up in the footer."
+            },
+            "listId": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "enabled",
+            "listId"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "enabled",
+        "parishId",
+        "appUrl",
+        "newsletter"
+      ]
+    },
+    "payments": {
+      "type": "object",
+      "properties": {
+        "provider": {
+          "enum": [
+            "none",
+            "stripe",
+            "authorize-net"
+          ],
+          "description": "Payment provider. none keeps the sample handler."
+        },
+        "testMode": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "provider",
+        "testMode"
+      ]
+    },
+    "donations": {
+      "type": "object",
+      "properties": {
+        "oneTimeAmounts": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Amount in the site currency (site.json currency)."
+          },
+          "description": "Preset one-time amounts.",
+          "minItems": 1,
+          "maxItems": 6
+        },
+        "monthlyAmounts": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Amount in the site currency (site.json currency)."
+          },
+          "description": "Preset monthly amounts.",
+          "minItems": 1,
+          "maxItems": 6
+        },
+        "defaultAmount": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Amount in the site currency (site.json currency)."
+        },
+        "funds": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "common.schema.json#/$defs/id",
+                "description": "Stable id. Never change it after publishing; links and translations rely on it."
+              },
+              "label": {
+                "$ref": "common.schema.json#/$defs/text"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "label"
+            ]
+          },
+          "description": "Where a gift can go.",
+          "minItems": 1
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "oneTimeAmounts",
+        "monthlyAmounts",
+        "defaultAmount",
+        "funds"
+      ]
+    },
+    "hero": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "type": "string",
+          "description": "Path under /public, for example /images/photos/church.jpg, or a full URL."
+        },
+        "imageAlt": {
+          "$ref": "common.schema.json#/$defs/text"
+        },
+        "title": {
+          "$ref": "common.schema.json#/$defs/text",
+          "description": "Large title over the photo."
+        },
+        "subtitle": {
+          "$ref": "common.schema.json#/$defs/text"
+        },
+        "ctas": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "common.schema.json#/$defs/id",
+                "description": "Stable id. Never change it after publishing; links and translations rely on it."
+              },
+              "label": {
+                "$ref": "common.schema.json#/$defs/text"
+              },
+              "href": {
+                "type": "string",
+                "description": "Page path such as /services/schedule/ or a full URL."
+              },
+              "variant": {
+                "enum": [
+                  "primary",
+                  "secondary"
+                ]
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "label",
+              "href",
+              "variant"
+            ]
+          },
+          "description": "One or two buttons.",
+          "minItems": 0,
+          "maxItems": 2
+        },
+        "showCommemorationShortcut": {
+          "type": "boolean",
+          "description": "Small Submit a commemoration link under the buttons (needs the zapiski module)."
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "image",
+        "imageAlt",
+        "title",
+        "subtitle",
+        "ctas",
+        "showCommemorationShortcut"
+      ]
+    },
+    "demo": {
+      "type": "object",
+      "properties": {
+        "anchorDate": {
+          "$ref": "common.schema.json#/$defs/date",
+          "description": "Date the sample content was written for."
+        },
+        "shiftDates": {
+          "type": "boolean",
+          "description": "Move sample event dates forward in whole weeks so the demo never looks old. Turn off for a real parish."
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "anchorDate",
+        "shiftDates"
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "sampleNotice",
+    "name",
+    "shortName",
+    "tagline",
+    "jurisdiction",
+    "languages",
+    "defaultLanguage",
+    "timeZone",
+    "calendar",
+    "weekStartsOn",
+    "currency",
+    "logo",
+    "contact",
+    "socials",
+    "modules",
+    "livestream",
+    "orthodoxConnect",
+    "payments",
+    "donations",
+    "hero",
+    "demo"
+  ]
+}

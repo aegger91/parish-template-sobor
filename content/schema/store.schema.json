@@ -1,0 +1,193 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "store.schema.json",
+  "title": "Church shop",
+  "description": "Categories, shipping and products.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "Stable id. Never change it after publishing; links and translations rely on it."
+          },
+          "name": {
+            "$ref": "common.schema.json#/$defs/text"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name"
+        ]
+      }
+    },
+    "shipping": {
+      "type": "object",
+      "properties": {
+        "flatRate": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Amount in the site currency (site.json currency)."
+        },
+        "freeOver": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Orders of goods at or above this amount ship free."
+        },
+        "pickupNote": {
+          "$ref": "common.schema.json#/$defs/text",
+          "description": "Shown when the buyer picks up at the church."
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "flatRate",
+        "freeOver",
+        "pickupNote"
+      ]
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "Stable id. Never change it after publishing; links and translations rely on it."
+          },
+          "slug": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "category": {
+            "type": "string"
+          },
+          "name": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "summary": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "description": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "photo"
+                    },
+                    "src": {
+                      "type": "string",
+                      "description": "Path under /public, for example /images/photos/church.jpg, or a full URL."
+                    },
+                    "alt": {
+                      "$ref": "common.schema.json#/$defs/text"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "kind",
+                    "src",
+                    "alt"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "illustration"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "Pictogram name, for example tapers, kiot, prayer-rope."
+                    },
+                    "alt": {
+                      "$ref": "common.schema.json#/$defs/text"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "kind",
+                    "id",
+                    "alt"
+                  ]
+                }
+              ]
+            },
+            "minItems": 1
+          },
+          "pickupOnly": {
+            "type": "boolean",
+            "description": "Cannot be shipped, for example a large kiot."
+          },
+          "variants": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "$ref": "common.schema.json#/$defs/id",
+                  "description": "Stable id. Never change it after publishing; links and translations rely on it."
+                },
+                "label": {
+                  "$ref": "common.schema.json#/$defs/text"
+                },
+                "price": {
+                  "type": "number",
+                  "minimum": 0,
+                  "description": "Amount in the site currency (site.json currency)."
+                },
+                "stock": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "description": "0 shows Out of stock."
+                },
+                "sku": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "id",
+                "label",
+                "price",
+                "stock",
+                "sku"
+              ]
+            },
+            "minItems": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "slug",
+          "category",
+          "name",
+          "summary",
+          "description",
+          "images",
+          "variants"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "categories",
+    "shipping",
+    "products"
+  ]
+}

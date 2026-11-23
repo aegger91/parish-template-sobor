@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "common.schema.json",
+  "title": "Shared definitions",
+  "$defs": {
+    "text": {
+      "description": "Translatable text. One key per language code from site.json languages. Missing languages fall back to the default language.",
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "string"
+      },
+      "propertyNames": {
+        "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]+)?$"
+      }
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "description": "Stable id: lowercase letters, digits and dashes."
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "Civil date, YYYY-MM-DD."
+    },
+    "time": {
+      "type": "string",
+      "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$",
+      "description": "24-hour time at the parish, HH:MM."
+    },
+    "serviceKind": {
+      "type": "string",
+      "enum": [
+        "liturgy",
+        "vigil",
+        "vespers",
+        "matins",
+        "hours",
+        "confession",
+        "akathist",
+        "moleben",
+        "panikhida",
+        "other"
+      ],
+      "description": "Kind of service. Feast rules use it to replace regular services."
+    }
+  }
+}

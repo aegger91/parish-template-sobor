@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "clergy.schema.json",
+  "title": "Clergy",
+  "description": "Clergy and staff cards.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "clergy": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "Stable id. Never change it after publishing; links and translations rely on it."
+          },
+          "name": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "role": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "shortBio": {
+            "$ref": "common.schema.json#/$defs/text",
+            "description": "Two or three lines for the card."
+          },
+          "bio": {
+            "$ref": "common.schema.json#/$defs/text",
+            "description": "Full biography. Blank lines start new paragraphs."
+          },
+          "email": {
+            "type": "string"
+          },
+          "initials": {
+            "type": "string",
+            "maxLength": 3,
+            "description": "Letters for the medallion when there is no photo."
+          },
+          "photo": {
+            "type": "string",
+            "description": "Path under /public, for example /images/photos/church.jpg, or a full URL."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "role",
+          "shortBio",
+          "bio",
+          "initials"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "clergy"
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "connect.schema.json",
+  "title": "Get Involved (OrthodoxConnect)",
+  "description": "Events and volunteer needs. On a live site these come from OrthodoxConnect; the fields match the app.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "eventCategories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "Stable id. Never change it after publishing; links and translations rely on it."
+          },
+          "name": {
+            "$ref": "common.schema.json#/$defs/text"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name"
+        ]
+      }
+    },
+    "needCategories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "Stable id. Never change it after publishing; links and translations rely on it."
+          },
+          "name": {
+            "$ref": "common.schema.json#/$defs/text"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name"
+        ]
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "Stable id. Never change it after publishing; links and translations rely on it."
+          },
+          "title": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "date": {
+            "$ref": "common.schema.json#/$defs/date"
+          },
+          "time": {
+            "$ref": "common.schema.json#/$defs/time"
+          },
+          "endTime": {
+            "$ref": "common.schema.json#/$defs/time"
+          },
+          "location": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "capacity": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "signups": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "organizer": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "category": {
+            "type": "string"
+          },
+          "description": {
+            "$ref": "common.schema.json#/$defs/text"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "date",
+          "time",
+          "location",
+          "capacity",
+          "signups",
+          "organizer",
+          "category",
+          "description"
+        ]
+      }
+    },
+    "needs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "Stable id. Never change it after publishing; links and translations rely on it."
+          },
+          "title": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "date": {
+            "$ref": "common.schema.json#/$defs/date"
+          },
+          "time": {
+            "$ref": "common.schema.json#/$defs/time"
+          },
+          "endTime": {
+            "$ref": "common.schema.json#/$defs/time"
+          },
+          "location": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "capacity": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "signups": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "organizer": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "category": {
+            "type": "string"
+          },
+          "description": {
+            "$ref": "common.schema.json#/$defs/text"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "date",
+          "time",
+          "location",
+          "capacity",
+          "signups",
+          "organizer",
+          "category",
+          "description"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "eventCategories",
+    "needCategories",
+    "events",
+    "needs"
+  ]
+}

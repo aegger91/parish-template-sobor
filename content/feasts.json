@@ -1,0 +1,561 @@
+{
+  "$schema": "./schema/feasts.schema.json",
+  "fixed": [
+    {
+      "id": "circumcision",
+      "month": 1,
+      "day": 1,
+      "rank": "major",
+      "name": {
+        "en": "Circumcision of the Lord; St. Basil the Great",
+        "ru": "Обрезание Господне; свт. Василия Великого",
+        "uk": "Обрізання Господнє; свт. Василія Великого"
+      }
+    },
+    {
+      "id": "theophany",
+      "month": 1,
+      "day": 6,
+      "rank": "great",
+      "name": {
+        "en": "Holy Theophany of our Lord",
+        "ru": "Крещение Господне (Богоявление)",
+        "uk": "Хрещення Господнє (Богоявлення)"
+      }
+    },
+    {
+      "id": "synaxis-forerunner",
+      "month": 1,
+      "day": 7,
+      "rank": "minor",
+      "name": {
+        "en": "Synaxis of St. John the Baptist",
+        "ru": "Собор Иоанна Предтечи",
+        "uk": "Собор Іоанна Предтечі"
+      }
+    },
+    {
+      "id": "anthony-great",
+      "month": 1,
+      "day": 17,
+      "rank": "minor",
+      "name": {
+        "en": "St. Anthony the Great",
+        "ru": "Прп. Антония Великого",
+        "uk": "Прп. Антонія Великого"
+      }
+    },
+    {
+      "id": "three-hierarchs",
+      "month": 1,
+      "day": 30,
+      "rank": "minor",
+      "name": {
+        "en": "Synaxis of the Three Holy Hierarchs",
+        "ru": "Собор трёх святителей",
+        "uk": "Собор трьох святителів"
+      }
+    },
+    {
+      "id": "meeting",
+      "month": 2,
+      "day": 2,
+      "rank": "great",
+      "name": {
+        "en": "Meeting of the Lord in the Temple",
+        "ru": "Сретение Господне",
+        "uk": "Стрітення Господнє"
+      }
+    },
+    {
+      "id": "forty-martyrs",
+      "month": 3,
+      "day": 9,
+      "rank": "minor",
+      "name": {
+        "en": "Forty Martyrs of Sebaste",
+        "ru": "Сорок мучеников Севастийских",
+        "uk": "Сорок мучеників Севастійських"
+      }
+    },
+    {
+      "id": "annunciation",
+      "month": 3,
+      "day": 25,
+      "rank": "great",
+      "name": {
+        "en": "Annunciation of the Most Holy Theotokos",
+        "ru": "Благовещение Пресвятой Богородицы",
+        "uk": "Благовіщення Пресвятої Богородиці"
+      }
+    },
+    {
+      "id": "george",
+      "month": 4,
+      "day": 23,
+      "rank": "minor",
+      "name": {
+        "en": "Holy Great-martyr George",
+        "ru": "Вмч. Георгия Победоносца",
+        "uk": "Вмч. Георгія Побідоносця"
+      }
+    },
+    {
+      "id": "john-theologian-may",
+      "month": 5,
+      "day": 8,
+      "rank": "minor",
+      "name": {
+        "en": "Holy Apostle John the Theologian",
+        "ru": "Апостола Иоанна Богослова",
+        "uk": "Апостола Іоанна Богослова"
+      }
+    },
+    {
+      "id": "cyril-methodius",
+      "month": 5,
+      "day": 11,
+      "rank": "minor",
+      "name": {
+        "en": "Sts. Cyril and Methodius, Equal to the Apostles",
+        "ru": "Равноапп. Кирилла и Мефодия",
+        "uk": "Рівноапп. Кирила і Мефодія"
+      }
+    },
+    {
+      "id": "constantine-helen",
+      "month": 5,
+      "day": 21,
+      "rank": "minor",
+      "name": {
+        "en": "Sts. Constantine and Helen, Equal to the Apostles",
+        "ru": "Равноапп. Константина и Елены",
+        "uk": "Рівноапп. Костянтина та Олени"
+      }
+    },
+    {
+      "id": "nativity-forerunner",
+      "month": 6,
+      "day": 24,
+      "rank": "major",
+      "name": {
+        "en": "Nativity of St. John the Baptist",
+        "ru": "Рождество Иоанна Предтечи",
+        "uk": "Різдво Іоанна Предтечі"
+      }
+    },
+    {
+      "id": "peter-paul",
+      "month": 6,
+      "day": 29,
+      "rank": "major",
+      "name": {
+        "en": "Holy Apostles Peter and Paul",
+        "ru": "Первоверховных апостолов Петра и Павла",
+        "uk": "Первоверховних апостолів Петра і Павла"
+      }
+    },
+    {
+      "id": "vladimir",
+      "month": 7,
+      "day": 15,
+      "rank": "minor",
+      "name": {
+        "en": "St. Vladimir, Equal to the Apostles",
+        "ru": "Равноап. князя Владимира",
+        "uk": "Рівноап. князя Володимира"
+      }
+    },
+    {
+      "id": "elijah",
+      "month": 7,
+      "day": 20,
+      "rank": "minor",
+      "name": {
+        "en": "Holy Prophet Elijah",
+        "ru": "Пророка Илии",
+        "uk": "Пророка Іллі"
+      }
+    },
+    {
+      "id": "procession-cross",
+      "month": 8,
+      "day": 1,
+      "rank": "minor",
+      "name": {
+        "en": "Procession of the Precious Wood of the Cross",
+        "ru": "Происхождение Честных Древ Креста Господня",
+        "uk": "Винесення Чесних Древ Хреста Господнього"
+      }
+    },
+    {
+      "id": "transfiguration",
+      "month": 8,
+      "day": 6,
+      "rank": "great",
+      "name": {
+        "en": "Holy Transfiguration of our Lord",
+        "ru": "Преображение Господне",
+        "uk": "Преображення Господнє"
+      }
+    },
+    {
+      "id": "dormition",
+      "month": 8,
+      "day": 15,
+      "rank": "great",
+      "name": {
+        "en": "Dormition of the Most Holy Theotokos",
+        "ru": "Успение Пресвятой Богородицы",
+        "uk": "Успіння Пресвятої Богородиці"
+      }
+    },
+    {
+      "id": "beheading",
+      "month": 8,
+      "day": 29,
+      "rank": "major",
+      "name": {
+        "en": "Beheading of St. John the Baptist",
+        "ru": "Усекновение главы Иоанна Предтечи",
+        "uk": "Усікновення глави Іоанна Предтечі"
+      }
+    },
+    {
+      "id": "nativity-theotokos",
+      "month": 9,
+      "day": 8,
+      "rank": "great",
+      "name": {
+        "en": "Nativity of the Most Holy Theotokos",
+        "ru": "Рождество Пресвятой Богородицы",
+        "uk": "Різдво Пресвятої Богородиці"
+      }
+    },
+    {
+      "id": "exaltation",
+      "month": 9,
+      "day": 14,
+      "rank": "great",
+      "name": {
+        "en": "Universal Exaltation of the Precious Cross",
+        "ru": "Воздвижение Креста Господня",
+        "uk": "Воздвиження Хреста Господнього"
+      }
+    },
+    {
+      "id": "sergius",
+      "month": 9,
+      "day": 25,
+      "rank": "minor",
+      "name": {
+        "en": "Repose of St. Sergius of Radonezh",
+        "ru": "Преставление прп. Сергия Радонежского",
+        "uk": "Преставлення прп. Сергія Радонезького"
+      }
+    },
+    {
+      "id": "john-theologian-sep",
+      "month": 9,
+      "day": 26,
+      "rank": "minor",
+      "name": {
+        "en": "Repose of the Holy Apostle John the Theologian",
+        "ru": "Преставление ап. Иоанна Богослова",
+        "uk": "Преставлення ап. Іоанна Богослова"
+      }
+    },
+    {
+      "id": "protection",
+      "month": 10,
+      "day": 1,
+      "rank": "major",
+      "name": {
+        "en": "Protection of the Most Holy Theotokos",
+        "ru": "Покров Пресвятой Богородицы",
+        "uk": "Покрова Пресвятої Богородиці"
+      }
+    },
+    {
+      "id": "luke",
+      "month": 10,
+      "day": 18,
+      "rank": "minor",
+      "name": {
+        "en": "Holy Apostle and Evangelist Luke",
+        "ru": "Апостола и евангелиста Луки",
+        "uk": "Апостола і євангеліста Луки"
+      }
+    },
+    {
+      "id": "archangel-michael",
+      "month": 11,
+      "day": 8,
+      "rank": "minor",
+      "name": {
+        "en": "Synaxis of the Archangel Michael and the Bodiless Powers",
+        "ru": "Собор Архистратига Михаила",
+        "uk": "Собор Архистратига Михаїла"
+      }
+    },
+    {
+      "id": "chrysostom",
+      "month": 11,
+      "day": 13,
+      "rank": "minor",
+      "name": {
+        "en": "St. John Chrysostom",
+        "ru": "Свт. Иоанна Златоуста",
+        "uk": "Свт. Іоанна Золотоустого"
+      }
+    },
+    {
+      "id": "entry",
+      "month": 11,
+      "day": 21,
+      "rank": "great",
+      "name": {
+        "en": "Entry of the Most Holy Theotokos into the Temple",
+        "ru": "Введение во храм Пресвятой Богородицы",
+        "uk": "Введення в храм Пресвятої Богородиці"
+      }
+    },
+    {
+      "id": "andrew",
+      "month": 11,
+      "day": 30,
+      "rank": "minor",
+      "name": {
+        "en": "Holy Apostle Andrew the First-called",
+        "ru": "Апостола Андрея Первозванного",
+        "uk": "Апостола Андрія Первозваного"
+      }
+    },
+    {
+      "id": "barbara",
+      "month": 12,
+      "day": 4,
+      "rank": "minor",
+      "name": {
+        "en": "Holy Great-martyr Barbara",
+        "ru": "Вмц. Варвары",
+        "uk": "Вмц. Варвари"
+      }
+    },
+    {
+      "id": "nicholas",
+      "month": 12,
+      "day": 6,
+      "rank": "minor",
+      "name": {
+        "en": "St. Nicholas the Wonderworker",
+        "ru": "Свт. Николая Чудотворца",
+        "uk": "Свт. Миколая Чудотворця"
+      }
+    },
+    {
+      "id": "spyridon",
+      "month": 12,
+      "day": 12,
+      "rank": "minor",
+      "name": {
+        "en": "St. Spyridon of Trimythous",
+        "ru": "Свт. Спиридона Тримифунтского",
+        "uk": "Свт. Спиридона Триміфунтського"
+      }
+    },
+    {
+      "id": "nativity",
+      "month": 12,
+      "day": 25,
+      "rank": "great",
+      "name": {
+        "en": "Nativity of our Lord Jesus Christ",
+        "ru": "Рождество Христово",
+        "uk": "Різдво Христове"
+      }
+    }
+  ],
+  "movable": [
+    {
+      "id": "forgiveness-sunday",
+      "paschaOffset": -49,
+      "rank": "minor",
+      "name": {
+        "en": "Forgiveness Sunday",
+        "ru": "Прощёное воскресенье",
+        "uk": "Прощена неділя"
+      }
+    },
+    {
+      "id": "clean-monday",
+      "paschaOffset": -48,
+      "rank": "minor",
+      "name": {
+        "en": "Clean Monday: Great Lent begins",
+        "ru": "Чистый понедельник: начало Великого поста",
+        "uk": "Чистий понеділок: початок Великого посту"
+      }
+    },
+    {
+      "id": "orthodoxy-sunday",
+      "paschaOffset": -42,
+      "rank": "minor",
+      "name": {
+        "en": "Sunday of Orthodoxy",
+        "ru": "Торжество Православия",
+        "uk": "Торжество Православ'я"
+      }
+    },
+    {
+      "id": "lazarus-saturday",
+      "paschaOffset": -8,
+      "rank": "minor",
+      "name": {
+        "en": "Lazarus Saturday",
+        "ru": "Лазарева суббота",
+        "uk": "Лазарева субота"
+      }
+    },
+    {
+      "id": "palm-sunday",
+      "paschaOffset": -7,
+      "rank": "great",
+      "name": {
+        "en": "Entry of the Lord into Jerusalem",
+        "ru": "Вход Господень в Иерусалим",
+        "uk": "Вхід Господній до Єрусалима"
+      }
+    },
+    {
+      "id": "holy-thursday",
+      "paschaOffset": -3,
+      "rank": "major",
+      "name": {
+        "en": "Holy Thursday",
+        "ru": "Великий Четверг",
+        "uk": "Великий Четвер"
+      },
+      "useServiceRule": false
+    },
+    {
+      "id": "holy-friday",
+      "paschaOffset": -2,
+      "rank": "major",
+      "name": {
+        "en": "Holy and Great Friday",
+        "ru": "Великая Пятница",
+        "uk": "Велика П'ятниця"
+      },
+      "useServiceRule": false
+    },
+    {
+      "id": "holy-saturday",
+      "paschaOffset": -1,
+      "rank": "major",
+      "name": {
+        "en": "Holy and Great Saturday",
+        "ru": "Великая Суббота",
+        "uk": "Велика Субота"
+      },
+      "useServiceRule": false
+    },
+    {
+      "id": "pascha",
+      "paschaOffset": 0,
+      "rank": "pascha",
+      "name": {
+        "en": "Holy Pascha: the Resurrection of Christ",
+        "ru": "Светлое Христово Воскресение. Пасха",
+        "uk": "Світле Христове Воскресіння. Великдень"
+      }
+    },
+    {
+      "id": "thomas-sunday",
+      "paschaOffset": 7,
+      "rank": "minor",
+      "name": {
+        "en": "Thomas Sunday",
+        "ru": "Антипасха (Фомино воскресенье)",
+        "uk": "Антипасха (Фомина неділя)"
+      }
+    },
+    {
+      "id": "ascension",
+      "paschaOffset": 39,
+      "rank": "great",
+      "name": {
+        "en": "Ascension of our Lord",
+        "ru": "Вознесение Господне",
+        "uk": "Вознесіння Господнє"
+      }
+    },
+    {
+      "id": "pentecost",
+      "paschaOffset": 49,
+      "rank": "great",
+      "name": {
+        "en": "Holy Pentecost: the Holy Trinity",
+        "ru": "День Святой Троицы. Пятидесятница",
+        "uk": "День Святої Трійці. П'ятидесятниця"
+      }
+    },
+    {
+      "id": "holy-spirit-day",
+      "paschaOffset": 50,
+      "rank": "minor",
+      "name": {
+        "en": "Day of the Holy Spirit",
+        "ru": "День Святого Духа",
+        "uk": "День Святого Духа"
+      }
+    },
+    {
+      "id": "all-saints",
+      "paschaOffset": 56,
+      "rank": "minor",
+      "name": {
+        "en": "Sunday of All Saints",
+        "ru": "Неделя всех святых",
+        "uk": "Неділя всіх святих"
+      }
+    }
+  ],
+  "weekdays": [
+    {
+      "en": "Sunday: the Resurrection of Christ",
+      "ru": "Воскресенье: Воскресение Христово",
+      "uk": "Неділя: Воскресіння Христове"
+    },
+    {
+      "en": "Monday: the Holy Bodiless Powers",
+      "ru": "Понедельник: Святые Бесплотные Силы",
+      "uk": "Понеділок: Святі Безплотні Сили"
+    },
+    {
+      "en": "Tuesday: St. John the Forerunner",
+      "ru": "Вторник: святой Иоанн Предтеча",
+      "uk": "Вівторок: святий Іоанн Предтеча"
+    },
+    {
+      "en": "Wednesday: the Cross and the Theotokos",
+      "ru": "Среда: Крест Господень и Богородица",
+      "uk": "Середа: Хрест Господній і Богородиця"
+    },
+    {
+      "en": "Thursday: the Holy Apostles and St. Nicholas",
+      "ru": "Четверг: святые апостолы и святитель Николай",
+      "uk": "Четвер: святі апостоли і святитель Миколай"
+    },
+    {
+      "en": "Friday: the Passion and Cross of the Lord",
+      "ru": "Пятница: Страсти и Крест Господень",
+      "uk": "П'ятниця: Страсті і Хрест Господній"
+    },
+    {
+      "en": "Saturday: All Saints and the departed",
+      "ru": "Суббота: все святые и усопшие",
+      "uk": "Субота: всі святі та спочилі"
+    }
+  ]
+}

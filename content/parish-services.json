@@ -1,0 +1,258 @@
+{
+  "$schema": "./schema/parish-services.schema.json",
+  "services": [
+    {
+      "id": "svc-zapiska",
+      "illustration": "slip",
+      "title": {
+        "en": "Submit a Commemoration Note (Zapiska)",
+        "ru": "Подать записку",
+        "uk": "Подати записку"
+      },
+      "description": {
+        "en": "Short description goes here.",
+        "ru": "Здесь будет краткое описание.",
+        "uk": "Тут буде короткий опис."
+      },
+      "price": {
+        "kind": "donation",
+        "suggested": 3
+      },
+      "duration": {
+        "en": "At the next Liturgy",
+        "ru": "На ближайшей литургии",
+        "uk": "На найближчій літургії"
+      },
+      "routeTo": "office",
+      "action": "link",
+      "href": "/services/zapiski-and-candles/"
+    },
+    {
+      "id": "svc-moleben",
+      "illustration": "moleben",
+      "title": {
+        "en": "Moleben",
+        "ru": "Молебен",
+        "uk": "Молебень"
+      },
+      "subtitle": {
+        "en": "Prayer service",
+        "ru": "Молебное пение",
+        "uk": "Молебний спів"
+      },
+      "description": {
+        "en": "Short description goes here.",
+        "ru": "Здесь будет краткое описание.",
+        "uk": "Тут буде короткий опис."
+      },
+      "price": {
+        "kind": "donation",
+        "suggested": 20
+      },
+      "duration": {
+        "en": "About 20 minutes",
+        "ru": "Около 20 минут",
+        "uk": "Близько 20 хвилин"
+      },
+      "routeTo": "priest",
+      "action": "form"
+    },
+    {
+      "id": "svc-baptism",
+      "illustration": "font",
+      "title": {
+        "en": "Baptism",
+        "ru": "Крещение",
+        "uk": "Хрещення"
+      },
+      "description": {
+        "en": "Short description goes here.",
+        "ru": "Здесь будет краткое описание.",
+        "uk": "Тут буде короткий опис."
+      },
+      "price": {
+        "kind": "donation"
+      },
+      "duration": {
+        "en": "About 1 hour",
+        "ru": "Около часа",
+        "uk": "Близько години"
+      },
+      "routeTo": "priest",
+      "action": "form"
+    },
+    {
+      "id": "svc-confession",
+      "illustration": "analoy",
+      "title": {
+        "en": "Confession",
+        "ru": "Исповедь",
+        "uk": "Сповідь"
+      },
+      "description": {
+        "en": "Short description goes here.",
+        "ru": "Здесь будет краткое описание.",
+        "uk": "Тут буде короткий опис."
+      },
+      "price": {
+        "kind": "free"
+      },
+      "duration": {
+        "en": "15 to 30 minutes",
+        "ru": "15–30 минут",
+        "uk": "15–30 хвилин"
+      },
+      "routeTo": "priest",
+      "action": "form"
+    },
+    {
+      "id": "svc-chrismation",
+      "illustration": "chrism",
+      "title": {
+        "en": "Chrismation",
+        "ru": "Миропомазание",
+        "uk": "Миропомазання"
+      },
+      "description": {
+        "en": "Short description goes here.",
+        "ru": "Здесь будет краткое описание.",
+        "uk": "Тут буде короткий опис."
+      },
+      "price": {
+        "kind": "free"
+      },
+      "duration": {
+        "en": "About 45 minutes",
+        "ru": "Около 45 минут",
+        "uk": "Близько 45 хвилин"
+      },
+      "routeTo": "priest",
+      "action": "form"
+    },
+    {
+      "id": "svc-wedding",
+      "illustration": "crowns",
+      "title": {
+        "en": "Wedding (Crowning)",
+        "ru": "Венчание",
+        "uk": "Вінчання"
+      },
+      "description": {
+        "en": "Short description goes here.",
+        "ru": "Здесь будет краткое описание.",
+        "uk": "Тут буде короткий опис."
+      },
+      "price": {
+        "kind": "donation"
+      },
+      "duration": {
+        "en": "About 1 hour",
+        "ru": "Около часа",
+        "uk": "Близько години"
+      },
+      "routeTo": "priest",
+      "action": "form"
+    },
+    {
+      "id": "svc-unction",
+      "illustration": "unction",
+      "title": {
+        "en": "Holy Unction",
+        "ru": "Соборование",
+        "uk": "Соборування"
+      },
+      "subtitle": {
+        "en": "Anointing of the sick",
+        "ru": "Елеосвящение",
+        "uk": "Єлеосвячення"
+      },
+      "description": {
+        "en": "Short description goes here.",
+        "ru": "Здесь будет краткое описание.",
+        "uk": "Тут буде короткий опис."
+      },
+      "price": {
+        "kind": "free"
+      },
+      "duration": {
+        "en": "About 1 hour",
+        "ru": "Около часа",
+        "uk": "Близько години"
+      },
+      "routeTo": "priest",
+      "action": "form"
+    },
+    {
+      "id": "svc-blessing",
+      "illustration": "blessing",
+      "title": {
+        "en": "House / Car Blessing",
+        "ru": "Освящение дома или машины",
+        "uk": "Освячення оселі або авто"
+      },
+      "description": {
+        "en": "Short description goes here.",
+        "ru": "Здесь будет краткое описание.",
+        "uk": "Тут буде короткий опис."
+      },
+      "price": {
+        "kind": "donation"
+      },
+      "duration": {
+        "en": "30 to 45 minutes",
+        "ru": "30–45 минут",
+        "uk": "30–45 хвилин"
+      },
+      "routeTo": "office",
+      "action": "form"
+    },
+    {
+      "id": "svc-funeral",
+      "illustration": "kanun",
+      "title": {
+        "en": "Funeral Service (Panikhida / Otpevanie)",
+        "ru": "Панихида и отпевание",
+        "uk": "Панахида та відспівування"
+      },
+      "description": {
+        "en": "Short description goes here.",
+        "ru": "Здесь будет краткое описание.",
+        "uk": "Тут буде короткий опис."
+      },
+      "price": {
+        "kind": "donation"
+      },
+      "duration": {
+        "en": "Panikhida 30 minutes, funeral about 1 hour",
+        "ru": "Панихида 30 минут, отпевание около часа",
+        "uk": "Панахида 30 хвилин, відспівування близько години"
+      },
+      "routeTo": "office",
+      "action": "form"
+    },
+    {
+      "id": "svc-counsel",
+      "illustration": "gospel",
+      "title": {
+        "en": "Pastoral Counseling",
+        "ru": "Беседа со священником",
+        "uk": "Розмова зі священиком"
+      },
+      "description": {
+        "en": "Short description goes here.",
+        "ru": "Здесь будет краткое описание.",
+        "uk": "Тут буде короткий опис."
+      },
+      "price": {
+        "kind": "free"
+      },
+      "duration": {
+        "en": "About 45 minutes",
+        "ru": "Около 45 минут",
+        "uk": "Близько 45 хвилин"
+      },
+      "routeTo": "priest",
+      "action": "form"
+    }
+  ]
+}

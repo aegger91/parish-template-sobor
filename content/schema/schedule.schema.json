@@ -1,0 +1,207 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schedule.schema.json",
+  "title": "Service schedule",
+  "description": "Weekly services, one-off services and the services added automatically for feasts.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "recurring": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "Stable id. Never change it after publishing; links and translations rely on it."
+          },
+          "weekday": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 6,
+            "description": "0 is Sunday."
+          },
+          "time": {
+            "$ref": "common.schema.json#/$defs/time"
+          },
+          "durationMinutes": {
+            "type": "integer",
+            "minimum": 5,
+            "maximum": 600
+          },
+          "kind": {
+            "$ref": "common.schema.json#/$defs/serviceKind"
+          },
+          "title": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "streamed": {
+            "type": "boolean",
+            "description": "Shown with the stream icon and used for the automatic Live now badge."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "weekday",
+          "time",
+          "durationMinutes",
+          "kind",
+          "title",
+          "streamed"
+        ]
+      },
+      "description": "Services held every week."
+    },
+    "dated": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "Stable id. Never change it after publishing; links and translations rely on it."
+          },
+          "date": {
+            "$ref": "common.schema.json#/$defs/date"
+          },
+          "time": {
+            "$ref": "common.schema.json#/$defs/time"
+          },
+          "durationMinutes": {
+            "type": "integer",
+            "minimum": 5,
+            "maximum": 600
+          },
+          "kind": {
+            "$ref": "common.schema.json#/$defs/serviceKind"
+          },
+          "title": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "streamed": {
+            "type": "boolean",
+            "description": "Shown with the stream icon and used for the automatic Live now badge."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "date",
+          "time",
+          "durationMinutes",
+          "kind",
+          "title",
+          "streamed"
+        ]
+      },
+      "description": "One-off services on a given date."
+    },
+    "feastRules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "Stable id."
+          },
+          "rank": {
+            "enum": [
+              "pascha",
+              "great",
+              "major",
+              "minor"
+            ]
+          },
+          "eve": {
+            "type": "object",
+            "properties": {
+              "time": {
+                "$ref": "common.schema.json#/$defs/time"
+              },
+              "durationMinutes": {
+                "type": "integer"
+              },
+              "kind": {
+                "$ref": "common.schema.json#/$defs/serviceKind"
+              },
+              "title": {
+                "$ref": "common.schema.json#/$defs/text"
+              },
+              "streamed": {
+                "type": "boolean"
+              },
+              "suppress": {
+                "type": "array",
+                "items": {
+                  "$ref": "common.schema.json#/$defs/serviceKind"
+                },
+                "description": "Regular services of these kinds are not shown that day."
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "time",
+              "durationMinutes",
+              "kind",
+              "title",
+              "streamed",
+              "suppress"
+            ]
+          },
+          "day": {
+            "type": "object",
+            "properties": {
+              "time": {
+                "$ref": "common.schema.json#/$defs/time"
+              },
+              "durationMinutes": {
+                "type": "integer"
+              },
+              "kind": {
+                "$ref": "common.schema.json#/$defs/serviceKind"
+              },
+              "title": {
+                "$ref": "common.schema.json#/$defs/text"
+              },
+              "streamed": {
+                "type": "boolean"
+              },
+              "suppress": {
+                "type": "array",
+                "items": {
+                  "$ref": "common.schema.json#/$defs/serviceKind"
+                },
+                "description": "Regular services of these kinds are not shown that day."
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "time",
+              "durationMinutes",
+              "kind",
+              "title",
+              "streamed",
+              "suppress"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "rank"
+        ]
+      },
+      "description": "Services added on the eve and on the day of feasts of a given rank."
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "recurring",
+    "dated",
+    "feastRules"
+  ]
+}

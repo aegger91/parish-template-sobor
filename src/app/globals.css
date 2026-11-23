@@ -1,0 +1,206 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "../styles/tokens.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  --color-green-950: var(--sobor-green-950);
+  --color-green-900: var(--sobor-green-900);
+  --color-green-800: var(--sobor-green-800);
+  --color-green-700: var(--sobor-green-700);
+  --color-green-600: var(--sobor-green-600);
+  --color-green-100: var(--sobor-green-100);
+  --color-gold-700: var(--sobor-gold-700);
+  --color-gold-600: var(--sobor-gold-600);
+  --color-gold-500: var(--sobor-gold-500);
+  --color-gold-400: var(--sobor-gold-400);
+  --color-gold-200: var(--sobor-gold-200);
+  --color-cream-50: var(--sobor-cream-50);
+  --color-cream-100: var(--sobor-cream-100);
+  --color-cream-200: var(--sobor-cream-200);
+  --color-cream-300: var(--sobor-cream-300);
+  --color-ink: var(--sobor-ink);
+  --color-ink-muted: var(--sobor-ink-muted);
+  --color-kinovar: var(--sobor-kinovar);
+  --color-kinovar-soft: var(--sobor-kinovar-soft);
+
+  --font-sans: var(--font-role-body);
+  --font-body: var(--font-role-body);
+  --font-display: var(--font-role-display);
+  --font-heading: var(--font-role-heading);
+  --font-button: var(--font-role-button);
+  --font-ornament: var(--font-role-ornament);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-padding-top: calc(var(--header-h-condensed) + 1rem);
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-role-body);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    overflow-wrap: break-word;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-role-heading);
+    font-weight: 400;
+    font-synthesis: none;
+    line-height: 1.15;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+  button, [role="button"], .font-button {
+    font-synthesis: none;
+  }
+  :focus-visible {
+    outline: 2px solid var(--sobor-gold-500);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .container-sobor {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 4vw, 2rem);
+  }
+
+  /* Vyaz-style title: tall Old Russian display letters with gold rule flourishes */
+  .vyaz-title {
+    font-family: var(--font-role-display);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 1.05;
+    font-synthesis: none;
+  }
+  .vyaz-title--tall {
+    display: inline-block;
+    transform: scaleY(1.12);
+    transform-origin: bottom center;
+  }
+
+  .eyebrow {
+    font-family: var(--font-role-heading);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+  }
+
+  .paper {
+    background-color: var(--sobor-cream-50);
+    background-image: radial-gradient(circle at 20% 0%, rgba(184, 145, 58, 0.06), transparent 50%),
+      radial-gradient(circle at 100% 100%, rgba(23, 61, 44, 0.05), transparent 45%);
+  }
+
+  .prose-sobor p { margin-block: 0 1em; }
+  .prose-sobor h3 { font-size: var(--text-h3); margin-block: 1.4em 0.5em; color: var(--sobor-green-800); }
+  .prose-sobor ul { list-style: disc; padding-inline-start: 1.25em; margin-block: 0 1em; }
+
+  /* Sticky section header: sits just under the condensed site header */
+  .section-sticky-header {
+    position: sticky;
+    top: calc(var(--header-h-condensed) - 1px);
+    z-index: 20;
+  }
+
+  /* Bell hover: a small bell swings and a soft gold ring spreads, like a struck bell */
+  .bell-hover {
+    position: relative;
+    isolation: isolate;
+  }
+  .bell-hover .bell-swing {
+    transform-origin: 50% 8%;
+    display: inline-block;
+  }
+  .bell-hover:hover .bell-swing,
+  .bell-hover:focus-visible .bell-swing {
+    animation: bell-ring 900ms var(--ease-bell) both;
+  }
+  .bell-hover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow: 0 0 0 0 rgba(207, 174, 98, 0.55);
+    z-index: -1;
+  }
+  .bell-hover:hover::after,
+  .bell-hover:focus-visible::after {
+    animation: bell-toll 900ms ease-out both;
+  }
+
+  .ornament-band {
+    height: 14px;
+    background-repeat: repeat-x;
+    background-position: center;
+    background-size: auto 14px;
+  }
+
+  .scroll-x-hidden-bar { scrollbar-width: thin; scrollbar-color: var(--sobor-gold-500) transparent; }
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+}
+
+@keyframes bell-ring {
+  0% { transform: rotate(0); }
+  15% { transform: rotate(14deg); }
+  35% { transform: rotate(-11deg); }
+  55% { transform: rotate(7deg); }
+  75% { transform: rotate(-4deg); }
+  100% { transform: rotate(0); }
+}
+@keyframes bell-toll {
+  0% { box-shadow: 0 0 0 0 rgba(207, 174, 98, 0.5); }
+  100% { box-shadow: 0 0 0 10px rgba(207, 174, 98, 0); }
+}
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.8); }
+}
+.live-dot { animation: live-pulse 1.6s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bell-hover:hover .bell-swing,
+  .bell-hover:focus-visible .bell-swing,
+  .bell-hover:hover::after,
+  .live-dot { animation: none; }
+  html { scroll-behavior: auto; }
+}

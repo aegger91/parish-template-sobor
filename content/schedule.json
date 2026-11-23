@@ -1,0 +1,215 @@
+{
+  "$schema": "./schema/schedule.schema.json",
+  "recurring": [
+    {
+      "id": "sat-confession",
+      "weekday": 6,
+      "time": "16:30",
+      "durationMinutes": 30,
+      "kind": "confession",
+      "title": {
+        "en": "Confession",
+        "ru": "Исповедь",
+        "uk": "Сповідь"
+      },
+      "streamed": false
+    },
+    {
+      "id": "sat-vigil",
+      "weekday": 6,
+      "time": "17:00",
+      "durationMinutes": 120,
+      "kind": "vigil",
+      "title": {
+        "en": "All-night Vigil",
+        "ru": "Всенощное бдение",
+        "uk": "Всенічне бдіння"
+      },
+      "streamed": true
+    },
+    {
+      "id": "sun-hours",
+      "weekday": 0,
+      "time": "09:00",
+      "durationMinutes": 30,
+      "kind": "hours",
+      "title": {
+        "en": "Third and Sixth Hours",
+        "ru": "Часы",
+        "uk": "Часи"
+      },
+      "streamed": false
+    },
+    {
+      "id": "sun-liturgy",
+      "weekday": 0,
+      "time": "09:30",
+      "durationMinutes": 120,
+      "kind": "liturgy",
+      "title": {
+        "en": "Divine Liturgy",
+        "ru": "Божественная литургия",
+        "uk": "Божественна літургія"
+      },
+      "streamed": true
+    },
+    {
+      "id": "wed-akathist",
+      "weekday": 3,
+      "time": "18:30",
+      "durationMinutes": 60,
+      "kind": "akathist",
+      "title": {
+        "en": "Akathist to the Theotokos",
+        "ru": "Акафист Пресвятой Богородице",
+        "uk": "Акафіст Пресвятій Богородиці"
+      },
+      "streamed": true
+    },
+    {
+      "id": "fri-vespers",
+      "weekday": 5,
+      "time": "18:00",
+      "durationMinutes": 45,
+      "kind": "vespers",
+      "title": {
+        "en": "Vespers",
+        "ru": "Вечерня",
+        "uk": "Вечірня"
+      },
+      "streamed": false
+    }
+  ],
+  "dated": [
+    {
+      "id": "sample-panikhida-dec",
+      "date": "2026-12-12",
+      "time": "10:00",
+      "durationMinutes": 45,
+      "kind": "panikhida",
+      "title": {
+        "en": "General Panikhida (sample)",
+        "ru": "Общая панихида (пример)",
+        "uk": "Загальна панахида (приклад)"
+      },
+      "streamed": false
+    },
+    {
+      "id": "sample-moleben-school",
+      "date": "2026-11-29",
+      "time": "11:45",
+      "durationMinutes": 20,
+      "kind": "moleben",
+      "title": {
+        "en": "Moleben for the church school (sample)",
+        "ru": "Молебен для воскресной школы (пример)",
+        "uk": "Молебень для недільної школи (приклад)"
+      },
+      "streamed": false
+    }
+  ],
+  "feastRules": [
+    {
+      "id": "rule-great",
+      "rank": "great",
+      "eve": {
+        "time": "18:00",
+        "durationMinutes": 120,
+        "kind": "vigil",
+        "title": {
+          "en": "Festal All-night Vigil",
+          "ru": "Праздничное всенощное бдение",
+          "uk": "Святкове всенічне бдіння"
+        },
+        "streamed": true,
+        "suppress": [
+          "vigil",
+          "vespers"
+        ]
+      },
+      "day": {
+        "time": "09:30",
+        "durationMinutes": 120,
+        "kind": "liturgy",
+        "title": {
+          "en": "Festal Divine Liturgy",
+          "ru": "Праздничная литургия",
+          "uk": "Святкова літургія"
+        },
+        "streamed": true,
+        "suppress": [
+          "liturgy"
+        ]
+      }
+    },
+    {
+      "id": "rule-major",
+      "rank": "major",
+      "eve": {
+        "time": "18:00",
+        "durationMinutes": 105,
+        "kind": "vigil",
+        "title": {
+          "en": "All-night Vigil",
+          "ru": "Всенощное бдение",
+          "uk": "Всенічне бдіння"
+        },
+        "streamed": false,
+        "suppress": [
+          "vigil",
+          "vespers"
+        ]
+      },
+      "day": {
+        "time": "09:00",
+        "durationMinutes": 105,
+        "kind": "liturgy",
+        "title": {
+          "en": "Divine Liturgy",
+          "ru": "Божественная литургия",
+          "uk": "Божественна літургія"
+        },
+        "streamed": false,
+        "suppress": [
+          "liturgy"
+        ]
+      }
+    },
+    {
+      "id": "rule-pascha",
+      "rank": "pascha",
+      "eve": {
+        "time": "23:30",
+        "durationMinutes": 240,
+        "kind": "matins",
+        "title": {
+          "en": "Midnight Office, Paschal Matins and Liturgy",
+          "ru": "Полунощница, пасхальная утреня и литургия",
+          "uk": "Північна, пасхальна утреня і літургія"
+        },
+        "streamed": true,
+        "suppress": [
+          "vigil",
+          "vespers",
+          "confession"
+        ]
+      },
+      "day": {
+        "time": "14:00",
+        "durationMinutes": 45,
+        "kind": "vespers",
+        "title": {
+          "en": "Agape Vespers",
+          "ru": "Пасхальная вечерня",
+          "uk": "Пасхальна вечірня"
+        },
+        "streamed": true,
+        "suppress": [
+          "liturgy",
+          "hours",
+          "vespers"
+        ]
+      }
+    }
+  ]
+}

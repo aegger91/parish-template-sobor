@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "zapiski.schema.json",
+  "title": "Zapiski and candles",
+  "description": "Commemoration notes: types, where names are read, title prefixes and candles.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "maxNames": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 20,
+      "description": "Names per note."
+    },
+    "noteTypes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "enum": [
+              "health",
+              "repose"
+            ]
+          },
+          "label": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "slipHeading": {
+            "$ref": "common.schema.json#/$defs/text",
+            "description": "Heading printed on the note, for example О здравии."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "label",
+          "slipHeading"
+        ]
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "commemorations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "Stable id. Never change it after publishing; links and translations rely on it."
+          },
+          "label": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "description": {
+            "$ref": "common.schema.json#/$defs/text",
+            "description": "Optional one-line note shown under the option."
+          },
+          "suggestedDonation": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Amount in the site currency (site.json currency)."
+          },
+          "appliesTo": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "health",
+                "repose"
+              ]
+            },
+            "minItems": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "label",
+          "suggestedDonation",
+          "appliesTo"
+        ]
+      }
+    },
+    "prefixes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "Stable id. Never change it after publishing; links and translations rely on it."
+          },
+          "label": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "slipText": {
+            "$ref": "common.schema.json#/$defs/text",
+            "description": "Abbreviation written before the name, for example мл. for an infant."
+          },
+          "appliesTo": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "health",
+                "repose"
+              ]
+            },
+            "minItems": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "label",
+          "slipText",
+          "appliesTo"
+        ]
+      }
+    },
+    "candles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "Stable id. Never change it after publishing; links and translations rely on it."
+          },
+          "label": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "price": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Amount in the site currency (site.json currency)."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "label",
+          "price"
+        ]
+      }
+    },
+    "retentionDays": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Days the parish keeps submitted names. Shown in the consent note."
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "maxNames",
+    "noteTypes",
+    "commemorations",
+    "prefixes",
+    "candles",
+    "retentionDays"
+  ]
+}

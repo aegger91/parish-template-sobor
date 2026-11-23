@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "feasts.schema.json",
+  "title": "Feasts and saints",
+  "description": "Fixed feasts by church date, movable feasts by days from Pascha, and the daily weekday dedications.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "fixed": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "Stable id. Never change it after publishing; links and translations rely on it."
+          },
+          "rank": {
+            "enum": [
+              "pascha",
+              "great",
+              "major",
+              "minor"
+            ],
+            "description": "great: the Twelve Great Feasts. major: other feasts with a vigil. minor: commemoration only."
+          },
+          "name": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "month": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 12,
+            "description": "Church calendar month (fixed feasts)."
+          },
+          "day": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 31
+          },
+          "paschaOffset": {
+            "type": "integer",
+            "description": "Days from Pascha (movable feasts). Negative is before."
+          },
+          "useServiceRule": {
+            "type": "boolean",
+            "description": "Set to false when the feast has its own services in the schedule, as in Holy Week."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "rank",
+          "name"
+        ]
+      }
+    },
+    "movable": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "Stable id. Never change it after publishing; links and translations rely on it."
+          },
+          "rank": {
+            "enum": [
+              "pascha",
+              "great",
+              "major",
+              "minor"
+            ],
+            "description": "great: the Twelve Great Feasts. major: other feasts with a vigil. minor: commemoration only."
+          },
+          "name": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "month": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 12,
+            "description": "Church calendar month (fixed feasts)."
+          },
+          "day": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 31
+          },
+          "paschaOffset": {
+            "type": "integer",
+            "description": "Days from Pascha (movable feasts). Negative is before."
+          },
+          "useServiceRule": {
+            "type": "boolean",
+            "description": "Set to false when the feast has its own services in the schedule, as in Holy Week."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "rank",
+          "name"
+        ]
+      }
+    },
+    "weekdays": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/text"
+      },
+      "description": "Dedication of each weekday, starting with Sunday.",
+      "minItems": 7,
+      "maxItems": 7
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "fixed",
+    "movable",
+    "weekdays"
+  ]
+}

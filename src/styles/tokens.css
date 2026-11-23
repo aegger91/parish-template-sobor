@@ -1,0 +1,89 @@
+/*
+  Sobor design tokens.
+  Every color, font role, radius and motion value the template uses lives here.
+  The builder can override any of these per parish without touching components.
+*/
+:root {
+  /* Palette: forest green, antique gold, cream, kinovar (liturgical red) */
+  --sobor-green-950: #0b2118;
+  --sobor-green-900: #10301f;
+  --sobor-green-800: #173d2c;
+  --sobor-green-700: #1f4f39;
+  --sobor-green-600: #2b6449;
+  --sobor-green-100: #dfe8e0;
+  --sobor-gold-700: #7a5c1a;
+  --sobor-gold-600: #94722a;
+  --sobor-gold-500: #b8913a;
+  --sobor-gold-400: #cfae62;
+  --sobor-gold-200: #ead9ab;
+  --sobor-cream-50: #fcf9f1;
+  --sobor-cream-100: #f6f0e1;
+  --sobor-cream-200: #ede3c9;
+  --sobor-cream-300: #dfd0a9;
+  --sobor-ink: #1c2a22;
+  --sobor-ink-muted: #4f5d53;
+  --sobor-kinovar: #a3271f;
+  --sobor-kinovar-soft: #f4dcd5;
+  --sobor-black: #141414;
+
+  /* Font roles. Tradition fonts carry headings, buttons and ornaments; body stays readable. */
+  --font-role-display: "Monomakh", "Ponomar", "Old Standard TT", Georgia, serif;
+  --font-role-heading: "Ponomar", "Old Standard TT", Georgia, serif;
+  --font-role-button: "Ponomar", "Old Standard TT", Georgia, serif;
+  --font-role-ornament: "Monomakh", "Ponomar", Georgia, serif;
+  --font-role-body: "PT Serif", Georgia, "Times New Roman", serif;
+  --font-role-ui: "PT Serif", Georgia, serif;
+
+  /* Type scale (fluid) */
+  --text-display: clamp(2.1rem, 1.3rem + 3.6vw, 4.6rem);
+  --text-h1: clamp(1.9rem, 1.4rem + 2.2vw, 3.2rem);
+  --text-h2: clamp(1.6rem, 1.25rem + 1.5vw, 2.5rem);
+  --text-h3: clamp(1.2rem, 1.05rem + 0.6vw, 1.55rem);
+  --text-body: 1.0625rem;
+  --leading-body: 1.65;
+
+  /* Shape */
+  --radius-base: 0.375rem;
+  --radius-card: 0.5rem;
+  --border-ornament: 2px;
+
+  /* Layout */
+  --header-h: 84px;
+  --header-h-condensed: 62px;
+  --container-max: 1240px;
+
+  /* Motion */
+  --ease-bell: cubic-bezier(0.36, 0.07, 0.19, 0.97);
+  --dur-fast: 160ms;
+  --dur-base: 260ms;
+  --parallax-strength: 0.28;
+
+  /* shadcn/ui semantic mapping */
+  --background: var(--sobor-cream-100);
+  --foreground: var(--sobor-ink);
+  --card: var(--sobor-cream-50);
+  --card-foreground: var(--sobor-ink);
+  --popover: var(--sobor-cream-50);
+  --popover-foreground: var(--sobor-ink);
+  --primary: var(--sobor-green-800);
+  --primary-foreground: var(--sobor-cream-50);
+  --secondary: var(--sobor-cream-200);
+  --secondary-foreground: var(--sobor-green-900);
+  --muted: var(--sobor-cream-200);
+  --muted-foreground: var(--sobor-ink-muted);
+  --accent: var(--sobor-gold-200);
+  --accent-foreground: var(--sobor-green-900);
+  --destructive: var(--sobor-kinovar);
+  --border: var(--sobor-cream-300);
+  --input: var(--sobor-cream-300);
+  --ring: var(--sobor-gold-500);
+  --radius: var(--radius-base);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --parallax-strength: 0;
+    --dur-fast: 0ms;
+    --dur-base: 0ms;
+  }
+}

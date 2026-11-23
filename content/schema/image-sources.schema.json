@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "image-sources.schema.json",
+  "title": "Image sources",
+  "description": "Where each placeholder photo comes from.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "Stable id. Never change it after publishing; links and translations rely on it."
+          },
+          "file": {
+            "type": "string",
+            "description": "Path under /public, for example /images/photos/church.jpg, or a full URL."
+          },
+          "title": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "license": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "usedFor": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "file",
+          "title",
+          "author",
+          "license",
+          "source",
+          "usedFor"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "sources"
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "sermons.schema.json",
+  "title": "Sermons",
+  "description": "Audio, video and text sermons.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "sermons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "Stable id. Never change it after publishing; links and translations rely on it."
+          },
+          "date": {
+            "$ref": "common.schema.json#/$defs/date"
+          },
+          "type": {
+            "enum": [
+              "audio",
+              "video",
+              "text"
+            ]
+          },
+          "title": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "preacher": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "scripture": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "summary": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "text": {
+            "$ref": "common.schema.json#/$defs/text",
+            "description": "Full text for text sermons."
+          },
+          "mediaUrl": {
+            "type": "string",
+            "description": "Audio file or video embed link."
+          },
+          "durationMinutes": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "date",
+          "type",
+          "title",
+          "preacher",
+          "scripture",
+          "summary"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "sermons"
+  ]
+}

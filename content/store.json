@@ -1,0 +1,733 @@
+{
+  "$schema": "./schema/store.schema.json",
+  "categories": [
+    {
+      "id": "icons",
+      "name": {
+        "en": "Icons",
+        "ru": "Иконы",
+        "uk": "Ікони"
+      }
+    },
+    {
+      "id": "candles",
+      "name": {
+        "en": "Candles and lamps",
+        "ru": "Свечи и лампады",
+        "uk": "Свічки та лампади"
+      }
+    },
+    {
+      "id": "books",
+      "name": {
+        "en": "Books",
+        "ru": "Книги",
+        "uk": "Книги"
+      }
+    },
+    {
+      "id": "prayer-ropes",
+      "name": {
+        "en": "Prayer ropes",
+        "ru": "Чётки",
+        "uk": "Чотки"
+      }
+    },
+    {
+      "id": "incense",
+      "name": {
+        "en": "Incense",
+        "ru": "Ладан",
+        "uk": "Ладан"
+      }
+    },
+    {
+      "id": "crosses",
+      "name": {
+        "en": "Crosses",
+        "ru": "Кресты",
+        "uk": "Хрести"
+      }
+    },
+    {
+      "id": "gifts",
+      "name": {
+        "en": "Gifts",
+        "ru": "Подарки",
+        "uk": "Подарунки"
+      }
+    }
+  ],
+  "shipping": {
+    "flatRate": 8,
+    "freeOver": 75,
+    "pickupNote": {
+      "en": "Pickup details go here.",
+      "ru": "Здесь будут условия самовывоза.",
+      "uk": "Тут будуть умови самовивозу."
+    }
+  },
+  "products": [
+    {
+      "id": "p-icon-trinity",
+      "slug": "icon-holy-trinity",
+      "category": "icons",
+      "images": [
+        {
+          "kind": "photo",
+          "src": "/images/photos/rublev-trinity.jpg",
+          "alt": {
+            "en": "Icon of the Holy Trinity after St. Andrei Rublev",
+            "ru": "Икона Святой Троицы по образу прп. Андрея Рублёва",
+            "uk": "Ікона Святої Трійці за зразком прп. Андрія Рубльова"
+          }
+        }
+      ],
+      "name": {
+        "en": "Holy Trinity icon, after St. Andrei Rublev",
+        "ru": "Икона «Святая Троица» по Рублёву",
+        "uk": "Ікона «Свята Трійця» за Рубльовим"
+      },
+      "summary": {
+        "en": "Sample listing. Lithograph mounted on wood.",
+        "ru": "Пример товара. Литография на дереве.",
+        "uk": "Приклад товару. Літографія на дереві."
+      },
+      "description": {
+        "en": "Sample listing. Product description goes here.",
+        "ru": "Пример товара. Здесь будет описание.",
+        "uk": "Приклад товару. Тут буде опис."
+      },
+      "variants": [
+        {
+          "id": "v-trinity-s",
+          "label": {
+            "en": "4 x 5 in",
+            "ru": "10 x 13 см",
+            "uk": "10 x 13 см"
+          },
+          "price": 18,
+          "stock": 12,
+          "sku": "ICN-TR-S"
+        },
+        {
+          "id": "v-trinity-m",
+          "label": {
+            "en": "8 x 10 in",
+            "ru": "20 x 25 см",
+            "uk": "20 x 25 см"
+          },
+          "price": 42,
+          "stock": 4,
+          "sku": "ICN-TR-M"
+        },
+        {
+          "id": "v-trinity-l",
+          "label": {
+            "en": "12 x 16 in",
+            "ru": "30 x 40 см",
+            "uk": "30 x 40 см"
+          },
+          "price": 85,
+          "stock": 0,
+          "sku": "ICN-TR-L"
+        }
+      ]
+    },
+    {
+      "id": "p-kiot",
+      "slug": "icon-corner-shelf",
+      "category": "icons",
+      "images": [
+        {
+          "kind": "illustration",
+          "id": "kiot",
+          "alt": {
+            "en": "Drawing of a wooden icon case",
+            "ru": "Рисунок деревянного киота",
+            "uk": "Малюнок дерев'яного кіоту"
+          }
+        }
+      ],
+      "name": {
+        "en": "Icon corner shelf (kiot)",
+        "ru": "Угловая полка для икон (киот)",
+        "uk": "Кутова полиця для ікон (кіот)"
+      },
+      "summary": {
+        "en": "Sample listing. Oak shelf for the home icon corner.",
+        "ru": "Пример товара. Дубовая полка для красного угла.",
+        "uk": "Приклад товару. Дубова полиця для покуті."
+      },
+      "description": {
+        "en": "Sample listing. Product description goes here.",
+        "ru": "Пример товара. Здесь будет описание.",
+        "uk": "Приклад товару. Тут буде опис."
+      },
+      "pickupOnly": true,
+      "variants": [
+        {
+          "id": "v-kiot-oak",
+          "label": {
+            "en": "Natural oak",
+            "ru": "Натуральный дуб",
+            "uk": "Натуральний дуб"
+          },
+          "price": 120,
+          "stock": 2,
+          "sku": "KIOT-OAK"
+        },
+        {
+          "id": "v-kiot-dark",
+          "label": {
+            "en": "Dark walnut stain",
+            "ru": "Тёмный орех",
+            "uk": "Темний горіх"
+          },
+          "price": 120,
+          "stock": 1,
+          "sku": "KIOT-WAL"
+        }
+      ]
+    },
+    {
+      "id": "p-tapers",
+      "slug": "beeswax-taper-candles",
+      "category": "candles",
+      "images": [
+        {
+          "kind": "illustration",
+          "id": "tapers",
+          "alt": {
+            "en": "Drawing of beeswax taper candles",
+            "ru": "Рисунок восковых свечей",
+            "uk": "Малюнок воскових свічок"
+          }
+        }
+      ],
+      "name": {
+        "en": "Beeswax taper candles",
+        "ru": "Восковые свечи",
+        "uk": "Воскові свічки"
+      },
+      "summary": {
+        "en": "Sample listing. Pure beeswax, for home prayer.",
+        "ru": "Пример товара. Чистый воск, для домашней молитвы.",
+        "uk": "Приклад товару. Чистий віск, для домашньої молитви."
+      },
+      "description": {
+        "en": "Sample listing. Product description goes here.",
+        "ru": "Пример товара. Здесь будет описание.",
+        "uk": "Приклад товару. Тут буде опис."
+      },
+      "variants": [
+        {
+          "id": "v-tapers-25",
+          "label": {
+            "en": "Bundle of 25, thin",
+            "ru": "25 шт., тонкие",
+            "uk": "25 шт., тонкі"
+          },
+          "price": 12,
+          "stock": 40,
+          "sku": "CND-25"
+        },
+        {
+          "id": "v-tapers-50",
+          "label": {
+            "en": "Bundle of 50, thin",
+            "ru": "50 шт., тонкие",
+            "uk": "50 шт., тонкі"
+          },
+          "price": 22,
+          "stock": 25,
+          "sku": "CND-50"
+        },
+        {
+          "id": "v-tapers-10l",
+          "label": {
+            "en": "10 large",
+            "ru": "10 шт., большие",
+            "uk": "10 шт., великі"
+          },
+          "price": 18,
+          "stock": 15,
+          "sku": "CND-10L"
+        }
+      ]
+    },
+    {
+      "id": "p-lampada",
+      "slug": "vigil-lamp",
+      "category": "candles",
+      "images": [
+        {
+          "kind": "illustration",
+          "id": "lampada",
+          "alt": {
+            "en": "Drawing of a hanging vigil lamp",
+            "ru": "Рисунок подвесной лампады",
+            "uk": "Малюнок підвісної лампади"
+          }
+        }
+      ],
+      "name": {
+        "en": "Hanging vigil lamp (lampada)",
+        "ru": "Подвесная лампада",
+        "uk": "Підвісна лампада"
+      },
+      "summary": {
+        "en": "Sample listing. Ruby glass with brass chains.",
+        "ru": "Пример товара. Рубиновое стекло, латунные цепочки.",
+        "uk": "Приклад товару. Рубінове скло, латунні ланцюжки."
+      },
+      "description": {
+        "en": "Sample listing. Product description goes here.",
+        "ru": "Пример товара. Здесь будет описание.",
+        "uk": "Приклад товару. Тут буде опис."
+      },
+      "variants": [
+        {
+          "id": "v-lampada-red",
+          "label": {
+            "en": "Ruby glass",
+            "ru": "Рубиновое стекло",
+            "uk": "Рубінове скло"
+          },
+          "price": 34,
+          "stock": 6,
+          "sku": "LMP-RED"
+        },
+        {
+          "id": "v-lampada-green",
+          "label": {
+            "en": "Green glass",
+            "ru": "Зелёное стекло",
+            "uk": "Зелене скло"
+          },
+          "price": 34,
+          "stock": 3,
+          "sku": "LMP-GRN"
+        }
+      ]
+    },
+    {
+      "id": "p-prayer-book",
+      "slug": "pocket-prayer-book",
+      "category": "books",
+      "images": [
+        {
+          "kind": "illustration",
+          "id": "book",
+          "alt": {
+            "en": "Drawing of a prayer book",
+            "ru": "Рисунок молитвослова",
+            "uk": "Малюнок молитовника"
+          }
+        }
+      ],
+      "name": {
+        "en": "Pocket prayer book",
+        "ru": "Карманный молитвослов",
+        "uk": "Кишеньковий молитовник"
+      },
+      "summary": {
+        "en": "Sample listing. Morning and evening prayers, prayers before Communion.",
+        "ru": "Пример товара. Утренние и вечерние молитвы, последование ко причащению.",
+        "uk": "Приклад товару. Ранкові й вечірні молитви, правило до причастя."
+      },
+      "description": {
+        "en": "Sample listing. Product description goes here.",
+        "ru": "Пример товара. Здесь будет описание.",
+        "uk": "Приклад товару. Тут буде опис."
+      },
+      "variants": [
+        {
+          "id": "v-pb-en",
+          "label": {
+            "en": "English",
+            "ru": "Английский",
+            "uk": "Англійська"
+          },
+          "price": 16,
+          "stock": 30,
+          "sku": "BK-PB-EN"
+        },
+        {
+          "id": "v-pb-cs",
+          "label": {
+            "en": "Church Slavonic",
+            "ru": "Церковнославянский",
+            "uk": "Церковнослов'янська"
+          },
+          "price": 16,
+          "stock": 18,
+          "sku": "BK-PB-CS"
+        }
+      ]
+    },
+    {
+      "id": "p-psalter",
+      "slug": "psalter-large-print",
+      "category": "books",
+      "images": [
+        {
+          "kind": "illustration",
+          "id": "psalter",
+          "alt": {
+            "en": "Drawing of a Psalter",
+            "ru": "Рисунок Псалтири",
+            "uk": "Малюнок Псалтиря"
+          }
+        }
+      ],
+      "name": {
+        "en": "Psalter, large print",
+        "ru": "Псалтирь, крупный шрифт",
+        "uk": "Псалтир, великий шрифт"
+      },
+      "summary": {
+        "en": "Sample listing. Divided into kathismata for daily reading.",
+        "ru": "Пример товара. С разделением на кафизмы.",
+        "uk": "Приклад товару. З поділом на кафізми."
+      },
+      "description": {
+        "en": "Sample listing. Product description goes here.",
+        "ru": "Пример товара. Здесь будет описание.",
+        "uk": "Приклад товару. Тут буде опис."
+      },
+      "variants": [
+        {
+          "id": "v-psalter",
+          "label": {
+            "en": "Hardcover",
+            "ru": "Твёрдый переплёт",
+            "uk": "Тверда обкладинка"
+          },
+          "price": 28,
+          "stock": 9,
+          "sku": "BK-PS"
+        }
+      ]
+    },
+    {
+      "id": "p-prayer-rope",
+      "slug": "wool-prayer-rope",
+      "category": "prayer-ropes",
+      "images": [
+        {
+          "kind": "illustration",
+          "id": "prayer-rope",
+          "alt": {
+            "en": "Drawing of a knotted wool prayer rope",
+            "ru": "Рисунок шерстяных чёток",
+            "uk": "Малюнок вовняних чоток"
+          }
+        }
+      ],
+      "name": {
+        "en": "Wool prayer rope (chotki)",
+        "ru": "Шерстяные чётки",
+        "uk": "Вовняні чотки"
+      },
+      "summary": {
+        "en": "Sample listing. Hand-tied, black wool, with a tassel.",
+        "ru": "Пример товара. Ручное плетение, чёрная шерсть, с кистью.",
+        "uk": "Приклад товару. Ручне плетіння, чорна вовна, з китицею."
+      },
+      "description": {
+        "en": "Sample listing. Product description goes here.",
+        "ru": "Пример товара. Здесь будет описание.",
+        "uk": "Приклад товару. Тут буде опис."
+      },
+      "variants": [
+        {
+          "id": "v-rope-33",
+          "label": {
+            "en": "33 knots",
+            "ru": "33 узла",
+            "uk": "33 вузли"
+          },
+          "price": 14,
+          "stock": 20,
+          "sku": "PR-33"
+        },
+        {
+          "id": "v-rope-50",
+          "label": {
+            "en": "50 knots",
+            "ru": "50 узлов",
+            "uk": "50 вузлів"
+          },
+          "price": 19,
+          "stock": 11,
+          "sku": "PR-50"
+        },
+        {
+          "id": "v-rope-100",
+          "label": {
+            "en": "100 knots",
+            "ru": "100 узлов",
+            "uk": "100 вузлів"
+          },
+          "price": 29,
+          "stock": 0,
+          "sku": "PR-100"
+        }
+      ]
+    },
+    {
+      "id": "p-incense",
+      "slug": "monastery-incense",
+      "category": "incense",
+      "images": [
+        {
+          "kind": "illustration",
+          "id": "censer",
+          "alt": {
+            "en": "Drawing of a censer with rising smoke",
+            "ru": "Рисунок кадила с дымом",
+            "uk": "Малюнок кадила з димом"
+          }
+        }
+      ],
+      "name": {
+        "en": "Incense, 100 g",
+        "ru": "Ладан, 100 г",
+        "uk": "Ладан, 100 г"
+      },
+      "summary": {
+        "en": "Sample listing. Resin incense for the home censer.",
+        "ru": "Пример товара. Смоляной ладан для домашней кадильницы.",
+        "uk": "Приклад товару. Смоляний ладан для домашньої кадильниці."
+      },
+      "description": {
+        "en": "Sample listing. Product description goes here.",
+        "ru": "Пример товара. Здесь будет описание.",
+        "uk": "Приклад товару. Тут буде опис."
+      },
+      "variants": [
+        {
+          "id": "v-inc-rose",
+          "label": {
+            "en": "Rose",
+            "ru": "Роза",
+            "uk": "Троянда"
+          },
+          "price": 11,
+          "stock": 14,
+          "sku": "INC-ROSE"
+        },
+        {
+          "id": "v-inc-myrrh",
+          "label": {
+            "en": "Myrrh",
+            "ru": "Смирна",
+            "uk": "Смирна"
+          },
+          "price": 13,
+          "stock": 8,
+          "sku": "INC-MYR"
+        },
+        {
+          "id": "v-inc-frank",
+          "label": {
+            "en": "Frankincense",
+            "ru": "Ливанский",
+            "uk": "Ліванський"
+          },
+          "price": 11,
+          "stock": 10,
+          "sku": "INC-FRK"
+        }
+      ]
+    },
+    {
+      "id": "p-charcoal",
+      "slug": "charcoal-tablets",
+      "category": "incense",
+      "images": [
+        {
+          "kind": "illustration",
+          "id": "charcoal",
+          "alt": {
+            "en": "Drawing of a roll of charcoal tablets",
+            "ru": "Рисунок упаковки угля",
+            "uk": "Малюнок упаковки вугілля"
+          }
+        }
+      ],
+      "name": {
+        "en": "Charcoal tablets",
+        "ru": "Уголь для кадила",
+        "uk": "Вугілля для кадила"
+      },
+      "summary": {
+        "en": "Sample listing. Quick-lighting, roll of 10.",
+        "ru": "Пример товара. Быстрого розжига, 10 таблеток.",
+        "uk": "Приклад товару. Швидкого розпалу, 10 таблеток."
+      },
+      "description": {
+        "en": "Sample listing. Product description goes here.",
+        "ru": "Пример товара. Здесь будет описание.",
+        "uk": "Приклад товару. Тут буде опис."
+      },
+      "variants": [
+        {
+          "id": "v-charcoal",
+          "label": {
+            "en": "Roll of 10",
+            "ru": "10 шт.",
+            "uk": "10 шт."
+          },
+          "price": 5,
+          "stock": 50,
+          "sku": "INC-CHR"
+        }
+      ]
+    },
+    {
+      "id": "p-baptismal-cross",
+      "slug": "baptismal-cross",
+      "category": "crosses",
+      "images": [
+        {
+          "kind": "illustration",
+          "id": "neck-cross",
+          "alt": {
+            "en": "Drawing of an eight-pointed neck cross",
+            "ru": "Рисунок восьмиконечного нательного креста",
+            "uk": "Малюнок восьмикінцевого натільного хреста"
+          }
+        }
+      ],
+      "name": {
+        "en": "Baptismal cross, sterling silver",
+        "ru": "Нательный крестик, серебро",
+        "uk": "Натільний хрестик, срібло"
+      },
+      "summary": {
+        "en": "Sample listing. Eight-pointed cross with chain.",
+        "ru": "Пример товара. Восьмиконечный, с цепочкой.",
+        "uk": "Приклад товару. Восьмикінцевий, з ланцюжком."
+      },
+      "description": {
+        "en": "Sample listing. Product description goes here.",
+        "ru": "Пример товара. Здесь будет описание.",
+        "uk": "Приклад товару. Тут буде опис."
+      },
+      "variants": [
+        {
+          "id": "v-cross-child",
+          "label": {
+            "en": "Child size",
+            "ru": "Детский",
+            "uk": "Дитячий"
+          },
+          "price": 38,
+          "stock": 7,
+          "sku": "CRS-CH"
+        },
+        {
+          "id": "v-cross-adult",
+          "label": {
+            "en": "Adult size",
+            "ru": "Взрослый",
+            "uk": "Дорослий"
+          },
+          "price": 52,
+          "stock": 5,
+          "sku": "CRS-AD"
+        }
+      ]
+    },
+    {
+      "id": "p-wall-cross",
+      "slug": "carved-wall-cross",
+      "category": "crosses",
+      "images": [
+        {
+          "kind": "illustration",
+          "id": "wall-cross",
+          "alt": {
+            "en": "Drawing of a carved wooden wall cross",
+            "ru": "Рисунок резного настенного креста",
+            "uk": "Малюнок різьбленого настінного хреста"
+          }
+        }
+      ],
+      "name": {
+        "en": "Carved wooden wall cross",
+        "ru": "Резной настенный крест",
+        "uk": "Різьблений настінний хрест"
+      },
+      "summary": {
+        "en": "Sample listing. Linden wood, eight-pointed.",
+        "ru": "Пример товара. Липа, восьмиконечный.",
+        "uk": "Приклад товару. Липа, восьмикінцевий."
+      },
+      "description": {
+        "en": "Sample listing. Product description goes here.",
+        "ru": "Пример товара. Здесь будет описание.",
+        "uk": "Приклад товару. Тут буде опис."
+      },
+      "variants": [
+        {
+          "id": "v-wall-cross",
+          "label": {
+            "en": "30 cm",
+            "ru": "30 см",
+            "uk": "30 см"
+          },
+          "price": 46,
+          "stock": 4,
+          "sku": "CRS-WALL"
+        }
+      ]
+    },
+    {
+      "id": "p-towel",
+      "slug": "embroidered-pascha-towel",
+      "category": "gifts",
+      "images": [
+        {
+          "kind": "illustration",
+          "id": "towel",
+          "alt": {
+            "en": "Drawing of an embroidered linen towel",
+            "ru": "Рисунок вышитого рушника",
+            "uk": "Малюнок вишитого рушника"
+          }
+        }
+      ],
+      "name": {
+        "en": "Embroidered towel for the Pascha basket",
+        "ru": "Вышитый рушник для пасхальной корзины",
+        "uk": "Вишитий рушник для великоднього кошика"
+      },
+      "summary": {
+        "en": "Sample listing. Linen, cross-stitch border.",
+        "ru": "Пример товара. Лён, вышивка крестом.",
+        "uk": "Приклад товару. Льон, вишивка хрестиком."
+      },
+      "description": {
+        "en": "Sample listing. Product description goes here.",
+        "ru": "Пример товара. Здесь будет описание.",
+        "uk": "Приклад товару. Тут буде опис."
+      },
+      "variants": [
+        {
+          "id": "v-towel",
+          "label": {
+            "en": "40 x 90 cm",
+            "ru": "40 x 90 см",
+            "uk": "40 x 90 см"
+          },
+          "price": 32,
+          "stock": 6,
+          "sku": "GFT-TWL"
+        }
+      ]
+    }
+  ]
+}

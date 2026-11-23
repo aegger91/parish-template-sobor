@@ -1,0 +1,274 @@
+{
+  "$schema": "./schema/site.schema.json",
+  "id": "parish-template-sobor",
+  "sampleNotice": {
+    "en": "Sample website. All names, dates and details are placeholders for demonstration.",
+    "ru": "Образец сайта. Все имена, даты и сведения приведены только для примера.",
+    "uk": "Зразок сайту. Усі імена, дати та відомості наведено лише для прикладу."
+  },
+  "name": {
+    "en": "St. Example Russian Orthodox Cathedral",
+    "ru": "Русский православный собор святого Примера",
+    "uk": "Російський православний собор святого Прикладу"
+  },
+  "shortName": {
+    "en": "St. Example Cathedral",
+    "ru": "Собор св. Примера",
+    "uk": "Собор св. Прикладу"
+  },
+  "tagline": {
+    "en": "A parish of the Russian Orthodox tradition. Sample content.",
+    "ru": "Приход русской православной традиции. Пример содержания.",
+    "uk": "Парафія руської православної традиції. Приклад змісту."
+  },
+  "jurisdiction": {
+    "en": "Sample diocese name",
+    "ru": "Название епархии (пример)",
+    "uk": "Назва єпархії (приклад)"
+  },
+  "languages": [
+    {
+      "code": "en",
+      "label": "English",
+      "shortLabel": "EN",
+      "locale": "en-US",
+      "dir": "ltr"
+    },
+    {
+      "code": "ru",
+      "label": "Русский",
+      "shortLabel": "РУ",
+      "locale": "ru-RU",
+      "dir": "ltr"
+    },
+    {
+      "code": "uk",
+      "label": "Українська",
+      "shortLabel": "УК",
+      "locale": "uk-UA",
+      "dir": "ltr"
+    }
+  ],
+  "defaultLanguage": "en",
+  "timeZone": "America/New_York",
+  "calendar": "julian",
+  "weekStartsOn": 0,
+  "currency": "USD",
+  "logo": {
+    "style": "seal",
+    "ringText": {
+      "en": "St. Example Russian Orthodox Cathedral",
+      "ru": "Собор святаго Примера",
+      "uk": "Собор святого Прикладу"
+    },
+    "image": "/images/logo-square-placeholder.svg",
+    "imageAlt": {
+      "en": "Parish logo",
+      "ru": "Логотип прихода",
+      "uk": "Логотип парафії"
+    }
+  },
+  "contact": {
+    "address": {
+      "line1": "100 Example Avenue",
+      "city": "Sampletown",
+      "region": "ST",
+      "postalCode": "00000",
+      "country": "USA"
+    },
+    "phone": "(555)-010-0100",
+    "email": "office@example.org",
+    "officeHours": {
+      "en": "Office open Tuesday to Friday, 10:00 AM to 3:00 PM",
+      "ru": "Канцелярия открыта со вторника по пятницу, с 10:00 до 15:00",
+      "uk": "Канцелярія працює з вівторка по п'ятницю, з 10:00 до 15:00"
+    },
+    "directions": [
+      {
+        "id": "dir-car",
+        "title": {
+          "en": "By car",
+          "ru": "На машине",
+          "uk": "Автомобілем"
+        },
+        "body": {
+          "en": "Directions go here.",
+          "ru": "Здесь будет описание маршрута.",
+          "uk": "Тут буде опис маршруту."
+        }
+      },
+      {
+        "id": "dir-transit",
+        "title": {
+          "en": "By bus or train",
+          "ru": "Общественным транспортом",
+          "uk": "Громадським транспортом"
+        },
+        "body": {
+          "en": "Directions go here.",
+          "ru": "Здесь будет описание маршрута.",
+          "uk": "Тут буде опис маршруту."
+        }
+      }
+    ],
+    "parking": {
+      "en": "Parking details go here.",
+      "ru": "Здесь будет информация о парковке.",
+      "uk": "Тут буде інформація про паркування."
+    },
+    "mapEmbedUrl": "",
+    "directionsUrl": ""
+  },
+  "socials": [
+    {
+      "id": "social-youtube",
+      "label": "YouTube",
+      "url": "https://www.youtube.com/",
+      "kind": "youtube"
+    },
+    {
+      "id": "social-facebook",
+      "label": "Facebook",
+      "url": "https://www.facebook.com/",
+      "kind": "facebook"
+    },
+    {
+      "id": "social-instagram",
+      "label": "Instagram",
+      "url": "https://www.instagram.com/",
+      "kind": "instagram"
+    }
+  ],
+  "modules": {
+    "livestream": true,
+    "store": true,
+    "requestService": true,
+    "zapiski": true,
+    "getInvolved": true
+  },
+  "livestream": {
+    "status": "live",
+    "embedUrl": "",
+    "watchUrl": "",
+    "provider": {
+      "en": "Parish video channel",
+      "ru": "Видеоканал прихода",
+      "uk": "Відеоканал парафії"
+    }
+  },
+  "orthodoxConnect": {
+    "enabled": true,
+    "parishId": "sample-st-example-cathedral",
+    "appUrl": "https://app.orthodoxconnect.example",
+    "newsletter": {
+      "enabled": true,
+      "listId": "sample-weekly-bulletin"
+    }
+  },
+  "payments": {
+    "provider": "none",
+    "testMode": true
+  },
+  "donations": {
+    "oneTimeAmounts": [
+      25,
+      50,
+      100,
+      250
+    ],
+    "monthlyAmounts": [
+      10,
+      25,
+      50,
+      100
+    ],
+    "defaultAmount": 50,
+    "funds": [
+      {
+        "id": "general",
+        "label": {
+          "en": "Where most needed",
+          "ru": "На самые нужные цели",
+          "uk": "На найнагальніші потреби"
+        }
+      },
+      {
+        "id": "building",
+        "label": {
+          "en": "Building and repairs",
+          "ru": "Ремонт и содержание храма",
+          "uk": "Ремонт і утримання храму"
+        }
+      },
+      {
+        "id": "charity",
+        "label": {
+          "en": "Charity and almsgiving",
+          "ru": "Милостыня и помощь нуждающимся",
+          "uk": "Милостиня й допомога нужденним"
+        }
+      },
+      {
+        "id": "choir",
+        "label": {
+          "en": "Choir and music",
+          "ru": "Хор",
+          "uk": "Хор"
+        }
+      },
+      {
+        "id": "school",
+        "label": {
+          "en": "Church school",
+          "ru": "Воскресная школа",
+          "uk": "Недільна школа"
+        }
+      }
+    ]
+  },
+  "hero": {
+    "image": "/images/photos/rostov-kremlin-wide.jpg",
+    "imageAlt": {
+      "en": "Placeholder photo: green onion domes of a historic Russian kremlin above a lake, 1911",
+      "ru": "Фото для примера: зелёные главы исторического кремля над озером, 1911 год",
+      "uk": "Фото для прикладу: зелені бані історичного кремля над озером, 1911 рік"
+    },
+    "title": {
+      "en": "St. Example Cathedral",
+      "ru": "Собор святого Примера",
+      "uk": "Собор святого Прикладу"
+    },
+    "subtitle": {
+      "en": "Short welcome line goes here.",
+      "ru": "Здесь будет короткое приветствие.",
+      "uk": "Тут буде коротке привітання."
+    },
+    "ctas": [
+      {
+        "id": "cta-visit",
+        "label": {
+          "en": "Plan your visit",
+          "ru": "Как нас найти",
+          "uk": "Як нас знайти"
+        },
+        "href": "/contact/#directions",
+        "variant": "primary"
+      },
+      {
+        "id": "cta-schedule",
+        "label": {
+          "en": "Service schedule",
+          "ru": "Расписание",
+          "uk": "Розклад"
+        },
+        "href": "/services/schedule/",
+        "variant": "secondary"
+      }
+    ],
+    "showCommemorationShortcut": true
+  },
+  "demo": {
+    "anchorDate": "2026-11-23",
+    "shiftDates": true
+  }
+}

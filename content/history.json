@@ -1,0 +1,121 @@
+{
+  "$schema": "./schema/history.schema.json",
+  "events": [
+    {
+      "id": "h-1905",
+      "year": "1905",
+      "title": {
+        "en": "A house church",
+        "ru": "Домовая церковь",
+        "uk": "Домова церква"
+      },
+      "body": {
+        "en": "Sample entry. A line about this year goes here.",
+        "ru": "Пример записи. Здесь будет строка об этом годе.",
+        "uk": "Приклад запису. Тут буде рядок про цей рік."
+      }
+    },
+    {
+      "id": "h-1912",
+      "year": "1912",
+      "title": {
+        "en": "First Divine Liturgy",
+        "ru": "Первая литургия",
+        "uk": "Перша літургія"
+      },
+      "body": {
+        "en": "Sample entry. A line about this year goes here.",
+        "ru": "Пример записи. Здесь будет строка об этом годе.",
+        "uk": "Приклад запису. Тут буде рядок про цей рік."
+      },
+      "image": "/images/photos/yalutorovsk-iconostasis-sm.jpg"
+    },
+    {
+      "id": "h-1928",
+      "year": "1928",
+      "title": {
+        "en": "The first church",
+        "ru": "Первый храм",
+        "uk": "Перший храм"
+      },
+      "body": {
+        "en": "Sample entry. A line about this year goes here.",
+        "ru": "Пример записи. Здесь будет строка об этом годе.",
+        "uk": "Приклад запису. Тут буде рядок про цей рік."
+      },
+      "image": "/images/photos/borisoglebsky-bell-tower-sm.jpg"
+    },
+    {
+      "id": "h-1949",
+      "year": "1949",
+      "title": {
+        "en": "New families arrive",
+        "ru": "Новые семьи",
+        "uk": "Нові родини"
+      },
+      "body": {
+        "en": "Sample entry. A line about this year goes here.",
+        "ru": "Пример записи. Здесь будет строка об этом годе.",
+        "uk": "Приклад запису. Тут буде рядок про цей рік."
+      }
+    },
+    {
+      "id": "h-1964",
+      "year": "1964",
+      "title": {
+        "en": "The stone cathedral",
+        "ru": "Каменный собор",
+        "uk": "Кам'яний собор"
+      },
+      "body": {
+        "en": "Sample entry. A line about this year goes here.",
+        "ru": "Пример записи. Здесь будет строка об этом годе.",
+        "uk": "Приклад запису. Тут буде рядок про цей рік."
+      },
+      "image": "/images/photos/suzdal-nativity-cathedral-sm.jpg"
+    },
+    {
+      "id": "h-1988",
+      "year": "1988",
+      "title": {
+        "en": "New bells",
+        "ru": "Новые колокола",
+        "uk": "Нові дзвони"
+      },
+      "body": {
+        "en": "Sample entry. A line about this year goes here.",
+        "ru": "Пример записи. Здесь будет строка об этом годе.",
+        "uk": "Приклад запису. Тут буде рядок про цей рік."
+      }
+    },
+    {
+      "id": "h-2005",
+      "year": "2005",
+      "title": {
+        "en": "The iconostasis",
+        "ru": "Иконостас",
+        "uk": "Іконостас"
+      },
+      "body": {
+        "en": "Sample entry. A line about this year goes here.",
+        "ru": "Пример записи. Здесь будет строка об этом годе.",
+        "uk": "Приклад запису. Тут буде рядок про цей рік."
+      },
+      "image": "/images/photos/yaroslavl-wall-painting-sm.jpg"
+    },
+    {
+      "id": "h-2020",
+      "year": "2020",
+      "title": {
+        "en": "Services online",
+        "ru": "Службы онлайн",
+        "uk": "Служби онлайн"
+      },
+      "body": {
+        "en": "Sample entry. A line about this year goes here.",
+        "ru": "Пример записи. Здесь будет строка об этом годе.",
+        "uk": "Приклад запису. Тут буде рядок про цей рік."
+      }
+    }
+  ]
+}
